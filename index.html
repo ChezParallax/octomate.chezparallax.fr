@@ -293,6 +293,9 @@ function grow(business) {
               <div class="mt-6 bg-[#7ea1c4]/20 rounded-xl p-5 text-center text-[#25353f] font-bold text-lg" id="simu-result">
                 🎯 <span id="hours-saved">8</span>h économisables/semaine = <span id="euros-saved">320</span> €/semaine économisés*
               </div>
+              <div class="text-sm text-[#7ea1c4] text-center mt-2" id="simu-detail">
+                <!-- Les valeurs mensuelles et annuelles s’afficheront ici -->
+              </div>
               <div class="text-xs text-[#4a4a4a] text-center mt-2">*Estimation basée sur vos réponses. Gain réel à valider ensemble lors de l’audit offert.</div>
               <div class="mt-6 flex flex-col gap-2">
                 <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.03] active:scale-[0.98] w-full text-center">
@@ -666,16 +669,27 @@ function grow(business) {
       total += Number(input.value) || 0;
     });
     const taux = Number(document.querySelector('input[name="taux"]').value) || 0;
-    // Calcul
+
+    // Calculs
     const euros = total * taux;
-    // Affiche
+    const eurosMonth = euros * 4.33; // 4.33 semaines/mois
+    const eurosYear = euros * 52;
+    const hoursMonth = total * 4.33;
+    const hoursYear = total * 52;
+
+    // Affichage dans le simulateur
     document.getElementById("hours-saved").textContent = total;
     document.getElementById("euros-saved").textContent = euros.toLocaleString("fr-FR");
-    document.getElementById("cta-hours").textContent = total;
-    document.getElementById("cta-euros").textContent = euros.toLocaleString("fr-FR");
+
+    // Affichage détails
+    document.getElementById("simu-detail").innerHTML =
+      `Soit <strong>${hoursMonth.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;h</strong> / <strong>${eurosMonth.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;€</strong> <span class="hidden md:inline">par mois</span> et <strong>${hoursYear.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;h</strong> / <strong>${eurosYear.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;€</strong> par an`;
+
+    // Affichage sur le bouton
+    document.getElementById("cta-hours").textContent = total + "h";
+    document.getElementById("cta-euros").textContent = euros.toLocaleString("fr-FR") + "€";
   }
 
-  // Ajoute l’event sur tous les inputs du simulateur
   document.addEventListener("DOMContentLoaded", function () {
     const simuForm = document.getElementById("gain-simulator");
     if (simuForm) {
@@ -686,7 +700,6 @@ function grow(business) {
     }
   });
 </script>
-
   
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
