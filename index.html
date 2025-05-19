@@ -7,8 +7,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
+  <meta name="description" content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
   <meta name="author" content="Parallax">
   <meta name="robots" content="index, follow">
 
@@ -46,25 +45,55 @@
   <!-- 💼 ICONS (Lucide) -->
 
   <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-    body { font-family: 'Nunito', sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
     .match-height {
       display: grid;
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
+
     @media (min-width: 1024px) {
       .match-height {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: stretch;
       }
     }
-    .match-height > div { height: 100%; }
-    .match-height img { height: 100%; }
-    .match-height img.object-contain { object-fit: contain; }
-    .match-height img.object-cover { object-fit: cover; }
-    .scroll-adjust { scroll-margin-top: 320px; }
-    @media (min-width: 1024px) { .scroll-adjust { scroll-margin-top: 70px; } }
+
+    .match-height>div {
+      height: 100%;
+    }
+
+    .match-height img {
+      height: 100%;
+    }
+
+    .match-height img.object-contain {
+      object-fit: contain;
+    }
+
+    .match-height img.object-cover {
+      object-fit: cover;
+    }
+
+    .scroll-adjust {
+      scroll-margin-top: 320px;
+    }
+
+    @media (min-width: 1024px) {
+      .scroll-adjust {
+        scroll-margin-top: 70px;
+      }
+    }
   </style>
 
   <!-- 
@@ -105,9 +134,6 @@ function grow(business) {
   </header>
 
 
-
-  <!-- 🌍 CORPS DE PAGE -->
-
   <!-- 🌍 CORPS DE PAGE -->
 
   <main>
@@ -115,60 +141,64 @@ function grow(business) {
     <!-- 🦸 HERO SECTION -->
 
     <section class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
-      <div class="max-w-6xl mx-auto match-height gap-12 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <!-- Colonne gauche : Texte, CTA, Preuve sociale -->
-        <div class="lg:col-span-3">
-          <p class="text-sm lg:text-base text-[#c78a5c] font-semibold mb-3 tracking-wide">
-            ⚡ Pour dirigeant·es de PME ambitieux·ses
-          </p>
-          <h1 class="text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight mb-6">
-            Libérez-vous des <span class="inline-block bg-[#c78a5c] text-[#25353f] px-1 rounded">tâches répétitives</span>:<br>
-            boostez la croissance de votre PME grâce à <span class="text-[#7ea1c4]">l’automatisation</span> & <span class="text-[#7ea1c4]">l’IA</span>.
-          </h1>
-          <p class="text-md font-nunito mb-8 max-w-xl">
-            Automatisez vos process, concentrez-vous sur ce qui compte vraiment.<br>
-            Nous identifions vos blocages, déployons des solutions sur-mesure et vous obtenez des résultats concrets en quelques semaines.
-          </p>
-          <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98]">
-            Réservez votre appel découverte offert
-          </a>
-         <!-- ⭐ Preuve sociale stylisée -->
+        <div>
+          <div class="max-w-[650px]">
+            <p class="text-sm lg:text-base text-[#c78a5c] font-semibold mb-3 tracking-wide">
+              ⚡ Pour dirigeant·es de PME ambitieux·ses
+            </p>
+            <h1 class="text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight mb-6">
+              Libérez-vous des <span class="inline-block bg-[#c78a5c] text-[#25353f] px-1 rounded">tâches
+                répétitives</span>:<br>
+              boostez la croissance de votre PME grâce à <span class="text-[#7ea1c4]">l’automatisation</span> & <span
+                class="text-[#7ea1c4]">l’IA</span>.
+            </h1>
+            <p class="text-md font-nunito mb-8">
+              Automatisez vos process, concentrez-vous sur ce qui compte vraiment.<br>
+              Nous identifions vos blocages, déployons des solutions sur-mesure et vous obtenez des résultats concrets
+              en quelques semaines.
+            </p>
+            <a href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98]">
+              Réservez votre appel découverte offert
+            </a>
+            <!-- ⭐ Preuve sociale stylisée -->
 
-          <div class="mt-8 flex items-center gap-4">
+            <div class="mt-8 flex items-center gap-4">
 
-            <!-- 👥 Avatars clients superposés -->
+              <!-- 👥 Avatars clients superposés -->
 
-            <div class="flex -space-x-4">
-              <img src="/assets/img/logo-panadis.webp" alt="Logo de l'enreprise Panadis – client accompagné"
-                class="w-10 h-10 rounded-full border-2 border-white object-cover">
-              <img src="/assets/img/logo-times.webp" alt="Logo de l'enreprise Time's – client accompagné"
-                class="w-10 h-10 rounded-full border-2 border-white object-cover">
-              <img src="/assets/img/logo-aja.webp" alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
-                class="w-10 h-10 rounded-full border-2 border-white object-cover">
-              <img src="/assets/img/logo-dolorium_tattoo.webp"
-                alt="Logo de l'indépendant Dolorium Tattoo – client accompagné"
-                class="w-10 h-10 rounded-full border-2 border-white object-cover">
-              <img src="/assets/img/logo-la_fine_equipe.webp" alt="Logo de la marque La Fine Équipe – client accompagné"
-                class="w-10 h-10 rounded-full border-2 border-white object-cover">
-              <img src="assets/img/logo-energus_10.webp" alt="Logo de la marque energus10 – client accompagné"
-                class="w-10 h-10 rounded-full border-2 border-white object-cover">
-            </div>
+              <div class="flex -space-x-4">
+                <img src="/assets/img/logo-panadis.webp" alt="Logo de l'enreprise Panadis – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <img src="/assets/img/logo-times.webp" alt="Logo de l'enreprise Time's – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <img src="/assets/img/logo-aja.webp" alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <img src="/assets/img/logo-dolorium_tattoo.webp"
+                  alt="Logo de l'indépendant Dolorium Tattoo – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <img src="/assets/img/logo-la_fine_equipe.webp"
+                  alt="Logo de la marque La Fine Équipe – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                <img src="assets/img/logo-energus_10.webp" alt="Logo de la marque energus10 – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              </div>
 
-            <!-- 📣 Texte avec étoiles lisibles -->
+              <!-- 📣 Texte avec étoiles lisibles -->
 
-            <div class="flex items-center gap-1 text-sm font-semibold font-nunito text-[#25353f] ml-2">
-              <span class="inline-block bg-white border border-[#d6d3cc] rounded-full px-1.5">⭐⭐⭐⭐⭐</span>
-              <span class="ml-1">+10 entreprises accompagnées</span>
+              <div class="flex items-center gap-1 text-sm font-semibold font-nunito text-[#25353f] ml-2">
+                <span class="inline-block bg-white border border-[#d6d3cc] rounded-full px-1.5">⭐⭐⭐⭐⭐</span>
+                <span class="ml-1">+10 entreprises accompagnées</span>
+              </div>
             </div>
           </div>
         </div>
-        
         <!-- Colonne droite : Visuel automation -->
-        <div class="flex justify-center lg:col-span-2">
-          <img src="/assets/img/hero_octomate.webp"
-          alt="Automatisation PME par OctoMate – illustration immersive"
-          class="w-full max-w-md lg:max-w-full object-contain">
+        <div class="flex justify-center items-center min-h-[350px] lg:min-h-[530px]">
+          <img src="/assets/img/hero_octomate.webp" alt="Automatisation PME par OctoMate – illustration immersive"
+            class="h-full w-auto max-h-[530px] object-contain">
         </div>
       </div>
     </section>
@@ -188,7 +218,8 @@ function grow(business) {
             </li>
             <li class="flex items-start gap-3 leading-relaxed">
               <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="rotate-cw"></i>
-              <p class="m-0">Vous faites (ou refaites) toujours les mêmes tâches chronophages… en rêvant d’y échapper.</p>
+              <p class="m-0">Vous faites (ou refaites) toujours les mêmes tâches chronophages… en rêvant d’y échapper.
+              </p>
             </li>
             <li class="flex items-start gap-3 leading-relaxed">
               <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="database"></i>
@@ -200,12 +231,14 @@ function grow(business) {
             </li>
           </ul>
         </div>
-        <div class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed">
+        <div
+          class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed">
           Vous n’avez pas à subir le “toujours plus” de l’administratif ou des process. <br />
           L’automatisation vous redonne le temps, l’énergie et la clarté pour avancer.
         </div>
         <div class="mt-8 text-center">
-          <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
+          <a href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
             Je veux passer à l’action – appel offert
           </a>
         </div>
@@ -222,40 +255,46 @@ function grow(business) {
             La méthode OctoMate&nbsp;: humain, rapide, efficace.
           </h2>
           <p class="text-lg font-nunito mb-6">
-            <strong>Écoute & audit personnalisé</strong> : On démarre toujours par l’écoute de vos besoins et la cartographie de vos process réels.
+            <strong>Écoute & audit personnalisé</strong> : On démarre toujours par l’écoute de vos besoins et la
+            cartographie de vos process réels.
           </p>
           <p class="text-lg font-nunito mb-6">
-            <strong>Automatisation sur-mesure</strong> : Nous concevons puis connectons vos outils (email, CRM, devis, factures, recrutement…) sans perturber l’existant.
+            <strong>Automatisation sur-mesure</strong> : Nous concevons puis connectons vos outils (email, CRM, devis,
+            factures, recrutement…) sans perturber l’existant.
           </p>
           <p class="text-lg font-nunito mb-6">
-            <strong>Déploiement rapide & formation</strong> : Mise en place en quelques jours/semaines, avec démonstration en direct et prise en main par vos équipes.
+            <strong>Déploiement rapide & formation</strong> : Mise en place en quelques jours/semaines, avec
+            démonstration en direct et prise en main par vos équipes.
           </p>
           <p class="text-lg font-nunito mb-6">
             <strong>Support humain continu</strong> : Un contact dédié, sans jargon, pour adapter, améliorer, dépanner.
           </p>
           <div class="bg-[#1c2630] border-l-4 border-[#c78a5c] p-5 text-base font-nunito shadow-sm rounded-r-md italic">
-            “Automatiser, c’est simplifier. Nous faisons le tri, nous connectons l’essentiel, vous gagnez du temps – et de l’argent – dès le premier mois.”
+            “Automatiser, c’est simplifier. Nous faisons le tri, nous connectons l’essentiel, vous gagnez du temps – et
+            de l’argent – dès le premier mois.”
           </div>
           <div class="mt-8 text-center">
-            <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
+            <a href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
               Je veux voir comment ça marche – appel offert
             </a>
           </div>
         </div>
         <!-- Visuel équipe/IA -->
         <div class="flex justify-center">
-          <svg class="w-full max-w-md lg:max-w-full object-cover rounded-2xl bg-[#25353f] shadow-xl" viewBox="0 0 300 300" aria-hidden="true">
-            <rect x="0" y="0" width="300" height="300" rx="32" fill="#25353f"/>
+          <svg class="w-full max-w-md lg:max-w-full object-cover rounded-2xl bg-[#25353f] shadow-xl"
+            viewBox="0 0 300 300" aria-hidden="true">
+            <rect x="0" y="0" width="300" height="300" rx="32" fill="#25353f" />
             <g>
-              <circle cx="150" cy="130" r="55" fill="#7ea1c4"/>
+              <circle cx="150" cy="130" r="55" fill="#7ea1c4" />
               <rect x="120" y="185" width="60" height="25" rx="12" fill="#c78a5c" />
-              <ellipse cx="135" cy="120" rx="7" ry="10" fill="#25353f"/>
-              <ellipse cx="165" cy="120" rx="7" ry="10" fill="#25353f"/>
+              <ellipse cx="135" cy="120" rx="7" ry="10" fill="#25353f" />
+              <ellipse cx="165" cy="120" rx="7" ry="10" fill="#25353f" />
               <!-- Gear icon for automation -->
-              <circle cx="150" cy="190" r="24" fill="#25353f"/>
-              <circle cx="150" cy="190" r="14" fill="#7ea1c4"/>
-              <rect x="146" y="170" width="8" height="40" rx="2" fill="#c78a5c"/>
-              <rect x="130" y="187" width="40" height="8" rx="2" fill="#c78a5c"/>
+              <circle cx="150" cy="190" r="24" fill="#25353f" />
+              <circle cx="150" cy="190" r="14" fill="#7ea1c4" />
+              <rect x="146" y="170" width="8" height="40" rx="2" fill="#c78a5c" />
+              <rect x="130" y="187" width="40" height="8" rx="2" fill="#c78a5c" />
             </g>
           </svg>
         </div>
@@ -273,7 +312,8 @@ function grow(business) {
           </h2>
           <p class="text-lg font-nunito">
             Découvrez en moins de 30 secondes ce que l’automatisation peut vraiment vous faire gagner. <br>
-            <span class="text-[#c78a5c] font-bold">Estimez le temps récupéré, visualisez l’impact sur votre chiffre d’affaires – et passez à l’action.</span>
+            <span class="text-[#c78a5c] font-bold">Estimez le temps récupéré, visualisez l’impact sur votre chiffre
+              d’affaires – et passez à l’action.</span>
           </p>
           <form class="space-y-6 text-[#25353f]" id="gain-simulator" autocomplete="off">
             <div class="bg-[#f5f1e6] rounded-xl p-6 shadow space-y-5">
@@ -282,53 +322,64 @@ function grow(business) {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label class="text-sm text-[#25353f]">Relances/Devis/Factures</label>
-                    <input type="number" name="devis" min="0" value="2" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]"/>
+                    <input type="number" name="devis" min="0" value="2"
+                      class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
                   </div>
                   <div>
                     <label class="text-sm text-[#25353f]">Prospection/Emails</label>
-                    <input type="number" name="prospection" min="0" value="3" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]"/>
+                    <input type="number" name="prospection" min="0" value="3"
+                      class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
                   </div>
                   <div>
                     <label class="text-sm text-[#25353f]">Gestion administrative</label>
-                    <input type="number" name="admin" min="0" value="2" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]"/>
+                    <input type="number" name="admin" min="0" value="2"
+                      class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
                   </div>
                   <div>
                     <label class="text-sm text-[#25353f]">Reporting/Classement</label>
-                    <input type="number" name="reporting" min="0" value="1" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]"/>
+                    <input type="number" name="reporting" min="0" value="1"
+                      class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
                   </div>
                 </div>
               </div>
               <div class="flex flex-col gap-3">
                 <label class="font-semibold text-[#25353f]">Taux horaire moyen (€)</label>
-                <input type="number" name="taux" min="20" value="40" step="1" class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] focus:ring-2 focus:ring-[#c78a5c]"/>
+                <input type="number" name="taux" min="20" value="40" step="1"
+                  class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] focus:ring-2 focus:ring-[#c78a5c]" />
               </div>
               <!-- Résultat (à activer par JS côté produit) -->
-              <div class="mt-6 bg-[#7ea1c4]/20 rounded-xl p-5 text-center text-[#25353f] font-bold text-lg" id="simu-result">
-                🎯 <span id="hours-saved">8</span>h économisables/semaine = <span id="euros-saved">320</span> €/semaine économisés*
+              <div class="mt-6 bg-[#7ea1c4]/20 rounded-xl p-5 text-center text-[#25353f] font-bold text-lg"
+                id="simu-result">
+                🎯 <span id="hours-saved">8</span>h économisables/semaine = <span id="euros-saved">320</span> €/semaine
+                économisés*
               </div>
               <div class="text-sm text-[#7ea1c4] text-center mt-2" id="simu-detail">
                 <!-- Les valeurs mensuelles et annuelles s’afficheront ici -->
               </div>
-              <div class="text-xs text-[#4a4a4a] text-center mt-2">*Estimation basée sur vos réponses. Gain réel à valider ensemble lors de l’audit offert.</div>
+              <div class="text-xs text-[#4a4a4a] text-center mt-2">*Estimation basée sur vos réponses. Gain réel à
+                valider ensemble lors de l’audit offert.</div>
               <div class="mt-6 flex flex-col gap-2">
-                <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.03] active:scale-[0.98] w-full text-center">
+                <a href="#cta"
+                  class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.03] active:scale-[0.98] w-full text-center">
                   Je veux économiser <span id="cta-hours">8h</span> et <span id="cta-euros">320€</span>/semaine !
                 </a>
-                <span class="block text-xs text-[#c78a5c] text-center">Réservez votre audit d’automatisation gratuit</span>
+                <span class="block text-xs text-[#c78a5c] text-center">Réservez votre audit d’automatisation
+                  gratuit</span>
               </div>
             </div>
           </form>
         </div>
         <!-- Colonne droite : Visuel simulateur/efficacité -->
         <div class="relative w-full aspect-[3/4] lg:max-w-md mx-auto">
-          <svg class="absolute inset-0 w-full h-full object-contain rounded-2xl shadow-xl" viewBox="0 0 300 400" aria-hidden="true">
-            <rect x="0" y="0" width="300" height="400" rx="32" fill="#25353f"/>
+          <svg class="absolute inset-0 w-full h-full object-contain rounded-2xl shadow-xl" viewBox="0 0 300 400"
+            aria-hidden="true">
+            <rect x="0" y="0" width="300" height="400" rx="32" fill="#25353f" />
             <g>
-              <rect x="60" y="120" width="180" height="40" rx="14" fill="#7ea1c4"/>
-              <rect x="60" y="190" width="180" height="40" rx="14" fill="#c78a5c"/>
-              <rect x="60" y="260" width="180" height="40" rx="14" fill="#7ea1c4"/>
-              <circle cx="150" cy="60" r="35" fill="#c78a5c"/>
-              <rect x="120" y="310" width="60" height="25" rx="12" fill="#7ea1c4"/>
+              <rect x="60" y="120" width="180" height="40" rx="14" fill="#7ea1c4" />
+              <rect x="60" y="190" width="180" height="40" rx="14" fill="#c78a5c" />
+              <rect x="60" y="260" width="180" height="40" rx="14" fill="#7ea1c4" />
+              <circle cx="150" cy="60" r="35" fill="#c78a5c" />
+              <rect x="120" y="310" width="60" height="25" rx="12" fill="#7ea1c4" />
             </g>
           </svg>
         </div>
@@ -374,7 +425,8 @@ function grow(business) {
           </div>
         </div>
         <div class="mt-12">
-          <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
+          <a href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
             Je veux ces bénéfices pour mon entreprise – appel offert
           </a>
         </div>
@@ -395,34 +447,38 @@ function grow(business) {
               <div class="text-[#7ea1c4] text-3xl font-bold font-montserrat mb-1">01</div>
               <h3 class="text-xl font-bold mb-2 font-montserrat">Réservez votre audit offert</h3>
               <p class="text-base font-nunito leading-relaxed">
-                Vous choisissez un créneau. On écoute vos besoins, on cartographie vos tâches et on calcule le potentiel de gains.
+                Vous choisissez un créneau. On écoute vos besoins, on cartographie vos tâches et on calcule le potentiel
+                de gains.
               </p>
             </div>
             <div>
               <div class="text-[#c78a5c] text-3xl font-bold font-montserrat mb-1">02</div>
               <h3 class="text-xl font-bold mb-2 font-montserrat">On déploie vos automatisations</h3>
               <p class="text-base font-nunito leading-relaxed">
-                Vous validez la feuille de route. Nous concevons, connectons, testons. Vous voyez les premiers résultats sous 30 jours.
+                Vous validez la feuille de route. Nous concevons, connectons, testons. Vous voyez les premiers résultats
+                sous 30 jours.
               </p>
             </div>
             <div>
               <div class="text-[#7ea1c4] text-3xl font-bold font-montserrat mb-1">03</div>
               <h3 class="text-xl font-bold mb-2 font-montserrat">Accompagnement & optimisation</h3>
               <p class="text-base font-nunito leading-relaxed">
-                Support illimité par email ou visio. Suivi proactif des résultats, ajustements, et nouvelles automatisations à la demande.
+                Support illimité par email ou visio. Suivi proactif des résultats, ajustements, et nouvelles
+                automatisations à la demande.
               </p>
             </div>
           </div>
           <!-- Colonne droite : illustration -->
           <div class="h-full flex items-center justify-center">
-            <svg class="rounded-2xl shadow-xl w-full h-full max-w-md object-cover" viewBox="0 0 350 250" aria-hidden="true">
-              <rect x="0" y="0" width="350" height="250" rx="32" fill="#25353f"/>
+            <svg class="rounded-2xl shadow-xl w-full h-full max-w-md object-cover" viewBox="0 0 350 250"
+              aria-hidden="true">
+              <rect x="0" y="0" width="350" height="250" rx="32" fill="#25353f" />
               <g>
-                <rect x="60" y="40" width="230" height="25" rx="12" fill="#7ea1c4"/>
-                <rect x="60" y="85" width="230" height="25" rx="12" fill="#c78a5c"/>
-                <rect x="60" y="130" width="230" height="25" rx="12" fill="#7ea1c4"/>
-                <circle cx="175" cy="200" r="26" fill="#c78a5c"/>
-                <path d="M175 170 v30" stroke="#25353f" stroke-width="8"/>
+                <rect x="60" y="40" width="230" height="25" rx="12" fill="#7ea1c4" />
+                <rect x="60" y="85" width="230" height="25" rx="12" fill="#c78a5c" />
+                <rect x="60" y="130" width="230" height="25" rx="12" fill="#7ea1c4" />
+                <circle cx="175" cy="200" r="26" fill="#c78a5c" />
+                <path d="M175 170 v30" stroke="#25353f" stroke-width="8" />
               </g>
             </svg>
           </div>
@@ -445,20 +501,25 @@ function grow(business) {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           <!-- Témoignage HÉRO -->
           <div class="h-full flex flex-col justify-between">
-            <div class="bg-[#1c2630] border border-[#7ea1c4]/50 p-6 rounded-2xl shadow-lg text-left flex flex-col h-full">
+            <div
+              class="bg-[#1c2630] border border-[#7ea1c4]/50 p-6 rounded-2xl shadow-lg text-left flex flex-col h-full">
               <div class="mb-4">
                 <p class="text-3xl font-extrabold text-[#c78a5c] uppercase">+200h économisées par an</p>
               </div>
               <div class="flex-grow flex flex-col justify-center">
                 <p class="text-lg font-nunito italic leading-relaxed mb-4">
-                  “Avant, toute l’équipe passait son temps à relancer ou ressaisir. L’automatisation, c’est la meilleure décision prise cette année.”
+                  “Avant, toute l’équipe passait son temps à relancer ou ressaisir. L’automatisation, c’est la meilleure
+                  décision prise cette année.”
                 </p>
                 <p class="text-sm text-[#7ea1c4]">
                   Avant : 1 erreur/semaine • Après : +3 jours/humain disponibles/mois
                 </p>
               </div>
               <div class="flex items-center gap-3 mt-6">
-                <svg class="w-12 h-12 rounded-full bg-[#7ea1c4] border-2 border-white object-cover" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#7ea1c4"/><text x="50%" y="60%" text-anchor="middle" fill="#fff" font-size="18" font-family="Montserrat" dy=".3em">C</text></svg>
+                <svg class="w-12 h-12 rounded-full bg-[#7ea1c4] border-2 border-white object-cover" viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="16" fill="#7ea1c4" /><text x="50%" y="60%" text-anchor="middle" fill="#fff"
+                    font-size="18" font-family="Montserrat" dy=".3em">C</text>
+                </svg>
                 <div>
                   <p class="font-bold">Claire M.</p>
                   <p class="text-sm text-[#c2c2c2]">Dirigeante, Service B2B</p>
@@ -466,25 +527,38 @@ function grow(business) {
                 </div>
               </div>
             </div>
-            <div class="mt-8 bg-[#c78a5c]/30 border border-[#c78a5c]/20 p-6 rounded-xl shadow-lg text-center flex flex-col">
+            <div
+              class="mt-8 bg-[#c78a5c]/30 border border-[#c78a5c]/20 p-6 rounded-xl shadow-lg text-center flex flex-col">
               <div class="flex items-center gap-4 justify-center flex-wrap">
-                <svg class="w-10 h-10 rounded-full bg-[#7ea1c4] border-2 border-white object-cover" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#7ea1c4"/><text x="50%" y="60%" text-anchor="middle" fill="#fff" font-size="18" font-family="Montserrat" dy=".3em">B</text></svg>
-                <svg class="w-10 h-10 rounded-full bg-[#c78a5c] border-2 border-white object-cover" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#c78a5c"/><text x="50%" y="60%" text-anchor="middle" fill="#fff" font-size="18" font-family="Montserrat" dy=".3em">D</text></svg>
-                <span class="inline-block bg-[#7ea1c4] text-white text-xs font-semibold px-3 py-1 rounded-full">+20 PME accompagnées</span>
+                <svg class="w-10 h-10 rounded-full bg-[#7ea1c4] border-2 border-white object-cover" viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="16" fill="#7ea1c4" /><text x="50%" y="60%" text-anchor="middle" fill="#fff"
+                    font-size="18" font-family="Montserrat" dy=".3em">B</text>
+                </svg>
+                <svg class="w-10 h-10 rounded-full bg-[#c78a5c] border-2 border-white object-cover" viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="16" fill="#c78a5c" /><text x="50%" y="60%" text-anchor="middle" fill="#fff"
+                    font-size="18" font-family="Montserrat" dy=".3em">D</text>
+                </svg>
+                <span class="inline-block bg-[#7ea1c4] text-white text-xs font-semibold px-3 py-1 rounded-full">+20 PME
+                  accompagnées</span>
               </div>
             </div>
           </div>
           <!-- 2 autres témoignages -->
           <div class="flex flex-col gap-8 h-full">
-            <div class="bg-[#1c2630] border border-[#7ea1c4]/30 p-6 rounded-xl shadow-lg text-left flex flex-col h-full">
+            <div
+              class="bg-[#1c2630] border border-[#7ea1c4]/30 p-6 rounded-xl shadow-lg text-left flex flex-col h-full">
               <p class="text-xl font-extrabold text-[#c78a5c] uppercase mb-4">Des process qui tournent sans moi</p>
               <div class="flex-grow flex items-center">
                 <p class="text-base font-nunito leading-relaxed italic">
-                  “J’étais sceptique, mais tout s’est intégré à mes outils. Plus de double saisie, moins d’oublis, et surtout… des clients servis plus vite.”
+                  “J’étais sceptique, mais tout s’est intégré à mes outils. Plus de double saisie, moins d’oublis, et
+                  surtout… des clients servis plus vite.”
                 </p>
               </div>
               <div class="flex items-center gap-3 mt-6">
-                <svg class="w-12 h-12 rounded-full bg-[#c78a5c] border-2 border-white object-cover" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#c78a5c"/><text x="50%" y="60%" text-anchor="middle" fill="#fff" font-size="18" font-family="Montserrat" dy=".3em">F</text></svg>
+                <svg class="w-12 h-12 rounded-full bg-[#c78a5c] border-2 border-white object-cover" viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="16" fill="#c78a5c" /><text x="50%" y="60%" text-anchor="middle" fill="#fff"
+                    font-size="18" font-family="Montserrat" dy=".3em">F</text>
+                </svg>
                 <div>
                   <p class="font-bold">François R.</p>
                   <p class="text-sm text-[#c2c2c2]">PME Industrielle</p>
@@ -492,7 +566,8 @@ function grow(business) {
                 </div>
               </div>
             </div>
-            <div class="bg-[#1c2630] border border-[#7ea1c4]/30 p-6 rounded-xl shadow-lg text-left flex flex-col h-full">
+            <div
+              class="bg-[#1c2630] border border-[#7ea1c4]/30 p-6 rounded-xl shadow-lg text-left flex flex-col h-full">
               <p class="text-xl font-extrabold text-[#c78a5c] uppercase mb-4">ROI mesurable dès le 1er trimestre</p>
               <div class="flex-grow flex items-center">
                 <p class="text-base font-nunito leading-relaxed italic">
@@ -500,7 +575,10 @@ function grow(business) {
                 </p>
               </div>
               <div class="flex items-center gap-3 mt-6">
-                <svg class="w-12 h-12 rounded-full bg-[#7ea1c4] border-2 border-white object-cover" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#7ea1c4"/><text x="50%" y="60%" text-anchor="middle" fill="#fff" font-size="18" font-family="Montserrat" dy=".3em">J</text></svg>
+                <svg class="w-12 h-12 rounded-full bg-[#7ea1c4] border-2 border-white object-cover" viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="16" fill="#7ea1c4" /><text x="50%" y="60%" text-anchor="middle" fill="#fff"
+                    font-size="18" font-family="Montserrat" dy=".3em">J</text>
+                </svg>
                 <div>
                   <p class="font-bold">Julie L.</p>
                   <p class="text-sm text-[#c2c2c2]">Commerce local</p>
@@ -532,7 +610,8 @@ function grow(business) {
             </button>
             <div x-show="selected === 1" class="overflow-hidden">
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
-                Toute PME qui veut gagner du temps, réduire les erreurs et augmenter sa rentabilité. Peu importe le secteur, si vous répétez des tâches, vous pouvez automatiser.
+                Toute PME qui veut gagner du temps, réduire les erreurs et augmenter sa rentabilité. Peu importe le
+                secteur, si vous répétez des tâches, vous pouvez automatiser.
               </p>
             </div>
           </div>
@@ -544,7 +623,9 @@ function grow(business) {
             </button>
             <div x-show="selected === 2" class="overflow-hidden">
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
-                Prospection, gestion de leads, relances clients, onboarding, facturation, reporting, recrutement, organisation de RDV, classement de mails, génération de documents, notifications, suivi de dossiers, etc.
+                Prospection, gestion de leads, relances clients, onboarding, facturation, reporting, recrutement,
+                organisation de RDV, classement de mails, génération de documents, notifications, suivi de dossiers,
+                etc.
               </p>
             </div>
           </div>
@@ -552,11 +633,13 @@ function grow(business) {
           <div class="border-b border-[#7ea1c4]">
             <button @click="selected !== 3 ? selected = 3 : selected = null"
               class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              J’ai zéro compétence technique, ça marche quand même&nbsp;? <span x-text="selected === 3 ? '-' : '+'"></span>
+              J’ai zéro compétence technique, ça marche quand même&nbsp;? <span
+                x-text="selected === 3 ? '-' : '+'"></span>
             </button>
             <div x-show="selected === 3" class="overflow-hidden">
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
-                Oui. Vous n’avez rien à coder, ni à paramétrer. On conçoit, on déploie, on forme. Vous n’avez qu’à utiliser et valider.
+                Oui. Vous n’avez rien à coder, ni à paramétrer. On conçoit, on déploie, on forme. Vous n’avez qu’à
+                utiliser et valider.
               </p>
             </div>
           </div>
@@ -564,11 +647,13 @@ function grow(business) {
           <div class="border-b border-[#7ea1c4]">
             <button @click="selected !== 4 ? selected = 4 : selected = null"
               class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              Combien de temps avant de voir les premiers bénéfices&nbsp;? <span x-text="selected === 4 ? '-' : '+'"></span>
+              Combien de temps avant de voir les premiers bénéfices&nbsp;? <span
+                x-text="selected === 4 ? '-' : '+'"></span>
             </button>
             <div x-show="selected === 4" class="overflow-hidden">
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
-                Généralement&nbsp;: <strong>- de 30 jours</strong> entre le 1er audit et les premiers résultats visibles (temps ou € économisés).
+                Généralement&nbsp;: <strong>- de 30 jours</strong> entre le 1er audit et les premiers résultats visibles
+                (temps ou € économisés).
               </p>
             </div>
           </div>
@@ -580,7 +665,8 @@ function grow(business) {
             </button>
             <div x-show="selected === 5" class="overflow-hidden">
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
-                Nos clients économisent plusieurs heures/semaine et voient leur rentabilité progresser dès le premier trimestre. Chiffres validés en audit.
+                Nos clients économisent plusieurs heures/semaine et voient leur rentabilité progresser dès le premier
+                trimestre. Chiffres validés en audit.
               </p>
             </div>
           </div>
@@ -592,7 +678,8 @@ function grow(business) {
             </button>
             <div x-show="selected === 6" class="overflow-hidden">
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
-                Vous profitez, tout simplement ! Et si besoin : support, améliorations, évolutions, toujours avec un interlocuteur humain.
+                Vous profitez, tout simplement ! Et si besoin : support, améliorations, évolutions, toujours avec un
+                interlocuteur humain.
               </p>
             </div>
           </div>
@@ -605,7 +692,8 @@ function grow(business) {
     <section id="cta" class="scroll-adjust relative py-24 px-6 lg:px-12 text-[#f5f1e6]">
       <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="flex flex-col justify-center text-left">
-          <div class="bg-[#1c2630]/90 backdrop-blur-md rounded-xl p-8 border border-[#7ea1c4]/40 shadow-xl ring-1 ring-white/10">
+          <div
+            class="bg-[#1c2630]/90 backdrop-blur-md rounded-xl p-8 border border-[#7ea1c4]/40 shadow-xl ring-1 ring-white/10">
             <div class="flex justify-between items-center mb-2">
               <p class="text-xs uppercase tracking-wide text-[#7ea1c4] font-semibold">
                 Audit automatisation & IA offert
@@ -638,7 +726,7 @@ function grow(business) {
       </div>
     </section>
   </main>
-  
+
   <!-- 🡦 FOOTER -->
 
   <footer class="bg-[#25353f] text-[#f5f1e6] py-12 text-sm">
@@ -672,49 +760,49 @@ function grow(business) {
     });
   </script>
 
-<script>
-  function updateSimulator() {
-    // Récupère les valeurs
-    const fields = ["devis", "prospection", "admin", "reporting"];
-    let total = 0;
-    fields.forEach(id => {
-      const input = document.querySelector('input[name="' + id + '"]');
-      total += Number(input.value) || 0;
-    });
-    const taux = Number(document.querySelector('input[name="taux"]').value) || 0;
-
-    // Calculs
-    const euros = total * taux;
-    const eurosMonth = euros * 4.33; // 4.33 semaines/mois
-    const eurosYear = euros * 52;
-    const hoursMonth = total * 4.33;
-    const hoursYear = total * 52;
-
-    // Affichage dans le simulateur
-    document.getElementById("hours-saved").textContent = total;
-    document.getElementById("euros-saved").textContent = euros.toLocaleString("fr-FR");
-
-    // Affichage détails
-    document.getElementById("simu-detail").innerHTML =
-      `Soit <strong>${hoursMonth.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;h</strong> / <strong>${eurosMonth.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;€</strong> <span class="hidden md:inline">par mois</span> et <strong>${hoursYear.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;h</strong> / <strong>${eurosYear.toLocaleString("fr-FR", {maximumFractionDigits: 0})}&nbsp;€</strong> par an`;
-
-    // Affichage sur le bouton
-    document.getElementById("cta-hours").textContent = total + "h";
-    document.getElementById("cta-euros").textContent = euros.toLocaleString("fr-FR") + "€";
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const simuForm = document.getElementById("gain-simulator");
-    if (simuForm) {
-      simuForm.querySelectorAll("input").forEach(input => {
-        input.addEventListener("input", updateSimulator);
+  <script>
+    function updateSimulator() {
+      // Récupère les valeurs
+      const fields = ["devis", "prospection", "admin", "reporting"];
+      let total = 0;
+      fields.forEach(id => {
+        const input = document.querySelector('input[name="' + id + '"]');
+        total += Number(input.value) || 0;
       });
-      updateSimulator(); // Init
+      const taux = Number(document.querySelector('input[name="taux"]').value) || 0;
+
+      // Calculs
+      const euros = total * taux;
+      const eurosMonth = euros * 4.33; // 4.33 semaines/mois
+      const eurosYear = euros * 52;
+      const hoursMonth = total * 4.33;
+      const hoursYear = total * 52;
+
+      // Affichage dans le simulateur
+      document.getElementById("hours-saved").textContent = total;
+      document.getElementById("euros-saved").textContent = euros.toLocaleString("fr-FR");
+
+      // Affichage détails
+      document.getElementById("simu-detail").innerHTML =
+        `Soit <strong>${hoursMonth.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;h</strong> / <strong>${eurosMonth.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;€</strong> <span class="hidden md:inline">par mois</span> et <strong>${hoursYear.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;h</strong> / <strong>${eurosYear.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;€</strong> par an`;
+
+      // Affichage sur le bouton
+      document.getElementById("cta-hours").textContent = total + "h";
+      document.getElementById("cta-euros").textContent = euros.toLocaleString("fr-FR") + "€";
     }
-  });
-</script>
-  
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const simuForm = document.getElementById("gain-simulator");
+      if (simuForm) {
+        simuForm.querySelectorAll("input").forEach(input => {
+          input.addEventListener("input", updateSimulator);
+        });
+        updateSimulator(); // Init
+      }
+    });
+  </script>
+
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 
 </html>
