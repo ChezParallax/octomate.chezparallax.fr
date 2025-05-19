@@ -118,11 +118,11 @@ function grow(business) {
         <!-- Colonne gauche : Texte, CTA, Preuve sociale -->
         <div class="lg:col-span-3">
           <p class="text-sm lg:text-base text-[#7ea1c4] font-semibold mb-3 tracking-wide">
-            ⚡ Pour dirigeant·es de PME ambitieux·ses (Grand Est)
+            ⚡ Pour dirigeant·es de PME ambitieux·ses
           </p>
           <h1 class="text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight mb-6">
-            Libérez-vous des <span class="inline-block bg-[#c78a5c] text-[#f5f1e6] px-1 rounded">tâches chronophages</span>,<br>
-            boostez la croissance de votre PME grâce à <span class="text-[#7ea1c4]">l’automatisation</span> & l’IA.
+            Libérez-vous des <span class="inline-block bg-[#c78a5c] text-[#f5f1e6] px-1 rounded">tâches répétitives</span>:<br>
+            boostez la croissance de votre PME grâce à <span class="text-[#7ea1c4]">l’automatisation</span> & <span class="text-[#7ea1c4]">l’IA</span>.
           </h1>
           <p class="text-md font-nunito mb-8 max-w-xl">
             Automatisez vos process, concentrez-vous sur ce qui compte vraiment.<br>
@@ -131,31 +131,42 @@ function grow(business) {
           <a href="#cta" class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98]">
             Réservez votre appel découverte offert
           </a>
+         <!-- ⭐ Preuve sociale stylisée -->
+
           <div class="mt-8 flex items-center gap-4">
-            <!-- Icônes sectorielles -->
-            <svg class="w-10 h-10 rounded-full bg-[#25353f] border-2 border-[#7ea1c4] p-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" stroke="#7ea1c4" stroke-width="2"/>
-              <path d="M8 12h8M12 8v8" stroke="#c78a5c" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="ml-2 font-semibold text-sm text-[#7ea1c4]">+20 PME transformées en 2024</span>
+
+            <!-- 👥 Avatars clients superposés -->
+
+            <div class="flex -space-x-4">
+              <img src="/assets/img/logo-panadis.webp" alt="Logo de l'enreprise Panadis – client accompagné"
+                class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              <img src="/assets/img/logo-times.webp" alt="Logo de l'enreprise Time's – client accompagné"
+                class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              <img src="/assets/img/logo-aja.webp" alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
+                class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              <img src="/assets/img/logo-dolorium_tattoo.webp"
+                alt="Logo de l'indépendant Dolorium Tattoo – client accompagné"
+                class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              <img src="/assets/img/logo-la_fine_equipe.webp" alt="Logo de la marque La Fine Équipe – client accompagné"
+                class="w-10 h-10 rounded-full border-2 border-white object-cover">
+              <img src="assets/img/logo-energus_10.webp" alt="Logo de la marque energus10 – client accompagné"
+                class="w-10 h-10 rounded-full border-2 border-white object-cover">
+            </div>
+
+            <!-- 📣 Texte avec étoiles lisibles -->
+
+            <div class="flex items-center gap-1 text-sm font-semibold font-nunito text-[#25353f] ml-2">
+              <span class="inline-block bg-white border border-[#d6d3cc] rounded-full px-1.5">⭐⭐⭐⭐⭐</span>
+              <span class="ml-1">+10 entreprises accompagnées</span>
+            </div>
           </div>
         </div>
+        
         <!-- Colonne droite : Visuel automation -->
         <div class="flex justify-center lg:col-span-2">
-          <svg class="rounded-2xl shadow-xl w-full max-w-md lg:max-w-full object-cover bg-[#25353f]" viewBox="0 0 300 300" aria-hidden="true">
-            <rect x="0" y="0" width="300" height="300" rx="32" fill="#25353f"/>
-            <!-- Octopus/automation SVG icon stylisé -->
-            <g>
-              <ellipse cx="150" cy="140" rx="60" ry="65" fill="#7ea1c4" />
-              <ellipse cx="150" cy="210" rx="50" ry="20" fill="#c78a5c" opacity="0.5"/>
-              <circle cx="150" cy="125" r="35" fill="#25353f" />
-              <ellipse cx="135" cy="120" rx="5" ry="7" fill="#f5f1e6"/>
-              <ellipse cx="165" cy="120" rx="5" ry="7" fill="#f5f1e6"/>
-              <!-- Tentacules stylisées -->
-              <path d="M100 200 C80 250, 220 250, 200 200" stroke="#7ea1c4" stroke-width="10" fill="none"/>
-              <path d="M120 220 C110 260, 190 260, 180 220" stroke="#c78a5c" stroke-width="8" fill="none"/>
-            </g>
-          </svg>
+          <img src="/assets/img/hero_octomate.webp"
+            alt="Entrepreneur·e tapant sur un ordinateur avec réactions sociales – solution clés en main pour réseaux sociaux"
+            class="w-full max-w-md lg:max-w-full object-cover">
         </div>
       </div>
     </section>
