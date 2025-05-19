@@ -60,7 +60,9 @@
       }
     }
     .match-height > div { height: 100%; }
-    .match-height img { height: 100%; object-fit: cover; }
+    .match-height img { height: 100%; }
+    .match-height img.object-contain { object-fit: contain; }
+    .match-height img.object-cover { object-fit: cover; }
     .scroll-adjust { scroll-margin-top: 320px; }
     @media (min-width: 1024px) { .scroll-adjust { scroll-margin-top: 70px; } }
   </style>
