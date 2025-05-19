@@ -656,6 +656,38 @@ function grow(business) {
     });
   </script>
 
+<script>
+  function updateSimulator() {
+    // Récupère les valeurs
+    const fields = ["devis", "prospection", "admin", "reporting"];
+    let total = 0;
+    fields.forEach(id => {
+      const input = document.querySelector('input[name="' + id + '"]');
+      total += Number(input.value) || 0;
+    });
+    const taux = Number(document.querySelector('input[name="taux"]').value) || 0;
+    // Calcul
+    const euros = total * taux;
+    // Affiche
+    document.getElementById("hours-saved").textContent = total;
+    document.getElementById("euros-saved").textContent = euros.toLocaleString("fr-FR");
+    document.getElementById("cta-hours").textContent = total;
+    document.getElementById("cta-euros").textContent = euros.toLocaleString("fr-FR");
+  }
+
+  // Ajoute l’event sur tous les inputs du simulateur
+  document.addEventListener("DOMContentLoaded", function () {
+    const simuForm = document.getElementById("gain-simulator");
+    if (simuForm) {
+      simuForm.querySelectorAll("input").forEach(input => {
+        input.addEventListener("input", updateSimulator);
+      });
+      updateSimulator(); // Init
+    }
+  });
+</script>
+
+  
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 
