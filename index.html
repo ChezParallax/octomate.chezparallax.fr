@@ -91,6 +91,19 @@
         scroll-margin-top: 70px;
       }
     }
+
+        a.logo:focus,
+    a.logo:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    a.logo:focus-visible {
+      outline: 2px solid #7ea1c4;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px #25353f22;
+    }
+
   </style>
 
   <!--
@@ -118,7 +131,7 @@
 
   <!-- 🔝 HEADER NAVIGATION STICKY -->
 
-  <header x-data="{ isOpen: false }" class="sticky top-0 z-50 bg-white border-b border-[#7ea1c4]/10 backdrop-blur-md">
+  <header x-data="{ isOpen: false }" id="main-header" class="sticky top-0 z-50" style="background: rgba(37, 53, 63, 0.68); border-bottom: 1px solid #7ea1c433;">
 
     <div id="header"></div>
 
@@ -1111,30 +1124,18 @@
 window.addEventListener('scroll', function () {
   const header = document.getElementById('main-header');
   if (window.scrollY > 10) {
-    header.style.background = 'rgba(37, 53, 63, 0.88)'; // Un peu moins transparent
-    header.classList.add('shadow-xl', 'backdrop-blur-lg');
-  } else {
     header.style.background = 'rgba(37, 53, 63, 0.68)';
-    header.classList.remove('shadow-xl');
-    header.classList.add('backdrop-blur-lg');
+    header.style.boxShadow = '0 8px 32px 0 rgba(31, 38, 135, 0.12)';
+    header.style.backdropFilter = 'blur(12px)';
+    header.style.borderBottom = '1px solid #7ea1c433';
+  } else {
+    header.style.background = 'rgba(37, 53, 63, 1)';
+    header.style.boxShadow = 'none';
+    header.style.backdropFilter = 'none';
+    header.style.borderBottom = '1px solid #7ea1c433';
   }
 });
 </script>
-
-
-  <style>
-    a.logo:focus,
-    a.logo:active {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-
-    a.logo:focus-visible {
-      outline: 2px solid #7ea1c4;
-      outline-offset: 2px;
-      box-shadow: 0 0 0 2px #25353f22;
-    }
-  </style>
 
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
