@@ -247,7 +247,7 @@ function grow(business) {
 
     <!-- 🤖 SECTION MÉTHODE AUTOMATION / IA -->
 
-    <section id="solution" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
+    <section id="methode" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
         <!-- Texte à gauche -->
         <div>
@@ -687,44 +687,87 @@ function grow(business) {
       </div>
     </section>
 
-    <!-- ✅ SECTION CTA FINAL -->
+    <!-- ✅ SECTION CTA FINAL (version allégée et élégante) -->
 
     <section id="cta" class="scroll-adjust relative py-24 px-6 lg:px-12 text-[#f5f1e6]">
-      <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="flex flex-col justify-center text-left">
-          <div
-            class="bg-[#1c2630]/90 backdrop-blur-md rounded-xl p-8 border border-[#7ea1c4]/40 shadow-xl ring-1 ring-white/10">
-            <div class="flex justify-between items-center mb-2">
-              <p class="text-xs uppercase tracking-wide text-[#7ea1c4] font-semibold">
-                Audit automatisation & IA offert
-              </p>
-              <span class="text-[11px] bg-[#c78a5c] text-white font-bold px-4 py-1 rounded-full shadow-sm">
-                Sans engagement
-              </span>
-            </div>
-            <h2 class="text-3xl lg:text-4xl font-bold font-montserrat mb-6 leading-normal">
-              Automatisez. Économisez. Grandissez.
-            </h2>
-            <p class="text-lg font-nunito mb-6 max-w-xl leading-relaxed">
-              30 minutes pour découvrir, chiffrer, repartir avec un plan d’action immédiat. <br>
-              Réservez votre créneau, on s’occupe du reste.
-            </p>
-            <p class="text-base font-nunito text-[#7ea1c4] mb-6 leading-relaxed">
-              Si l’approche vous convient, vous partez avec vos premiers process automatisés – ou c’est gratuit.
-            </p>
-            <p class="text-sm font-nunito text-[#c78a5c]">
-              Créneaux limités chaque mois. Premier arrivé, premier servi.
-            </p>
+      <!-- Background image + gradient -->
+      <div class="absolute inset-0 bg-cover bg-center z-0"
+        style="background-image: url('/assets/img/cta_final-background.webp');">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#25353f]/60 to-[#25353f]/80"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+
+        <!-- Bloc CTA principal -->
+        <div
+          class="flex-1 flex flex-col justify-center text-left bg-[#25353f]/70 backdrop-blur-lg rounded-2xl p-10 border border-[#7ea1c4]/40 shadow-2xl">
+          <!-- Surtitre + badge -->
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-xs uppercase tracking-wider text-[#7ea1c4] font-bold">Audit Automatisation & IA
+              offert</span>
+            <span
+              class="text-[11px] bg-[#c78a5c] text-white font-bold px-4 py-1 rounded-full shadow-sm animate-pulse">Places
+              limitées</span>
           </div>
-        </div>
-        <!-- Bloc embed réservation -->
-        <div>
-          <div class="calendly-inline-widget" style="min-width:320px; height:630px;"
-            data-url="https://calendly.com/octomate/30min?hide_event_type_details=1&hide_gdpr_banner=1"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Promesse conversion-first -->
+          <h2 class="text-3xl md:text-4xl font-extrabold font-montserrat leading-tight mb-4">
+            En 30 min, <span class="text-[#7ea1c4]">identifiez <u>exactement</u></span> où gagner du temps et booster
+            vos revenus.
+          </h2>
+          <!-- Bullet points résultats -->
+          <ul class="mb-6 text-lg font-nunito space-y-1">
+            <li>✅ <span class="font-bold text-[#c78a5c]">Diagnostic 100% personnalisé</span> pour votre PME</li>
+            <li>✅ Estimation chiffrée des économies et gains potentiels</li>
+            <li>✅ <span class="font-semibold">Livrable actionnable</span> offert dès la fin de l’appel</li>
+            <li>✅ Zéro engagement</li>
+          </ul>
+          <!-- Preuve sociale -->
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <div class="flex -space-x-3">
+              <img src="/assets/img/logo-panadis.webp" alt="Client Panadis"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+              <img src="/assets/img/logo-times.webp" alt="Client Time's"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+              <img src="/assets/img/logo-aja.webp" alt="Client Aujourd'hui j'arrête"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+              <img src="/assets/img/logo-dolorium_tattoo.webp" alt="Client Dolorium Tattoo"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+              <img src="/assets/img/logo-la_fine_equipe.webp" alt="Client La Fine Equipe"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+            </div>
+            <span class="inline-block bg-[#7ea1c4] text-white text-xs font-semibold px-2 py-0.5 rounded-full">+10 PME
+              déjà accompagnées</span>
+          </div>
+          <!-- Micro-copy confiance -->
+          <p class="text-sm font-nunito text-[#bdd6f7] mb-4">
+            “Si ça ne vous parle pas, <span class="italic text-[#c78a5c]">vous repartez avec des pistes concrètes –
+              c’est cadeau.</span>”
+          </p>
+          <!-- Urgence, limite -->
+          <div class="text-xs text-[#c78a5c] mb-6 font-semibold">
+            Créneaux restants ce mois-ci : <span class="font-bold">2</span>. Premier arrivé, premier servi.
+          </div>
+          <!-- CTA conversion-first -->
+          <a href="#cta" data-cal-link="thibaud-chezparallax/decouverte" data-cal-namespace="decouverte"
+            data-cal-config='{"layout":"month_view"}'
+            class="inline-block flex justify-center items-center bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-lg shadow-xl hover:scale-[1.04] active:scale-[0.97] focus:ring-2 focus:ring-[#7ea1c4] focus:outline-none"
+            aria-label="Réservez votre appel découverte offert">
+            🚀 Je réserve mon audit offert
+          </a>
+
+          <p class="mt-2 text-xs text-[#bdd6f7] text-center">
+            Confirmation immédiate – aucun paiement requis, agenda 100% flexible.
+          </p>
         </div>
       </div>
+      <!-- Script Cal.com pour ouverture calendrier -->
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "decouverte", { origin: "https://cal.com" });
+        Cal.ns.decouverte("ui", { "cssVarsPerTheme": { "light": { "cal-brand": "#25353F" }, "dark": { "cal-brand": "#F5F1E6" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+      </script>
     </section>
+
+
   </main>
 
   <!-- 🡦 FOOTER -->
