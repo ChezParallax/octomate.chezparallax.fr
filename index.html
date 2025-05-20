@@ -118,7 +118,7 @@
 
   <!-- 🔝 HEADER NAVIGATION STICKY -->
 
-  <header x-data="{ isOpen: false }" class="sticky top-0 z-50 bg-white border-b border-[#e2dfd7] backdrop-blur-md">
+  <header x-data="{ isOpen: false }" class="sticky top-0 z-50 bg-white border-b border-[#7ea1c4]/10 backdrop-blur-md">
 
     <div id="header"></div>
 
@@ -1111,14 +1111,16 @@
 window.addEventListener('scroll', function () {
   const header = document.getElementById('main-header');
   if (window.scrollY > 10) {
-    header.classList.add('shadow-xl', 'bg-[#25353f]/80');
-    header.classList.remove('bg-[#25353f]/60');
+    header.style.background = 'rgba(37, 53, 63, 0.88)'; // Un peu moins transparent
+    header.classList.add('shadow-xl', 'backdrop-blur-lg');
   } else {
-    header.classList.remove('shadow-xl', 'bg-[#25353f]/80');
-    header.classList.add('bg-[#25353f]/60');
+    header.style.background = 'rgba(37, 53, 63, 0.68)';
+    header.classList.remove('shadow-xl');
+    header.classList.add('backdrop-blur-lg');
   }
 });
 </script>
+
 
   <style>
     a.logo:focus,
