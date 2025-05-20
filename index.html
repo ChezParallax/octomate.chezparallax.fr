@@ -2,9 +2,7 @@
 <html lang="fr" class="scroll-smooth">
 
 <head>
-
   <!-- 🧠 MÉTA-INFOS SEO -->
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
@@ -12,83 +10,69 @@
   <meta name="robots" content="index, follow">
 
   <!-- SIMPLE ANALYTICS -->
-
   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
   <!-- 📱 META SOCIAL -->
-
   <meta property="og:title" content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
-  <meta property="og:description"
-    content="Systèmes d'automatisation et d'IA sur-mesure pour faciliter votre quotidien tout en accélérant votre croissance">
-  <meta property="og:image" content="URL_IMAGE_PARTAGE">
+  <meta property="og:description" content="Systèmes d'automatisation et d'IA sur-mesure pour faciliter votre quotidien tout en accélérant votre croissance">
+  <meta property="og:image" content="https://octomate.chezparallax.fr/assets/img/hero_octomate.webp">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="URL_DE_TA_PAGE">
+  <meta property="og:url" content="https://octomate.chezparallax.fr">
 
-  <!-- 🔍 FAVICON -->
-
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- 🔍 FAVICONS & MANIFEST -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
 
   <!-- 🧠 TITRE -->
-
-  <title>Parallax — Réseaux sociaux au service de votre business</title>
+  <title>Octomate — Partenaire pour une croissance qui vous fait gagner du temps</title>
 
   <!-- 🎨 TAILWIND CSS -->
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- 💻 POLICES -->
-
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Nunito:wght@400;600;800;900&display=swap"
     rel="stylesheet">
 
   <!-- 💼 ICONS (Lucide) -->
-
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
       font-family: 'Nunito', sans-serif;
     }
-
-    h1,
-    h2,
-    h3,
-    h4 {
+    h1, h2, h3, h4 {
       font-family: 'Montserrat', sans-serif;
     }
-
     .match-height {
       display: grid;
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
-
     @media (min-width: 1024px) {
       .match-height {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: stretch;
       }
     }
-
     .match-height>div {
       height: 100%;
     }
-
     .match-height img {
       height: 100%;
     }
-
     .match-height img.object-contain {
       object-fit: contain;
     }
-
     .match-height img.object-cover {
       object-fit: cover;
     }
-
     .scroll-adjust {
       scroll-margin-top: 320px;
     }
-
     @media (min-width: 1024px) {
       .scroll-adjust {
         scroll-margin-top: 70px;
@@ -96,32 +80,26 @@
     }
   </style>
 
-  <!-- 
-👋 Hey, toi.
-
-Si tu lis ça, c’est que tu fais partie des rares à explorer sous la surface.  
-Bienvenue dans les coulisses :)
-
-Tu devrais venir nous parler, franchement.  
-On adore bosser avec les curieux.
-
-Pour la peine que tu t'es donné pour trouver ce code, tu mérites bien mon email perso : thibaud@chezparallax.fr !
-Fais moi signe si tu veux passer à la vitesse supérieure ;)
-
-🧙‍♂️ Juste pour toi, un petit snippet existentiel :
-
-function grow(business) {
-  if (automation && AI) {
-    return business * 🚀;
-  } else {
-    return "burnout();";
+  <!--
+  👋 Hey, toi.
+  Si tu lis ça, c’est que tu fais partie des rares à explorer sous la surface.
+  Bienvenue dans les coulisses :)
+  Tu devrais venir nous parler, franchement.
+  On adore bosser avec les curieux.
+  Pour la peine que tu t'es donné pour trouver ce code, tu mérites bien mon email perso : thibaud@chezparallax.fr !
+  Fais moi signe si tu veux passer à la vitesse supérieure ;)
+  🧙‍♂️ Juste pour toi, un petit snippet existentiel :
+  function grow(business) {
+    if (automation && AI) {
+      return business * 🚀;
+    } else {
+      return "burnout();";
+    }
   }
-}
-
-// — Thibaud, le mec derrière le rideau 👀
--->
-
+  // — Thibaud, le mec derrière le rideau 👀
+  -->
 </head>
+
 
 <body class="bg-[#25353f] text-[#f5f1e6]">
 
@@ -1054,6 +1032,32 @@ function grow(business) {
   // First tab active au chargement
   document.querySelector('.tab-btn').click();
 </script>
+
+<script>
+  // Effet glassmorphism & ombre sur le header au scroll
+  window.addEventListener('scroll', function () {
+    const header = document.getElementById('main-header');
+    if (window.scrollY > 10) {
+      header.classList.add('shadow-xl', 'bg-[#25353f]/80', 'backdrop-blur-md');
+    } else {
+      header.classList.remove('shadow-xl');
+      header.classList.remove('bg-[#25353f]/80');
+      // Optionnel : forcer une opacité plus forte ou différente en haut de page
+    }
+  });
+</script>
+
+<style>
+  a.logo:focus, a.logo:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  a.logo:focus-visible {
+    outline: 2px solid #7ea1c4;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #25353f22;
+  }
+</style>
 
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
