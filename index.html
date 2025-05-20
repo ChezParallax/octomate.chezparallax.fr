@@ -1107,19 +1107,18 @@
     document.querySelector('.tab-btn').click();
   </script>
 
-  <script>
-    // Effet glassmorphism & ombre sur le header au scroll
-    window.addEventListener('scroll', function () {
-      const header = document.getElementById('main-header');
-      if (window.scrollY > 10) {
-        header.classList.add('shadow-xl', 'bg-[#25353f]/80', 'backdrop-blur-md');
-      } else {
-        header.classList.remove('shadow-xl');
-        header.classList.remove('bg-[#25353f]/80');
-        // Optionnel : forcer une opacité plus forte ou différente en haut de page
-      }
-    });
-  </script>
+<script>
+window.addEventListener('scroll', function () {
+  const header = document.getElementById('main-header');
+  if (window.scrollY > 10) {
+    header.classList.add('shadow-xl', 'bg-[#25353f]/80');
+    header.classList.remove('bg-[#25353f]/60');
+  } else {
+    header.classList.remove('shadow-xl', 'bg-[#25353f]/80');
+    header.classList.add('bg-[#25353f]/60');
+  }
+});
+</script>
 
   <style>
     a.logo:focus,
