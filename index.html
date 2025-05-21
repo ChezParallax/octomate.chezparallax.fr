@@ -92,7 +92,7 @@
       }
     }
 
-        a.logo:focus,
+    a.logo:focus,
     a.logo:active {
       outline: none !important;
       box-shadow: none !important;
@@ -103,7 +103,6 @@
       outline-offset: 2px;
       box-shadow: 0 0 0 2px #25353f22;
     }
-
   </style>
 
   <!--
@@ -131,7 +130,8 @@
 
   <!-- 🔝 HEADER NAVIGATION STICKY -->
 
-  <header x-data="{ isOpen: false }" id="main-header" class="sticky top-0 z-50" style="background: rgba(37, 53, 63, 0.68); border-bottom: 1px solid #7ea1c433;">
+  <header x-data="{ isOpen: false }" id="main-header" class="sticky top-0 z-50"
+    style="background: rgba(37, 53, 63, 0.68); border-bottom: 1px solid #7ea1c433;">
 
     <div id="header"></div>
 
@@ -143,55 +143,55 @@
   <main>
 
     <!-- 🦸 HERO SECTION -->
-
+  
     <section class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <!-- Colonne gauche : Texte, CTA, Preuve sociale -->
         <div>
           <div class="max-w-[650px]">
-            <p class="text-sm lg:text-base text-[#c78a5c] font-semibold mb-3 tracking-wide">
+            <p id="hero-lead" class="text-sm lg:text-base text-[#c78a5c] font-semibold mb-3 tracking-wide opacity-0">
               ⚡ Pour dirigeant·es de PME ambitieux·ses
             </p>
-            <h1 class="text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight mb-6">
+            <h1 id="hero-title"
+              class="text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight mb-6 opacity-0">
               Libérez-vous des <span class="inline-block bg-[#c78a5c] text-[#25353f] px-1 rounded">tâches
                 répétitives</span>:<br>
               boostez la croissance de votre PME grâce à <span class="text-[#7ea1c4]">l’automatisation</span> & <span
                 class="text-[#7ea1c4]">l’IA</span>.
             </h1>
-            <p class="text-md font-nunito mb-8">
+            <p id="hero-desc" class="text-md font-nunito mb-8 opacity-0">
               On traque vos tâches chronophages, on les automatise (vraiment).<br>
               Vous vous concentrez sur votre cœur de métier et reprenez le contrôle sur votre agenda.<br>
               Des résultats concrets, en quelques semaines.
             </p>
-            <a href="#cta"
-              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98]">
+            <a id="hero-cta" href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98] focus:ring-2 focus:ring-[#7ea1c4] opacity-0">
               Réservez votre appel découverte offert
             </a>
             <!-- ⭐ Preuve sociale stylisée -->
-
-            <div class="mt-8 flex items-center gap-4">
-
+            <div id="hero-social-proof" class="mt-8 flex items-center gap-4 opacity-0">
               <!-- 👥 Avatars clients superposés -->
-
               <div class="flex -space-x-4">
-                <img src="/assets/img/logo-panadis.webp" alt="Logo de l'enreprise Panadis – client accompagné"
-                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="/assets/img/logo-times.webp" alt="Logo de l'enreprise Time's – client accompagné"
-                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="/assets/img/logo-aja.webp" alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
-                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="/assets/img/logo-dolorium_tattoo.webp"
+                <img id="hero-avatar-1" src="/assets/img/logo-panadis.webp"
+                  alt="Logo de l'entreprise Panadis – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-2" src="/assets/img/logo-times.webp"
+                  alt="Logo de l'entreprise Time's – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-3" src="/assets/img/logo-aja.webp"
+                  alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-4" src="/assets/img/logo-dolorium_tattoo.webp"
                   alt="Logo de l'indépendant Dolorium Tattoo – client accompagné"
-                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="/assets/img/logo-la_fine_equipe.webp"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-5" src="/assets/img/logo-la_fine_equipe.webp"
                   alt="Logo de la marque La Fine Équipe – client accompagné"
-                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
-                <img src="assets/img/logo-energus_10.webp" alt="Logo de la marque energus10 – client accompagné"
-                  class="w-10 h-10 rounded-full border-2 border-white object-cover">
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-6" src="assets/img/logo-energus_10.webp"
+                  alt="Logo de la marque energus10 – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
               </div>
-
               <!-- 📣 Texte avec étoiles lisibles -->
-
               <div class="flex items-center gap-1 text-sm font-semibold font-nunito text-[#25353f] ml-2">
                 <span class="inline-block bg-white border border-[#d6d3cc] rounded-full px-1.5">⭐⭐⭐⭐⭐</span>
                 <span class="ml-1 text-[#f5f1e6]">+10 entrepreneurs accompagnées</span>
@@ -200,7 +200,7 @@
           </div>
         </div>
         <!-- Colonne droite : Visuel automation -->
-        <div class="flex justify-center items-center min-h-[350px] lg:min-h-[530px]">
+        <div id="hero-img-col" class="flex justify-center items-center min-h-[350px] lg:min-h-[530px] opacity-0">
           <img src="/assets/img/hero_octomate.webp" alt="Automatisation PME par OctoMate – illustration immersive"
             class="h-full w-auto max-h-[530px] object-contain">
         </div>
@@ -209,46 +209,46 @@
 
     <!-- 🚨 SECTION PROBLÈME -->
 
-    <section id="probleme" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-12 leading-tight">
-          Trop d’opérationnel, pas assez de temps pour innover ?<br>
-          <span class="text-[#c78a5c]">Vous n’êtes clairement pas le seul·e.</span>
-        </h2>
-        <div class="max-w-xl mx-auto text-left">
-          <ul class="space-y-5 text-lg font-nunito">
-            <li class="flex items-start gap-3 leading-relaxed">
-              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="alarm-clock"></i>
-              <p class="m-0">Relances, saisies, suivis : tout retombe (encore et toujours) sur vous.</p>
-            </li>
-            <li class="flex items-start gap-3 leading-relaxed">
-              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="rotate-cw"></i>
-              <p class="m-0">Ces tâches chronophages tournent en boucle — c’est usant, et vous le savez.</p>
-            </li>
-            <li class="flex items-start gap-3 leading-relaxed">
-              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="database"></i>
-              <p class="m-0">Fichiers, emails, post-its : plus on jongle, plus l’erreur guette.</p>
-            </li>
-            <li class="flex items-start gap-3 leading-relaxed">
-              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="user-x"></i>
-              <p class="m-0">Jamais de temps pour automatiser… ni pour prendre du recul ou lancer de nouveaux projets.
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed">
-          Ce n’est pas une fatalité.<br>
-          L’automatisation remet vos journées à l’endroit, et votre énergie là où elle compte.
-        </div>
-        <div class="mt-8 text-center">
-          <a href="#cta"
-            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
-            Je veux reprendre le contrôle - Je réserve mon appel offert
-          </a>
-        </div>
-      </div>
-    </section>
+<section id="probleme" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 id="probleme-title" class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-12 leading-tight opacity-0">
+      Trop d’opérationnel, pas assez de temps pour innover ?<br>
+      <span class="text-[#c78a5c]">Vous n’êtes clairement pas le seul·e.</span>
+    </h2>
+    <div class="max-w-xl mx-auto text-left">
+      <ul id="probleme-list" class="space-y-5 text-lg font-nunito">
+        <li id="probleme-item-1" class="flex items-start gap-3 leading-relaxed opacity-0">
+          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="alarm-clock"></i>
+          <p class="m-0">Relances, saisies, suivis : tout retombe (encore et toujours) sur vous.</p>
+        </li>
+        <li id="probleme-item-2" class="flex items-start gap-3 leading-relaxed opacity-0">
+          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="rotate-cw"></i>
+          <p class="m-0">Ces tâches chronophages tournent en boucle — c’est usant, et vous le savez.</p>
+        </li>
+        <li id="probleme-item-3" class="flex items-start gap-3 leading-relaxed opacity-0">
+          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="database"></i>
+          <p class="m-0">Fichiers, emails, post-its : plus on jongle, plus l’erreur guette.</p>
+        </li>
+        <li id="probleme-item-4" class="flex items-start gap-3 leading-relaxed opacity-0">
+          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="user-x"></i>
+          <p class="m-0">Jamais de temps pour automatiser… ni pour prendre du recul ou lancer de nouveaux projets.</p>
+        </li>
+      </ul>
+    </div>
+    <div id="probleme-note"
+      class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed opacity-0">
+      Ce n’est pas une fatalité.<br>
+      L’automatisation remet vos journées à l’endroit, et votre énergie là où elle compte.
+    </div>
+    <div class="mt-8 text-center">
+      <a id="probleme-cta" href="#cta"
+        class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
+        Je veux reprendre le contrôle - Je réserve mon appel offert
+      </a>
+    </div>
+  </div>
+</section>
+
 
     <!-- 🤖 SECTION MÉTHODE AUTOMATION / IA -->
 
@@ -1120,22 +1120,72 @@
     document.querySelector('.tab-btn').click();
   </script>
 
-<script>
-window.addEventListener('scroll', function () {
-  const header = document.getElementById('main-header');
-  if (window.scrollY > 10) {
-    header.style.background = 'rgba(37, 53, 63, 0.68)';
-    header.style.boxShadow = '0 8px 32px 0 rgba(31, 38, 135, 0.12)';
-    header.style.backdropFilter = 'blur(12px)';
-    header.style.borderBottom = '1px solid #7ea1c433';
-  } else {
-    header.style.background = 'rgba(37, 53, 63, 1)';
-    header.style.boxShadow = 'none';
-    header.style.backdropFilter = 'none';
-    header.style.borderBottom = '1px solid #7ea1c433';
-  }
+  <script>
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 10) {
+        header.style.background = 'rgba(37, 53, 63, 0.68)';
+        header.style.boxShadow = '0 8px 32px 0 rgba(31, 38, 135, 0.12)';
+        header.style.backdropFilter = 'blur(12px)';
+        header.style.borderBottom = '1px solid #7ea1c433';
+      } else {
+        header.style.background = 'rgba(37, 53, 63, 1)';
+        header.style.boxShadow = 'none';
+        header.style.backdropFilter = 'none';
+        header.style.borderBottom = '1px solid #7ea1c433';
+      }
+    });
+  </script>
+
+  <!-- Script Animation MotionOne -->
+  <script type="module">
+import { animate, inView } from "https://cdn.jsdelivr.net/npm/@motionone/dom/+esm";
+
+// Animation cascade du texte (lead, titre, desc, CTA)
+inView("#hero-lead", () => {
+  animate("#hero-lead", { opacity: [0, 1], y: [-30, 0] }, { duration: 0.7, easing: "ease" });
 });
-</script>
+inView("#hero-title", () => {
+  animate("#hero-title", { opacity: [0, 1], y: [-30, 0] }, { delay: 0.10, duration: 0.7, easing: "ease" });
+});
+inView("#hero-desc", () => {
+  animate("#hero-desc", { opacity: [0, 1], y: [-20, 0] }, { delay: 0.20, duration: 0.7, easing: "ease" });
+});
+inView("#hero-cta", () => {
+  animate("#hero-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 0.33, duration: 0.6, easing: "ease" });
+});
+
+// Social proof block
+inView("#hero-social-proof", () => {
+  animate("#hero-social-proof", { opacity: [0, 1], y: [30, 0] }, { delay: 0.40, duration: 0.6, easing: "ease" });
+  // Stagger avatars
+  [1, 2, 3, 4, 5, 6].forEach((n, i) => {
+    animate(`#hero-avatar-${n}`, { opacity: [0, 1], x: [-10, 0] }, { delay: 0.54 + i * 0.10, duration: 0.45, easing: "ease" });
+  });
+});
+
+// Image hero (fade-in avec slide droite)
+inView("#hero-img-col", () => {
+  animate("#hero-img-col", { opacity: [0, 1], x: [30, 0] }, { delay: 0.2, duration: 0.8, easing: "ease" });
+});
+
+// SECTION PROBLEME — Apparition cascade des éléments
+inView("#probleme-title", () => {
+  animate("#probleme-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
+});
+[1, 2, 3, 4].forEach((n, i) => {
+  inView(`#probleme-item-${n}`, () => {
+    animate(`#probleme-item-${n}`, { opacity: [0, 1], x: [-24, 0] }, { delay: 0.15 + i * 0.14, duration: 0.65, easing: "ease" });
+  });
+});
+inView("#probleme-note", () => {
+  animate("#probleme-note", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.8, duration: 0.6, easing: "ease" });
+});
+inView("#probleme-cta", () => {
+  animate("#probleme-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 1.05, duration: 0.55, easing: "ease" });
+});
+
+  </script>
 
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
