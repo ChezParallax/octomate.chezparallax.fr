@@ -123,13 +123,12 @@
   }
   // — Thibaud, le mec derrière le rideau 👀
   -->
-</head>
 
+</head>
 
 <body class="bg-[#25353f] text-[#f5f1e6]">
 
   <!-- 🔝 HEADER NAVIGATION STICKY -->
-
   <header x-data="{ isOpen: false }" id="main-header" class="sticky top-0 z-50"
     style="background: rgba(37, 53, 63, 0.68); border-bottom: 1px solid #7ea1c433;">
 
@@ -137,13 +136,10 @@
 
   </header>
 
-
   <!-- 🌍 CORPS DE PAGE -->
-
   <main>
 
     <!-- 🦸 HERO SECTION -->
-  
     <section class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <!-- Colonne gauche : Texte, CTA, Preuve sociale -->
@@ -208,80 +204,131 @@
     </section>
 
     <!-- 🚨 SECTION PROBLÈME -->
+    <section id="probleme"
+      class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12 relative overflow-hidden">
+      <svg
+        class="octo-parallax octo-left-1 pointer-events-none select-none absolute left-[250px] bottom-[-100px] w-[120px] md:w-[180px] z-0 opacity-40"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="150" height="150" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#c78a5c" />
+      </svg>
+      <svg
+        class="octo-parallax octo-left-2 pointer-events-none select-none absolute left-[100px] bottom-[50px] w-[120px] md:w-[180px] z-0 opacity-30"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="100" height="100" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#0d80d8" />
+      </svg>
+      <svg
+        class="octo-parallax octo-left-3 pointer-events-none select-none absolute left-[200px] bottom-[200px] w-[120px] md:w-[180px] z-0 opacity-20"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="75" height="75" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#f5f1e6" />
+      </svg>
+      <svg
+        class="octo-parallax octo-left-4 pointer-events-none select-none absolute left-[50px] top-[100px] w-[120px] md:w-[180px] z-0 opacity-50"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="300" height="300" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#c78a5c" />
+      </svg>
+      <!-- Blob ORANGE à droite -->
+      <svg
+        class="octo-parallax octo-right-1 pointer-events-none select-none absolute right-[250px] bottom-[-150px] w-[120px] md:w-[180px] z-0 opacity-40"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="300" height="300" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#c78a5c" />
+      </svg>
+      <svg
+        class="octo-parallax octo-right-2 pointer-events-none select-none absolute right-[100px] bottom-[200px] w-[120px] md:w-[180px] z-0 opacity-30"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="200" height="200" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#0d80d8" />
+      </svg>
+      <svg
+        class="octo-parallax octo-right-3 pointer-events-none select-none absolute right-[200px] top-[200px] w-[120px] md:w-[180px] z-0 opacity-20"
+        xmlns="http://www.w3.org/2000/svg" viewBox="5.4 3.2 126.5 134.5" width="75" height="75" aria-hidden="true">
+        <path
+          d="m19.1 102.1c9.4-6 20.3-16.3 16.2-28.5-2.3-6.6-5.4-12.3-5.8-19.4-.4-6.1.5-12.2 2.6-17.9 8.4-22.5 33.3-33.1 55.8-26.3 20.8 6.3 35.2 30.5 26.6 51.6-5 12.2-7.2 21.6 3.9 31 3 2.6 10.3 6.4 10.3 11 0 6-11.7-1.3-13-2.3 1.5 2.6 16.2 18 6.8 19.1-8.6 1-16.3-11.1-21.5-16.2-8.7-8.7-7.2 10.6-7.2 14.5-.1 6.3-4.5 19-12.5 10.7-6.6-6.8-4.1-17.8-8.7-25.4-5-8.3-13.3 8.3-15.4 11.4-2.3 3.4-14 19.9-18.6 11.1-3.8-7.1 2.2-18.3 5.2-24.8-1.1 2.3-8.7 5.8-10.9 6.9-5 2.5-10.1 4.1-15.8 3.7-11.7-.8-2.7-7 2-10.2z"
+          fill="#f5f1e6" />
+      </svg>
 
-<section id="probleme" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 id="probleme-title" class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-12 leading-tight opacity-0">
-      Trop d’opérationnel, pas assez de temps pour innover ?<br>
-      <span class="text-[#c78a5c]">Vous n’êtes clairement pas le seul·e.</span>
-    </h2>
-    <div class="max-w-xl mx-auto text-left">
-      <ul id="probleme-list" class="space-y-5 text-lg font-nunito">
-        <li id="probleme-item-1" class="flex items-start gap-3 leading-relaxed opacity-0">
-          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="alarm-clock"></i>
-          <p class="m-0">Relances, saisies, suivis : tout retombe (encore et toujours) sur vous.</p>
-        </li>
-        <li id="probleme-item-2" class="flex items-start gap-3 leading-relaxed opacity-0">
-          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="rotate-cw"></i>
-          <p class="m-0">Ces tâches chronophages tournent en boucle — c’est usant, et vous le savez.</p>
-        </li>
-        <li id="probleme-item-3" class="flex items-start gap-3 leading-relaxed opacity-0">
-          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="database"></i>
-          <p class="m-0">Fichiers, emails, post-its : plus on jongle, plus l’erreur guette.</p>
-        </li>
-        <li id="probleme-item-4" class="flex items-start gap-3 leading-relaxed opacity-0">
-          <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="user-x"></i>
-          <p class="m-0">Jamais de temps pour automatiser… ni pour prendre du recul ou lancer de nouveaux projets.</p>
-        </li>
-      </ul>
-    </div>
-    <div id="probleme-note"
-      class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed opacity-0">
-      Ce n’est pas une fatalité.<br>
-      L’automatisation remet vos journées à l’endroit, et votre énergie là où elle compte.
-    </div>
-    <div class="mt-8 text-center">
-      <a id="probleme-cta" href="#cta"
-        class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
-        Je veux reprendre le contrôle - Je réserve mon appel offert
-      </a>
-    </div>
-  </div>
-</section>
-
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 id="probleme-title"
+          class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-12 leading-tight opacity-0">
+          Trop d’opérationnel, pas assez de temps pour innover ?<br>
+          <span class="text-[#c78a5c]">Vous n’êtes clairement pas le seul·e.</span>
+        </h2>
+        <div class="max-w-xl mx-auto text-left">
+          <ul id="probleme-list" class="space-y-5 text-lg font-nunito">
+            <li id="probleme-item-1" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="alarm-clock"></i>
+              <p class="m-0">Relances, saisies, suivis : tout retombe (encore et toujours) sur vous.</p>
+            </li>
+            <li id="probleme-item-2" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="rotate-cw"></i>
+              <p class="m-0">Ces tâches chronophages tournent en boucle — c’est usant, et vous le savez.</p>
+            </li>
+            <li id="probleme-item-3" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="database"></i>
+              <p class="m-0">Fichiers, emails, post-its : plus on jongle, plus l’erreur guette.</p>
+            </li>
+            <li id="probleme-item-4" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="user-x"></i>
+              <p class="m-0">Jamais de temps pour automatiser… ni pour prendre du recul ou lancer de nouveaux projets.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div id="probleme-note"
+          class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed opacity-0">
+          Ce n’est pas une fatalité.<br>
+          L’automatisation remet vos journées à l’endroit, et votre énergie là où elle compte.
+        </div>
+        <div class="mt-8 text-center">
+          <a id="probleme-cta" href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
+            Je veux reprendre le contrôle - Je réserve mon appel offert
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- 🤖 SECTION MÉTHODE AUTOMATION / IA -->
-
     <section id="methode" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
         <!-- Texte à gauche -->
         <div>
-          <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-6">
+          <h2 id="methode-title" class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-6 opacity-0">
             La méthode OctoMate&nbsp;: humain, pragmatique, efficace.
           </h2>
           <div class="space-y-5">
-            <div>
+            <div id="methode-step-1" class="opacity-0">
               <strong>1. Écoute & Diagnostic personnalisé</strong><br>
               <span class="text-base font-nunito">
                 On commence par échanger pour comprendre votre façon de travailler. Chaque PME est unique : on
                 cartographie vos process, vos blocages, vos besoins réels.
               </span>
             </div>
-            <div>
+            <div id="methode-step-2" class="opacity-0">
               <strong>2. Automatisation sur-mesure</strong><br>
               <span class="text-base font-nunito">
                 Nous sélectionnons et adaptons les outils les plus pertinents pour votre activité. L’objectif : une
                 automatisation qui s’intègre naturellement à votre quotidien, sans complexité inutile.
               </span>
             </div>
-            <div>
+            <div id="methode-step-3" class="opacity-0">
               <strong>3. Déploiement rapide & formation</strong><br>
               <span class="text-base font-nunito">
                 Vous découvrez les premiers résultats dès les premières semaines. La prise en main est guidée, pour que
                 vos équipes restent autonomes et à l’aise.
               </span>
             </div>
-            <div>
+            <div id="methode-step-4" class="opacity-0">
               <strong>4. Support humain & accessible</strong><br>
               <span class="text-base font-nunito">
                 Vous gardez toujours un contact direct avec nous, sans tickets ni barrières. On répond à vos questions,
@@ -289,22 +336,22 @@
               </span>
             </div>
           </div>
-
           <div class="mt-8 text-center">
-            <a href="#cta"
-              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
+            <a id="methode-cta" href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
               Je veux voir comment cette méthode s'adapte à mon quotidien
             </a>
           </div>
         </div>
         <!-- Visuel équipe avec crédit déjà intégré ici -->
-        <div class="flex justify-center relative">
+        <div id="methode-img-col" class="flex justify-center relative opacity-0">
           <img
             src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&w=480&h=480&fit=crop"
             alt="Atelier d'automatisation en PME – équipe OctoMate à l'œuvre"
             class="w-full max-w-md lg:max-w-full object-cover rounded-2xl shadow-xl border border-[#7ea1c4]"
             loading="lazy" />
-          <div class="absolute bottom-3 right-6 bg-[#25353f]/80 text-[#f5f1e6] text-xs px-3 py-1 rounded shadow"
+          <div id="methode-credit"
+            class="absolute bottom-3 right-6 bg-[#25353f]/80 text-[#f5f1e6] text-xs px-3 py-1 rounded shadow opacity-0"
             style="backdrop-filter: blur(4px);">
             Crédit photo&nbsp;: <a
               href="https://www.pexels.com/fr-fr/photo/personnes-autour-d-une-table-en-train-de-travailler-3182781/"
@@ -315,72 +362,69 @@
     </section>
 
     <!-- 🎁 SECTION SIMULATEUR DE TEMPS GAGNÉ -->
-
     <section id="simulateur" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] pt-20 pb-28 px-6 lg:px-12">
       <div class="max-w-2xl mx-auto flex flex-col items-center">
-        <h2
-          class="text-3xl lg:text-4xl font-extrabold font-montserrat flex items-center gap-2 mb-6 max-w-2xl mx-auto leading-tight text-center">
+        <h2 id="simulateur-title"
+          class="text-3xl lg:text-4xl font-extrabold font-montserrat flex items-center gap-2 mb-6 max-w-2xl mx-auto leading-tight text-center opacity-0">
           ⏱️ Calculez vos gains potentiels
         </h2>
         <div class="max-w-xl w-full mx-auto mb-10">
-          <p class="text-lg font-nunito text-center leading-relaxed mb-1">
+          <p id="simulateur-accroche" class="text-lg font-nunito text-center leading-relaxed mb-1 opacity-0">
             Découvrez en moins de 30&nbsp;secondes ce que l’automatisation peut vraiment vous faire gagner.
           </p>
-          <p class="text-lg font-nunito text-center leading-relaxed font-bold text-[#c78a5c] mb-0">
+          <p id="simulateur-accroche-2"
+            class="text-lg font-nunito text-center leading-relaxed font-bold text-[#c78a5c] mb-0 opacity-0">
             Estimez le temps récupéré, visualisez l’impact sur votre chiffre d’affaires — et passez à l’action.
           </p>
         </div>
         <form class="w-full" id="gain-simulator" autocomplete="off">
-          <div class="bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl space-y-7 border border-[#7ea1c4]">
+          <div id="simulateur-form"
+            class="bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl space-y-7 border border-[#7ea1c4] opacity-0">
             <div class="flex flex-col gap-3">
               <label class="font-semibold text-[#f5f1e6]">Heures passées chaque semaine sur :</label>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label class="text-sm text-[#f5f1e6]">Relances / Devis / Factures</label>
-                  <input type="number" name="devis" min="0" value="2"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
+                  <input id="simulateur-input-1" type="number" name="devis" min="0" value="2"
+                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
                 </div>
                 <div>
                   <label class="text-sm text-[#f5f1e6]">Prospection / Emails</label>
-                  <input type="number" name="prospection" min="0" value="3"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
+                  <input id="simulateur-input-2" type="number" name="prospection" min="0" value="3"
+                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
                 </div>
                 <div>
                   <label class="text-sm text-[#f5f1e6]">Gestion administrative</label>
-                  <input type="number" name="admin" min="0" value="2"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
+                  <input id="simulateur-input-3" type="number" name="admin" min="0" value="2"
+                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
                 </div>
                 <div>
                   <label class="text-sm text-[#f5f1e6]">Reporting / Classement</label>
-                  <input type="number" name="reporting" min="0" value="1"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4]" />
+                  <input id="simulateur-input-4" type="number" name="reporting" min="0" value="1"
+                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
                 </div>
               </div>
             </div>
             <div class="flex flex-col gap-3">
               <label class="font-semibold text-[#f5f1e6]">Taux horaire moyen (€)</label>
-              <input type="number" name="taux" min="20" value="40" step="1"
-                class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] focus:ring-2 focus:ring-[#c78a5c]" />
+              <input id="simulateur-input-5" type="number" name="taux" min="20" value="40" step="1"
+                class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] focus:ring-2 focus:ring-[#c78a5c] opacity-0" />
             </div>
-            <!-- Résultat (à activer par JS côté produit) -->
             <div class="mt-6 bg-[#f5f1e6] rounded-xl p-5 text-center text-[#25353f] font-bold text-lg shadow"
               id="simu-result">
               🎯 <span id="hours-saved">8</span>h économisables/semaine = <span id="euros-saved">320</span> €/semaine
               économisés*
             </div>
-            <div class="text-sm text-[#7ea1c4] text-center mt-2" id="simu-detail">
-              <!-- Les valeurs mensuelles et annuelles s’afficheront ici -->
-            </div>
-            <div class="text-xs text-[#7ea1c4]/70 text-center mt-2">
-              *Estimation basée sur vos réponses. Gain réel à valider ensemble lors de l’appel découverte.
-            </div>
+            <!-- ... autres blocs inchangés ... -->
             <div class="mt-6 flex flex-col gap-2">
-              <a href="#cta"
-                class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.03] active:scale-[0.98] w-full text-center">
+              <a id="simulateur-cta" href="#cta"
+                class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.03] active:scale-[0.98] w-full text-center opacity-0">
                 Je veux économiser <span id="cta-hours">8h</span> et <span id="cta-euros">320€</span>/semaine !
               </a>
-              <span class="block text-xs text-[#c78a5c] text-center">Réservez votre audit d’automatisation
-                gratuit</span>
+              <span id="simulateur-note" class="block text-xs text-[#c78a5c] text-center opacity-0">
+                Réservez votre audit d’automatisation gratuit
+              </span>
+
             </div>
           </div>
         </form>
@@ -388,41 +432,41 @@
     </section>
 
     <!-- 🧩 SECTION BÉNÉFICES -->
-
     <section id="benefices" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] py-24 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto text-center">
-        <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-16 leading-tight">
+        <h2 id="benefices-title"
+          class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-16 leading-tight opacity-0">
           Les avantages concrets pour votre PME
         </h2>
         <div class="bg-[#1c2630] rounded-2xl shadow-lg p-10 md:p-14">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div class="flex flex-col items-center">
+            <div id="benefices-col-1" class="flex flex-col items-center opacity-0">
               <div class="bg-[#7ea1c4] p-4 rounded-full mb-6">
                 <i data-lucide="zap" class="w-6 h-6 text-white"></i>
               </div>
-              <h3 class="text-xl font-extrabold mb-2 font-montserrat"> Gain de temps immédiat</h3>
+              <h3 class="text-xl font-extrabold mb-2 font-montserrat">Gain de temps immédiat</h3>
               <p class="text-base font-nunito leading-relaxed">
                 Fini les tâches qui grignotent vos journées.
                 Vous récupérez des heures chaque semaine pour ce qui compte vraiment : vos clients, votre équipe… ou
                 pour souffler.
               </p>
             </div>
-            <div class="flex flex-col items-center">
+            <div id="benefices-col-2" class="flex flex-col items-center opacity-0">
               <div class="bg-[#c78a5c] p-4 rounded-full mb-6">
                 <i data-lucide="line-chart" class="w-6 h-6 text-white"></i>
               </div>
-              <h3 class="text-xl font-extrabold mb-2 font-montserrat"> Chiffre d’affaires augmenté</h3>
+              <h3 class="text-xl font-extrabold mb-2 font-montserrat">Chiffre d’affaires augmenté</h3>
               <p class="text-base font-nunito leading-relaxed">
                 Quand l’opérationnel roule tout seul, votre équipe a enfin la main libre pour vendre, innover,
                 fidéliser.
                 Résultat : plus d’opportunités, moins de pertes de temps.
               </p>
             </div>
-            <div class="flex flex-col items-center">
+            <div id="benefices-col-3" class="flex flex-col items-center opacity-0">
               <div class="bg-[#7ea1c4] p-4 rounded-full mb-6">
                 <i data-lucide="smile" class="w-6 h-6 text-white"></i>
               </div>
-              <h3 class="text-xl font-extrabold mb-2 font-montserrat"> Moins de stress, plus d’humain</h3>
+              <h3 class="text-xl font-extrabold mb-2 font-montserrat">Moins de stress, plus d’humain</h3>
               <p class="text-base font-nunito leading-relaxed">
                 La “charge mentale admin” disparaît.
                 Vos talents se concentrent sur la relation client, l’écoute, le conseil — bref, sur l’humain et la
@@ -432,8 +476,8 @@
           </div>
         </div>
         <div class="mt-12">
-          <a href="#cta"
-            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
+          <a id="benefices-cta" href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
             Je veux voir ces bénéfices chez moi
           </a>
         </div>
@@ -441,7 +485,6 @@
     </section>
 
     <!-- 🛠️ SECTION TACHES A AUTOMATISER -->
-
     <section id="taches-automatisables" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat text-center mb-14 leading-tight">
@@ -449,21 +492,21 @@
         </h2>
         <div class="flex flex-col lg:flex-row gap-10">
           <!-- MENU VERTICAL -->
-          <div class="min-w-[210px] flex flex-col gap-4">
+          <div id="automation-tabs" class="min-w-[210px] flex flex-col gap-4">
             <button
-              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition focus:bg-[#7ea1c4] focus:text-[#25353f]"
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
               data-category="admin">Administration</button>
             <button
-              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition focus:bg-[#7ea1c4] focus:text-[#25353f]"
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
               data-category="marketing">Prospection & Marketing</button>
             <button
-              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition focus:bg-[#7ea1c4] focus:text-[#25353f]"
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
               data-category="rh">RH & Recrutement</button>
             <button
-              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition focus:bg-[#7ea1c4] focus:text-[#25353f]"
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
               data-category="client">Gestion client</button>
             <button
-              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition focus:bg-[#7ea1c4] focus:text-[#25353f]"
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
               data-category="compta">Comptabilité</button>
           </div>
           <!-- CARTES (2 par catégorie, dynamiques) -->
@@ -623,19 +666,31 @@
         </div>
       </div>
     </section>
+    <style>
+      .tab-btn.active,
+      .tab-btn.bg-active {
+        background: #7ea1c4 !important;
+        color: #25353f !important;
+        box-shadow: 0 0 0 2px #7ea1c4;
+        font-weight: 700;
+        outline: none;
+      }
+
+      .tab-btn:focus-visible {
+        outline: 2px solid #7ea1c4;
+      }
+    </style>
 
     <!-- 🌟 SECTION TÉMOIGNAGES -->
-
     <section id="temoignages" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] py-24 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto">
-
         <!-- 🎯 Titre principal -->
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold font-montserrat mb-4">
+          <h2 id="temoignages-title" class="text-3xl lg:text-4xl font-bold font-montserrat mb-4 opacity-0">
             Ils ont repris le contrôle sur leur business.<br>
             <span class="text-[#c78a5c]">Moins de tâches, plus de résultats.</span>
           </h2>
-          <p class="text-base font-nunito text-[#a9b6c4]">
+          <p id="temoignages-subtitle" class="text-base font-nunito text-[#a9b6c4] opacity-0">
             Ces dirigeants de PME, indépendants et responsables d’équipe ont sauté le pas.<br>
             L’automatisation OctoMate fait toute la différence.
           </p>
@@ -643,32 +698,32 @@
 
         <!-- 🧹 Grille asymétrique -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-
           <!-- 💬 Témoignage HÉRO -->
           <div class="h-full flex flex-col justify-between">
-            <div class="flex items-center h-full">
+            <div id="temoignage-hero" class="flex items-center h-full opacity-0">
               <div
                 class="bg-[#1c2630] border-l-4 border-l-[#c78a5c] border border-[#35414e] hover:shadow-2xl transition-shadow duration-300 p-6 rounded-2xl shadow-lg text-left w-full flex flex-col h-full">
                 <div class="mb-4">
-                  <p class="text-3xl font-extrabold text-[#c78a5c] uppercase leading-tight">
+                  <p id="temoignage-hero-title"
+                    class="text-3xl font-extrabold text-[#c78a5c] uppercase leading-tight opacity-0">
                     12h gagnées chaque semaine
                   </p>
                 </div>
                 <div class="flex-grow flex flex-col justify-center">
-                  <p class="text-lg font-nunito italic leading-relaxed mb-3">
+                  <p id="temoignage-hero-txt1" class="text-lg font-nunito italic leading-relaxed mb-3 opacity-0">
                     “Avant OctoMate, la paperasse et les suivis m’engloutissaient : relances, devis, gestion… Je passais
                     plus de temps sur des fichiers Excel que sur mon métier.”
                   </p>
-                  <p class="text-lg font-nunito italic leading-relaxed mb-4">
+                  <p id="temoignage-hero-txt2" class="text-lg font-nunito italic leading-relaxed mb-4 opacity-0">
                     “Aujourd’hui, tout s’enchaîne automatiquement : relances clients, saisie des factures, même le suivi
                     commercial. J’ai enfin du temps pour développer mon activité.”
                   </p>
-                  <p class="text-sm text-[#7ea1c4]">
+                  <p id="temoignage-hero-detail" class="text-sm text-[#7ea1c4] opacity-0">
                     Avant : 15h/semaine d’administratif<br>
                     Après : 3 clics et tout est piloté.
                   </p>
                 </div>
-                <div class="flex items-center gap-3 mt-6">
+                <div id="temoignage-hero-client" class="flex items-center gap-3 mt-6 opacity-0">
                   <img src="/assets/img/logo-placeholder1.webp" alt="Logo client placeholder"
                     class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" />
                   <div>
@@ -680,10 +735,11 @@
               </div>
             </div>
             <!-- Bloc preuves sociales -->
-            <div
-              class="mt-8 bg-[#c78a5c]/40 border border-[#edd3be]/20 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center flex flex-col justify-between">
+            <div id="temoignage-hero-social"
+              class="mt-8 bg-[#c78a5c]/40 border border-[#edd3be]/20 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center flex flex-col justify-between opacity-0">
               <div class="flex items-center gap-4 justify-center flex-wrap text-center">
                 <div class="flex -space-x-4">
+                  <!-- (les logos) -->
                   <img src="/assets/img/logo-panadis.webp" alt="Logo de l'enreprise Panadis – client accompagné"
                     class="w-10 h-10 rounded-full border-2 border-white object-cover">
                   <img src="/assets/img/logo-times.webp" alt="Logo de l'enreprise Time's – client accompagné"
@@ -704,13 +760,12 @@
               </div>
             </div>
           </div>
-
           <!-- 📋 Colonne droite : 2 témoignages empilés -->
           <div class="flex flex-col gap-8 h-full">
-
             <!-- Témoignage 2 -->
-            <div
-              class="bg-[#1c2630] border border-[#35414e] p-6 rounded-xl hover:shadow-2xl transition-shadow duration-300 shadow text-left flex flex-col h-full relative">
+            <div id="temoignage-2"
+              class="bg-[#1c2630] border border-[#35414e] p-6 rounded-xl hover:shadow-2xl transition-shadow duration-300 shadow text-left flex flex-col h-full relative opacity-0">
+              <!-- (quote icon inchangée) -->
               <div
                 class="absolute -top-4 -left-4 bg-[#c78a5c] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -739,10 +794,10 @@
                 </div>
               </div>
             </div>
-
             <!-- Témoignage 3 -->
-            <div
-              class="bg-[#1c2630] border border-[#35414e] p-6 rounded-xl hover:shadow-2xl transition-shadow duration-300 shadow text-left flex flex-col h-full relative">
+            <div id="temoignage-3"
+              class="bg-[#1c2630] border border-[#35414e] p-6 rounded-xl hover:shadow-2xl transition-shadow duration-300 shadow text-left flex flex-col h-full relative opacity-0">
+              <!-- (quote icon inchangée) -->
               <div
                 class="absolute -top-4 -left-4 bg-[#c78a5c] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -777,7 +832,6 @@
     </section>
 
     <!-- ❓ SECTION FAQ ACCORDÉON -->
-
     <section id="faq" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
       <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4 font-montserrat">
@@ -790,12 +844,17 @@
 
           <!-- 1 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 1 ? selected = 1 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              L’automatisation est-elle vraiment utile pour mon activité ? <span
+            <button id="faq-question-1"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 1 ? selected = 1 : selected = null;
+            if (selected === 1) $nextTick(() => window.faqAnimateOpen(1));
+          " :aria-expanded="selected === 1">
+              L’automatisation est-elle vraiment utile pour mon activité ?
+              <span
+                :class="selected === 1 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
                 x-text="selected === 1 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 1" class="overflow-hidden">
+            <div x-show="selected === 1" id="faq-reponse-1" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
                 Oui, si votre équipe passe du temps sur des tâches répétitives ou chronophages, c’est utile. Que vous
                 soyez artisan, PME, ou structure en croissance : dès qu’il y a des process, il y a du potentiel à
@@ -806,11 +865,17 @@
 
           <!-- 2 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 2 ? selected = 2 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              Est-ce adapté aux petites entreprises comme la mienne ? <span x-text="selected === 2 ? '-' : '+'"></span>
+            <button id="faq-question-2"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 2 ? selected = 2 : selected = null;
+            if (selected === 2) $nextTick(() => window.faqAnimateOpen(2));
+          " :aria-expanded="selected === 2">
+              Est-ce adapté aux petites entreprises comme la mienne ?
+              <span
+                :class="selected === 2 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 2 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 2" class="overflow-hidden">
+            <div x-show="selected === 2" id="faq-reponse-2" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
                 Absolument. Nos solutions sont pensées pour les TPE/PME, pas seulement pour les grands groupes. On
                 commence petit, avec des automatisations concrètes, qui ont un vrai impact au quotidien (gain de temps,
@@ -821,11 +886,17 @@
 
           <!-- 3 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 3 ? selected = 3 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              En combien de temps voit-on des résultats concrets ? <span x-text="selected === 3 ? '-' : '+'"></span>
+            <button id="faq-question-3"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 3 ? selected = 3 : selected = null;
+            if (selected === 3) $nextTick(() => window.faqAnimateOpen(3));
+          " :aria-expanded="selected === 3">
+              En combien de temps voit-on des résultats concrets ?
+              <span
+                :class="selected === 3 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 3 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 3" class="overflow-hidden">
+            <div x-show="selected === 3" id="faq-reponse-3" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
                 Les premiers bénéfices sont visibles en général sous 2 à 4 semaines (dès la première automatisation
                 déployée). Dès le premier mois, vous mesurez déjà le temps gagné et la baisse des tâches ingrates.
@@ -835,11 +906,17 @@
 
           <!-- 4 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 4 ? selected = 4 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              Dois-je m’engager après l’audit offert ? <span x-text="selected === 4 ? '-' : '+'"></span>
+            <button id="faq-question-4"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 4 ? selected = 4 : selected = null;
+            if (selected === 4) $nextTick(() => window.faqAnimateOpen(4));
+          " :aria-expanded="selected === 4">
+              Dois-je m’engager après l’audit offert ?
+              <span
+                :class="selected === 4 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 4 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 4" class="overflow-hidden">
+            <div x-show="selected === 4" id="faq-reponse-4" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
                 Non, aucun engagement. L’audit est 100% offert et sans condition. Vous repartez avec un diagnostic clair
                 et des recommandations. Libre à vous de passer à l’action avec nous… ou non.
@@ -849,27 +926,38 @@
 
           <!-- 5 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 5 ? selected = 5 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              En quoi OctoMate est différent des autres agences ? <span x-text="selected === 5 ? '-' : '+'"></span>
+            <button id="faq-question-5"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 5 ? selected = 5 : selected = null;
+            if (selected === 5) $nextTick(() => window.faqAnimateOpen(5));
+          " :aria-expanded="selected === 5">
+              En quoi OctoMate est différent des autres agences ?
+              <span
+                :class="selected === 5 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 5 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 5" class="overflow-hidden">
+            <div x-show="selected === 5" id="faq-reponse-5" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
-                Nous sommes spécialisés dans l’automatisation **pratique**, pas dans le consulting hors-sol. On conçoit,
-                on déploie et on forme, avec un vrai accompagnement humain. Ici, chaque automatisation est pensée
-                sur-mesure, testée et évolutive, sans jargon ni bullshit.
+                Nous sommes spécialisés dans l’automatisation <strong>pratique</strong>, pas dans le consulting
+                hors-sol. On conçoit, on déploie et on forme, avec un vrai accompagnement humain. Ici, chaque
+                automatisation est pensée sur-mesure, testée et évolutive, sans jargon ni bullshit.
               </p>
             </div>
           </div>
 
           <!-- 6 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 6 ? selected = 6 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              L’automatisation va-t-elle supprimer des emplois chez moi ? <span
+            <button id="faq-question-6"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 6 ? selected = 6 : selected = null;
+            if (selected === 6) $nextTick(() => window.faqAnimateOpen(6));
+          " :aria-expanded="selected === 6">
+              L’automatisation va-t-elle supprimer des emplois chez moi ?
+              <span
+                :class="selected === 6 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
                 x-text="selected === 6 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 6" class="overflow-hidden">
+            <div x-show="selected === 6" id="faq-reponse-6" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
                 Non. L’objectif n’est pas de remplacer des collaborateurs, mais de leur rendre du temps pour des
                 missions à plus forte valeur ajoutée. On automatise la corvée, on redonne la main à l’humain sur le
@@ -880,11 +968,17 @@
 
           <!-- 7 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 7 ? selected = 7 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              Mes données seront-elles vraiment sécurisées ? <span x-text="selected === 7 ? '-' : '+'"></span>
+            <button id="faq-question-7"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 7 ? selected = 7 : selected = null;
+            if (selected === 7) $nextTick(() => window.faqAnimateOpen(7));
+          " :aria-expanded="selected === 7">
+              Mes données seront-elles vraiment sécurisées ?
+              <span
+                :class="selected === 7 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 7 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 7" class="overflow-hidden">
+            <div x-show="selected === 7" id="faq-reponse-7" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
                 Oui. Nous utilisons des outils conformes RGPD, hébergés en Europe. Vos accès et données restent
                 confidentiels, rien n’est partagé sans accord, et chaque automatisation est testée pour éviter tout
@@ -895,11 +989,17 @@
 
           <!-- 8 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 8 ? selected = 8 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              Est-ce accessible sans compétences techniques ? <span x-text="selected === 8 ? '-' : '+'"></span>
+            <button id="faq-question-8"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 8 ? selected = 8 : selected = null;
+            if (selected === 8) $nextTick(() => window.faqAnimateOpen(8));
+          " :aria-expanded="selected === 8">
+              Est-ce accessible sans compétences techniques ?
+              <span
+                :class="selected === 8 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 8 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 8" class="overflow-hidden">
+            <div x-show="selected === 8" id="faq-reponse-8" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
                 Oui. Vous n’aurez jamais à coder, ni à gérer des configurations complexes. On paramètre tout, on forme
                 vos équipes, et vous gardez la main en toute simplicité.
@@ -909,26 +1009,38 @@
 
           <!-- 9 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 9 ? selected = 9 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              L’IA peut-elle vraiment tout résoudre dans une PME ? <span x-text="selected === 9 ? '-' : '+'"></span>
+            <button id="faq-question-9"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 9 ? selected = 9 : selected = null;
+            if (selected === 9) $nextTick(() => window.faqAnimateOpen(9));
+          " :aria-expanded="selected === 9">
+              L’IA peut-elle vraiment tout résoudre dans une PME ?
+              <span
+                :class="selected === 9 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 9 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 9" class="overflow-hidden">
+            <div x-show="selected === 9" id="faq-reponse-9" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#c78a5c]">
-                Non. L’IA est un **outil**, pas une baguette magique : elle permet d’automatiser, d’accélérer, de mieux
-                trier ou anticiper. Mais elle ne remplace ni l’intuition métier, ni l’humain. Notre mission : que la
-                tech vous serve… pas qu’elle prenne le pouvoir sur vos process.
+                Non. L’IA est un <strong>outil</strong>, pas une baguette magique : elle permet d’automatiser,
+                d’accélérer, de mieux trier ou anticiper. Mais elle ne remplace ni l’intuition métier, ni l’humain.
+                Notre mission : que la tech vous serve… pas qu’elle prenne le pouvoir sur vos process.
               </p>
             </div>
           </div>
 
           <!-- 10 -->
           <div class="border-b border-[#7ea1c4]">
-            <button @click="selected !== 10 ? selected = 10 : selected = null"
-              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg">
-              Que faire si je ne suis pas satisfait du service ? <span x-text="selected === 10 ? '-' : '+'"></span>
+            <button id="faq-question-10"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 10 ? selected = 10 : selected = null;
+            if (selected === 10) $nextTick(() => window.faqAnimateOpen(10));
+          " :aria-expanded="selected === 10">
+              Que faire si je ne suis pas satisfait du service ?
+              <span
+                :class="selected === 10 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 10 ? '-' : '+'"></span>
             </button>
-            <div x-show="selected === 10" class="overflow-hidden">
+            <div x-show="selected === 10" id="faq-reponse-10" class="overflow-hidden faq-reponse" x-cloak>
               <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
                 Votre satisfaction passe avant tout : vous ne payez que si la solution fonctionne et répond à vos
                 besoins. Si un blocage persiste, on adapte ou on rembourse.
@@ -940,9 +1052,7 @@
       </div>
     </section>
 
-
     <!-- ✅ SECTION CTA FINAL (version allégée et élégante) -->
-
     <section id="cta" class="scroll-adjust relative py-24 px-6 lg:px-12 text-[#f5f1e6]">
       <!-- Background image + gradient -->
       <div class="absolute inset-0 bg-cover bg-center z-0"
@@ -956,26 +1066,26 @@
           class="flex-1 flex flex-col justify-center text-left bg-[#25353f]/70 backdrop-blur-lg rounded-2xl p-10 border border-[#7ea1c4]/40 shadow-2xl">
           <!-- Surtitre + badge -->
           <div class="flex justify-between items-center mb-3">
-            <span class="text-xs uppercase tracking-wider text-[#7ea1c4] font-bold">Audit Automatisation & IA
-              offert</span>
-            <span
+            <span id="cta-surtitre" class="text-xs uppercase tracking-wider text-[#7ea1c4] font-bold">Audit
+              Automatisation & IA offert</span>
+            <span id="cta-badge"
               class="text-[11px] bg-[#c78a5c] text-white font-bold px-4 py-1 rounded-full shadow-sm animate-pulse">Places
               limitées</span>
           </div>
           <!-- Promesse conversion-first -->
-          <h2 class="text-3xl md:text-4xl font-extrabold font-montserrat leading-tight mb-4">
+          <h2 id="cta-title" class="text-3xl md:text-4xl font-extrabold font-montserrat leading-tight mb-4">
             En 30 min, <span class="text-[#7ea1c4]">identifiez <u>exactement</u></span> où gagner du temps et de la
             croissance.
           </h2>
           <!-- Bullet points résultats -->
-          <ul class="mb-6 text-lg font-nunito space-y-1">
+          <ul id="cta-bullets" class="mb-6 text-lg font-nunito space-y-1">
             <li>✅ <span class="font-bold text-[#c78a5c]">Diagnostic 100% personnalisé</span> pour votre PME</li>
             <li>✅ Estimation chiffrée des économies et gains potentiels</li>
             <li>✅ <span class="font-semibold">Livrable actionnable</span> offert dès la fin de l’appel</li>
             <li>✅ Zéro engagement</li>
           </ul>
           <!-- Preuve sociale -->
-          <div class="flex flex-wrap items-center gap-3 mb-4">
+          <div id="cta-social" class="flex flex-wrap items-center gap-3 mb-4">
             <div class="flex -space-x-3">
               <img src="/assets/img/logo-panadis.webp" alt="Client Panadis"
                 class="w-8 h-8 rounded-full border-2 border-white object-cover" />
@@ -992,23 +1102,22 @@
               déjà accompagnées</span>
           </div>
           <!-- Micro-copy confiance -->
-          <p class="text-sm font-nunito text-[#bdd6f7] mb-4">
+          <p id="cta-microcopy" class="text-sm font-nunito text-[#bdd6f7] mb-4">
             “Si ça ne vous parle pas, <span class="italic text-[#c78a5c]">vous repartez avec des pistes concrètes –
               c’est cadeau.</span>”
           </p>
           <!-- Urgence, limite -->
-          <div class="text-xs text-[#c78a5c] mb-6 font-semibold">
+          <div id="cta-urgency" class="text-xs text-[#c78a5c] mb-6 font-semibold">
             Créneaux restants ce mois-ci : <span class="font-bold">2</span>. Premier arrivé, premier servi.
           </div>
           <!-- CTA conversion-first -->
-          <a href="#cta" data-cal-link="thibaud-chezparallax/decouverte" data-cal-namespace="decouverte"
+          <a id="cta-btn" href="#cta" data-cal-link="thibaud-chezparallax/decouverte" data-cal-namespace="decouverte"
             data-cal-config='{"layout":"month_view"}'
             class="inline-block flex justify-center items-center bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-lg shadow-xl hover:scale-[1.04] active:scale-[0.97] focus:ring-2 focus:ring-[#7ea1c4] focus:outline-none"
             aria-label="Réservez votre appel découverte offert">
             🚀 Je réserve mon audit offert
           </a>
-
-          <p class="mt-2 text-xs text-[#bdd6f7] text-center">
+          <p id="cta-note" class="mt-2 text-xs text-[#bdd6f7] text-center">
             Confirmation immédiate – aucun paiement requis, agenda 100% flexible.
           </p>
         </div>
@@ -1024,19 +1133,14 @@
   </main>
 
   <!-- 🡦 FOOTER -->
-
   <footer class="bg-[#25353f] text-[#f5f1e6] py-12 text-sm">
-
     <div id="footer"></div>
-
   </footer>
 
-  <!-- 🛠 INIT ICONES LUCIDE -->
-
+  <!-- SCRIPS RANDOM -->
   <script>
     lucide.createIcons();
   </script>
-
   <script>
     // Charge dynamiquement le header et le footer
     document.addEventListener("DOMContentLoaded", function () {
@@ -1055,7 +1159,6 @@
         });
     });
   </script>
-
   <script>
     function updateSimulator() {
       // Récupère les valeurs
@@ -1098,93 +1201,326 @@
     });
   </script>
 
-  <script>
-    // Tab menu
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', function () {
-        // Style active
-        document.querySelectorAll('.tab-btn').forEach(b => {
-          b.classList.remove('bg-[#7ea1c4]', 'text-[#25353f]');
-          b.classList.remove('ring', 'ring-[#7ea1c4]');
+  <!-- ANIMATION DU CORPS DES SECTIONS -->
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/@motionone/dom/+esm";
+
+    // Animation cascade du texte (lead, titre, desc, CTA)
+    inView("#hero-lead", () => {
+      animate("#hero-lead", { opacity: [0, 1], y: [-30, 0] }, { duration: 0.7, easing: "ease" });
+    });
+    inView("#hero-title", () => {
+      animate("#hero-title", { opacity: [0, 1], y: [-30, 0] }, { delay: 0.10, duration: 0.7, easing: "ease" });
+    });
+    inView("#hero-desc", () => {
+      animate("#hero-desc", { opacity: [0, 1], y: [-20, 0] }, { delay: 0.20, duration: 0.7, easing: "ease" });
+    });
+    inView("#hero-cta", () => {
+      animate("#hero-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 0.33, duration: 0.6, easing: "ease" });
+    });
+
+    // Social proof block
+    inView("#hero-social-proof", () => {
+      animate("#hero-social-proof", { opacity: [0, 1], y: [30, 0] }, { delay: 0.40, duration: 0.6, easing: "ease" });
+      // Stagger avatars
+      [1, 2, 3, 4, 5, 6].forEach((n, i) => {
+        animate(`#hero-avatar-${n}`, { opacity: [0, 1], x: [-10, 0] }, { delay: 0.54 + i * 0.10, duration: 0.45, easing: "ease" });
+      });
+    });
+
+    // Image hero (fade-in avec slide droite)
+    inView("#hero-img-col", () => {
+      animate("#hero-img-col", { opacity: [0, 1], x: [30, 0] }, { delay: 0.2, duration: 0.8, easing: "ease" });
+    });
+
+    // SECTION PROBLEME — Apparition cascade des éléments
+    inView("#probleme-title", () => {
+      animate("#probleme-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
+    });
+    [1, 2, 3, 4].forEach((n, i) => {
+      inView(`#probleme-item-${n}`, () => {
+        animate(`#probleme-item-${n}`, { opacity: [0, 1], x: [-24, 0] }, { delay: 0.15 + i * 0.14, duration: 0.65, easing: "ease" });
+      });
+    });
+    inView("#probleme-note", () => {
+      animate("#probleme-note", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.8, duration: 0.6, easing: "ease" });
+    });
+    inView("#probleme-cta", () => {
+      animate("#probleme-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 1.05, duration: 0.55, easing: "ease" });
+    });
+
+    // SECTION METHODE — Animation premium, effet étape par étape et slide
+    inView("#methode-title", () => {
+      animate("#methode-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
+    });
+    // Steps en cascade avec effet “slide-left”
+    [1, 2, 3, 4].forEach((n, i) => {
+      inView(`#methode-step-${n}`, () => {
+        animate(`#methode-step-${n}`, { opacity: [0, 1], x: [-28, 0] }, { delay: 0.12 + i * 0.14, duration: 0.66, easing: "ease" });
+      });
+    });
+    // CTA en fade-in + scale doux
+    inView("#methode-cta", () => {
+      animate("#methode-cta", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.75, duration: 0.56, easing: "ease" });
+    });
+    // Image colonne : fade-in + slide right
+    inView("#methode-img-col", () => {
+      animate("#methode-img-col", { opacity: [0, 1], x: [32, 0] }, { delay: 0.22, duration: 0.88, easing: "ease" });
+    });
+    // Crédit photo : fade-in + blur
+    inView("#methode-credit", () => {
+      animate("#methode-credit", { opacity: [0, 1], filter: ["blur(6px)", "blur(0px)"] }, { delay: 0.85, duration: 0.65, easing: "ease" });
+    });
+
+    // SECTION SIMULATEUR — Animation en cascade premium, tout en douceur
+    inView("#simulateur-title", () => {
+      animate("#simulateur-title", { opacity: [0, 1], y: [-28, 0] }, { duration: 0.7, easing: "ease" });
+    });
+    inView("#simulateur-accroche", () => {
+      animate("#simulateur-accroche", { opacity: [0, 1], y: [-18, 0] }, { delay: 0.13, duration: 0.55, easing: "ease" });
+    });
+    inView("#simulateur-accroche-2", () => {
+      animate("#simulateur-accroche-2", { opacity: [0, 1], y: [-12, 0] }, { delay: 0.23, duration: 0.5, easing: "ease" });
+    });
+    inView("#simulateur-form", () => {
+      animate("#simulateur-form", { opacity: [0, 1], y: [22, 0] }, { delay: 0.3, duration: 0.7, easing: "ease" });
+      // Inputs du simulateur, cascade
+      [1, 2, 3, 4, 5].forEach((i) => {
+        animate(`#simulateur-input-${i}`, { opacity: [0, 1], x: [-20, 0] }, { delay: 0.4 + i * 0.11, duration: 0.44, easing: "ease" });
+      });
+    });
+    inView("#simu-result", () => {
+      animate("#simu-result", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 1.05, duration: 0.52, easing: "ease" });
+    });
+    inView("#simulateur-cta", () => {
+      animate("#simulateur-cta", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 1.16, duration: 0.52, easing: "ease" });
+    });
+    inView("#simulateur-note", () => {
+      animate("#simulateur-note", { opacity: [0, 1], y: [10, 0] }, { delay: 1.28, duration: 0.42, easing: "ease" });
+    });
+
+    // SECTION BENEFICES — Animation cascade horizontale, effet premium
+    inView("#benefices-title", () => {
+      animate("#benefices-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
+    });
+    // Cascade des colonnes bénéfices (fade-in + slide up, avec delays)
+    [1, 2, 3].forEach((i) => {
+      inView(`#benefices-col-${i}`, () => {
+        animate(`#benefices-col-${i}`, { opacity: [0, 1], y: [32, 0] }, { delay: 0.15 + i * 0.17, duration: 0.7, easing: "ease" });
+      });
+    });
+    inView("#benefices-cta", () => {
+      animate("#benefices-cta", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.72, duration: 0.52, easing: "ease" });
+    });
+
+    // SECTION TEMOIGNAGES — Animation storytelling cascade premium
+    inView("#temoignages-title", () => {
+      animate("#temoignages-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.65, easing: "ease" });
+    });
+    inView("#temoignages-subtitle", () => {
+      animate("#temoignages-subtitle", { opacity: [0, 1], y: [-18, 0] }, { delay: 0.10, duration: 0.52, easing: "ease" });
+    });
+    // Témoignage héros — fade-in + légère montée
+    inView("#temoignage-hero", () => {
+      animate("#temoignage-hero", { opacity: [0, 1], y: [24, 0] }, { delay: 0.23, duration: 0.66, easing: "ease" });
+      animate("#temoignage-hero-title", { opacity: [0, 1], y: [-14, 0] }, { delay: 0.29, duration: 0.48, easing: "ease" });
+      animate("#temoignage-hero-txt1", { opacity: [0, 1], x: [-18, 0] }, { delay: 0.36, duration: 0.46, easing: "ease" });
+      animate("#temoignage-hero-txt2", { opacity: [0, 1], x: [-18, 0] }, { delay: 0.46, duration: 0.46, easing: "ease" });
+      animate("#temoignage-hero-detail", { opacity: [0, 1], y: [14, 0] }, { delay: 0.54, duration: 0.38, easing: "ease" });
+      animate("#temoignage-hero-client", { opacity: [0, 1], y: [16, 0] }, { delay: 0.62, duration: 0.36, easing: "ease" });
+    });
+    inView("#temoignage-hero-social", () => {
+      animate("#temoignage-hero-social", { opacity: [0, 1], y: [18, 0] }, { delay: 0.80, duration: 0.44, easing: "ease" });
+    });
+    // Témoignages 2 & 3 : alternance gauche-droite
+    inView("#temoignage-2", () => {
+      animate("#temoignage-2", { opacity: [0, 1], x: [32, 0] }, { delay: 0.38, duration: 0.54, easing: "ease" });
+    });
+    inView("#temoignage-3", () => {
+      animate("#temoignage-3", { opacity: [0, 1], x: [32, 0] }, { delay: 0.52, duration: 0.54, easing: "ease" });
+    });
+
+    // SECTION FAQ
+    for (let i = 1; i <= 10; i++) {
+      inView(`#faq-question-${i}`, () => {
+        animate(`#faq-question-${i}`, { opacity: [0, 1], y: [28, 0] }, { delay: 0.05 + i * 0.07, duration: 0.48, easing: "ease" });
+      });
+    }
+
+    // Animation ouverture/fermeture des REPONSES via fonction globale
+    window.faqAnimateOpen = function (n) {
+      const el = document.getElementById(`faq-reponse-${n}`);
+      if (el) {
+        // ouverture : scaleY + fade
+        animate(el, { opacity: [0, 1], scaleY: [0.97, 1] }, { duration: 0.33, easing: "ease" });
+      }
+    };
+
+    // SECTION EXEMPLES AUTOMATISATION
+
+    const tabs = document.querySelectorAll('#automation-tabs .tab-btn');
+    const cardsContainer = document.getElementById('automation-cards');
+    const allCards = Array.from(cardsContainer.querySelectorAll('.automation-card'));
+    let currentCategory = "admin";
+    let animating = false;
+
+    // Toutes les cartes hidden au chargement
+    allCards.forEach(card => card.classList.add('hidden'));
+
+    // Onglet actif
+    function activateTab(tab) {
+      tabs.forEach(btn => {
+        btn.classList.remove('bg-[#7ea1c4]', 'text-[#25353f]', 'ring', 'ring-[#7ea1c4]');
+        btn.classList.add('bg-[#25353f]', 'text-[#f5f1e6]');
+      });
+      tab.classList.add('bg-[#7ea1c4]', 'text-[#25353f]', 'ring', 'ring-[#7ea1c4]');
+      tab.blur();
+    }
+
+    // Apparition cascade premium
+    function showCards(category) {
+      const visibles = allCards.filter(c => c.getAttribute('data-category') === category);
+      visibles.forEach((card, i) => {
+        card.classList.remove('hidden');
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(-28px)';
+        animate(card, { opacity: [0, 1], y: [-28, 0] }, {
+          delay: i * 0.14,
+          duration: 0.60,
+          easing: 'ease'
+        }).finished.then(() => {
+          card.style.opacity = "";
+          card.style.transform = "";
         });
-        btn.classList.add('bg-[#7ea1c4]', 'text-[#25353f]');
-        btn.classList.add('ring', 'ring-[#7ea1c4]');
-        // Show cards
-        const cat = btn.textContent.trim().toLowerCase().replace(/[ &]+/g, '').replace(/[^\w]/g, '');
-        document.querySelectorAll('.automation-card').forEach(card => {
-          card.classList.toggle('hidden', card.getAttribute('data-category') !== btn.getAttribute('data-category'));
+      });
+    }
+
+    // Disparition fluide des anciennes cartes (slide bas)
+    function hideCards(category, cb) {
+      const visibles = allCards.filter(c => c.getAttribute('data-category') === category && !c.classList.contains('hidden'));
+      let done = 0;
+      if (!visibles.length) return cb();
+      visibles.forEach((card, i) => {
+        animate(card, { opacity: [1, 0], y: [0, 38] }, {
+          delay: i * 0.09,
+          duration: 0.34,
+          easing: 'ease'
+        }).finished.then(() => {
+          card.classList.add('hidden');
+          card.style.opacity = "";
+          card.style.transform = "";
+          done++;
+          if (done === visibles.length && cb) cb();
+        });
+      });
+    }
+
+    // Switch catégorie
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-category');
+        if (category === currentCategory || animating) return;
+        animating = true;
+        activateTab(tab);
+        hideCards(currentCategory, () => {
+          currentCategory = category;
+          showCards(category);
+          setTimeout(() => { animating = false; }, 420);
         });
       });
     });
-    // First tab active au chargement
-    document.querySelector('.tab-btn').click();
-  </script>
 
-  <script>
-    window.addEventListener('scroll', function () {
-      const header = document.getElementById('main-header');
-      if (window.scrollY > 10) {
-        header.style.background = 'rgba(37, 53, 63, 0.68)';
-        header.style.boxShadow = '0 8px 32px 0 rgba(31, 38, 135, 0.12)';
-        header.style.backdropFilter = 'blur(12px)';
-        header.style.borderBottom = '1px solid #7ea1c433';
-      } else {
-        header.style.background = 'rgba(37, 53, 63, 1)';
-        header.style.boxShadow = 'none';
-        header.style.backdropFilter = 'none';
-        header.style.borderBottom = '1px solid #7ea1c433';
-      }
+    // Apparition initiale premium à la scroll
+    let loaded = false;
+    inView("#taches-automatisables", () => {
+      if (loaded) return;
+      loaded = true;
+      animate("#taches-automatisables h2", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
+      tabs.forEach((tab, i) => {
+        tab.style.opacity = 0;
+        tab.style.transform = 'translateX(-20px)';
+        animate(tab, { opacity: [0, 1], x: [-20, 0] }, { delay: 0.28 + i * 0.10, duration: 0.38, easing: "ease" }).finished.then(() => {
+          tab.style.opacity = "";
+          tab.style.transform = "";
+        });
+      });
+      setTimeout(() => {
+        activateTab(tabs[0]);
+        currentCategory = tabs[0].getAttribute('data-category');
+        showCards(currentCategory);
+      }, 480); // on attend la fin de la cascade des tabs pour lancer les cartes
+    }, { margin: "-12% 0px" });
+
+    // Hover effet premium — exclusif, smooth, pas de clignotement
+    let lastHovered = null;
+    cardsContainer.addEventListener("mouseover", e => {
+      const hovered = e.target.closest(".automation-card");
+      if (!hovered || hovered.classList.contains("hidden")) return;
+      if (hovered === lastHovered) return;
+      lastHovered = hovered;
+      allCards.forEach(card => {
+        if (card !== hovered && !card.classList.contains("hidden")) {
+          card.style.transition = 'opacity 0.19s cubic-bezier(.5,.2,.2,1)';
+          card.style.opacity = 0.47;
+        }
+      });
     });
+    cardsContainer.addEventListener("mouseout", e => {
+      if (!lastHovered) return;
+      allCards.forEach(card => {
+        card.style.transition = 'opacity 0.19s cubic-bezier(.5,.2,.2,1)';
+        card.style.opacity = 1;
+      });
+      lastHovered = null;
+    });
+
+    // Fix lucide icons après DOM update
+    if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+
+    // SECTION CTA FINAL
+    inView("#cta", () => {
+      animate("#cta-surtitre", { opacity: [0, 1], y: [-16, 0] }, { duration: 0.32, easing: "ease" });
+      animate("#cta-badge", { opacity: [0, 1], scale: [0.90, 1] }, { delay: 0.09, duration: 0.32, easing: "ease" });
+      animate("#cta-title", { opacity: [0, 1], y: [-26, 0] }, { delay: 0.18, duration: 0.44, easing: "ease" });
+      animate("#cta-bullets", { opacity: [0, 1], y: [-18, 0] }, { delay: 0.34, duration: 0.34, easing: "ease" });
+      animate("#cta-social", { opacity: [0, 1], x: [-28, 0] }, { delay: 0.46, duration: 0.38, easing: "ease" });
+      animate("#cta-microcopy", { opacity: [0, 1], y: [12, 0] }, { delay: 0.58, duration: 0.34, easing: "ease" });
+      animate("#cta-urgency", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 0.70, duration: 0.27, easing: "ease" });
+      animate("#cta-btn", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.82, duration: 0.33, easing: "ease" });
+      animate("#cta-note", { opacity: [0, 1], y: [10, 0] }, { delay: 0.93, duration: 0.24, easing: "ease" });
+    }, { margin: "-10% 0px" });
+
   </script>
 
-  <!-- Script Animation MotionOne -->
+  <!-- ANIMATIONS EXTRA -->
   <script type="module">
-import { animate, inView } from "https://cdn.jsdelivr.net/npm/@motionone/dom/+esm";
+    // Si tu veux un easing smooth :
+    function lerp(a, b, n) { return a + (b - a) * n; }
 
-// Animation cascade du texte (lead, titre, desc, CTA)
-inView("#hero-lead", () => {
-  animate("#hero-lead", { opacity: [0, 1], y: [-30, 0] }, { duration: 0.7, easing: "ease" });
-});
-inView("#hero-title", () => {
-  animate("#hero-title", { opacity: [0, 1], y: [-30, 0] }, { delay: 0.10, duration: 0.7, easing: "ease" });
-});
-inView("#hero-desc", () => {
-  animate("#hero-desc", { opacity: [0, 1], y: [-20, 0] }, { delay: 0.20, duration: 0.7, easing: "ease" });
-});
-inView("#hero-cta", () => {
-  animate("#hero-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 0.33, duration: 0.6, easing: "ease" });
-});
+    // Sélectionne toutes les blobs avec la classe .octo-parallax
+    const blobs = [
+      // gauche, bleu/orange, du plus gros au plus petit :
+      { selector: ".octo-left-1", factor: 0.15, y: 0 }, // très lent, GROS BLOB
+      { selector: ".octo-left-2", factor: 0.25, y: 0 },
+      { selector: ".octo-left-3", factor: 0.30, y: 0 },
+      { selector: ".octo-left-4", factor: 0.10, y: 0 },
+      // droite :
+      { selector: ".octo-right-1", factor: 0.32, y: 0 },
+      { selector: ".octo-right-2", factor: 0.25, y: 0 },
+      { selector: ".octo-right-3", factor: 0.15, y: 0 }, // ajuster factor selon la taille/position
+    ];
 
-// Social proof block
-inView("#hero-social-proof", () => {
-  animate("#hero-social-proof", { opacity: [0, 1], y: [30, 0] }, { delay: 0.40, duration: 0.6, easing: "ease" });
-  // Stagger avatars
-  [1, 2, 3, 4, 5, 6].forEach((n, i) => {
-    animate(`#hero-avatar-${n}`, { opacity: [0, 1], x: [-10, 0] }, { delay: 0.54 + i * 0.10, duration: 0.45, easing: "ease" });
-  });
-});
-
-// Image hero (fade-in avec slide droite)
-inView("#hero-img-col", () => {
-  animate("#hero-img-col", { opacity: [0, 1], x: [30, 0] }, { delay: 0.2, duration: 0.8, easing: "ease" });
-});
-
-// SECTION PROBLEME — Apparition cascade des éléments
-inView("#probleme-title", () => {
-  animate("#probleme-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
-});
-[1, 2, 3, 4].forEach((n, i) => {
-  inView(`#probleme-item-${n}`, () => {
-    animate(`#probleme-item-${n}`, { opacity: [0, 1], x: [-24, 0] }, { delay: 0.15 + i * 0.14, duration: 0.65, easing: "ease" });
-  });
-});
-inView("#probleme-note", () => {
-  animate("#probleme-note", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.8, duration: 0.6, easing: "ease" });
-});
-inView("#probleme-cta", () => {
-  animate("#probleme-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 1.05, duration: 0.55, easing: "ease" });
-});
-
+    function animateParallaxBlobs() {
+      const scroll = window.scrollY || window.pageYOffset;
+      blobs.forEach(blob => {
+        // Effet depth : les plus petits bougent + (plus grand factor)
+        blob.y = lerp(blob.y, scroll * blob.factor, 0.18);
+        const el = document.querySelector(blob.selector);
+        if (el) el.style.transform = `translateY(${-blob.y}px)`;
+      });
+      requestAnimationFrame(animateParallaxBlobs);
+    }
+    animateParallaxBlobs();
   </script>
 
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
