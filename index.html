@@ -9,9 +9,8 @@
   <meta name="author" content="Parallax">
   <meta name="robots" content="index, follow">
 
-<!-- CSP -->
-<meta http-equiv="Content-Security-Policy"
-      content="
+  <!-- CSP -->
+  <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.tailwindcss.com cdn.jsdelivr.net unpkg.com;
         style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.tailwindcss.com cdn.jsdelivr.net;
@@ -115,74 +114,90 @@
       box-shadow: 0 0 0 2px #25353f22;
     }
 
-/* Fading modal + blur effect */
-body.modal-open {
-  overflow: hidden;
-}
+    /* Fading modal + blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
 
-/* Overlay: fixe et centré sur tout l'écran */
-#simu-modal-bg {
-  position: fixed;               /* <<--- Le point clé ! */
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100vw; height: 100vh;
-  z-index: 10000;
-  background: rgba(28, 38, 48, 0.85); /* overlay foncé, ajuste si besoin */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
+    /* Overlay: fixe et centré sur tout l'écran */
+    #simu-modal-bg {
+      position: fixed;
+      /* <<--- Le point clé ! */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10000;
+      background: rgba(28, 38, 48, 0.85);
+      /* overlay foncé, ajuste si besoin */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
 
-#simu-modal-bg.active {
-  opacity: 1;
-  pointer-events: all;
-}
+    #simu-modal-bg.active {
+      opacity: 1;
+      pointer-events: all;
+    }
 
-/* Bloc modal centré */
-#simu-modal {
-  background: #25353f;
-  border-radius: 1.25rem;
-  box-shadow: 0 12px 40px #111a;
-  padding: 2rem 1.5rem;
-  max-width: 420px;
-  width: 95%;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.3s, transform 0.3s;
-}
+    /* Bloc modal centré */
+    #simu-modal {
+      background: #25353f;
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 40px #111a;
+      padding: 2rem 1.5rem;
+      max-width: 420px;
+      width: 95%;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
 
-/* Quand overlay actif : fade in du modal */
-#simu-modal-bg.active #simu-modal {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* Quand overlay actif : fade in du modal */
+    #simu-modal-bg.active #simu-modal {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Légère animation d’apparition, si besoin pour d’autres blocs */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-.animate-fadeIn { animation: fadeIn 0.3s; }
+    /* Légère animation d’apparition, si besoin pour d’autres blocs */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
 
-/* Si tu veux garder le blur sur l’arrière-plan */
-body.modal-open > #content, 
-body.modal-open > #main, 
-body.modal-open > main, 
-body.modal-open > div:not(#simu-modal-bg) {
-  filter: blur(1.5px);
-  pointer-events: none; /* désactive interactions sur le contenu */
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-/* Ajoute une transition douce au blur si tu veux */
-body.modal-open > #content,
-body.modal-open > #main,
-body.modal-open > main,
-body.modal-open > div:not(#simu-modal-bg) {
-  transition: filter 0.2s;
-}
+    .animate-fadeIn {
+      animation: fadeIn 0.3s;
+    }
 
+    /* Si tu veux garder le blur sur l’arrière-plan */
+    body.modal-open>#content,
+    body.modal-open>#main,
+    body.modal-open>main,
+    body.modal-open>div:not(#simu-modal-bg) {
+      filter: blur(1.5px);
+      pointer-events: none;
+      /* désactive interactions sur le contenu */
+    }
+
+    /* Ajoute une transition douce au blur si tu veux */
+    body.modal-open>#content,
+    body.modal-open>#main,
+    body.modal-open>main,
+    body.modal-open>div:not(#simu-modal-bg) {
+      transition: filter 0.2s;
+    }
   </style>
 
   <!--
@@ -209,11 +224,10 @@ body.modal-open > div:not(#simu-modal-bg) {
 <body class="bg-[#25353f] text-[#f5f1e6]">
 
   <!-- 🔝 HEADER NAVIGATION STICKY -->
-<header
-  id="main-header"
-  class="sticky top-0 z-50 w-full bg-[#25353f]/70 border-b border-[#7ea1c4]/20 backdrop-blur-lg">
-  <div id="header"></div>
-</header>
+  <header id="main-header"
+    class="sticky top-0 z-50 w-full bg-[#25353f]/70 border-b border-[#7ea1c4]/20 backdrop-blur-lg">
+    <div id="header"></div>
+  </header>
 
   <!-- 🌍 CORPS DE PAGE -->
   <main id="main-content">
@@ -374,67 +388,71 @@ body.modal-open > div:not(#simu-modal-bg) {
         </div>
         <!-- Visuel équipe avec crédit déjà intégré ici -->
         <div id="methode-img-col" class="flex justify-center relative opacity-0">
-          <img
-            src="\assets\img\methode_octomate.webp"
-            alt="Atelier d'automatisation en PME – équipe OctoMate à l'œuvre"
-            class="w-full max-w-md lg:max-w-full object-cover"
-            loading="lazy" />
+          <img src="\assets\img\methode_octomate.webp" alt="Atelier d'automatisation en PME – équipe OctoMate à l'œuvre"
+            class="w-full max-w-md lg:max-w-full object-cover" loading="lazy" />
         </div>
       </div>
     </section>
 
     <!-- 🎁 SECTION SIMULATEUR DE TEMPS GAGNÉ -->
-<section id="simulateur" class="bg-[#1c2630] text-[#f5f1e6] pt-20 pb-28 px-6 lg:px-12">
-  <div class="max-w-xl mx-auto flex flex-col items-center">
-    <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat text-center mb-6">
-      ⏱️ Calculez vos gains potentiels
-    </h2>
-    <form id="gain-simulator" autocomplete="off" class="w-full space-y-6 bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl border border-[#7ea1c4] transition-all duration-300">
-      <!-- Étape 1 : Saisie tâche/temps/taux -->
-      <div id="simu-step-1" class="space-y-4">
-        <div>
-          <label class="block font-semibold mb-1">Quelle tâche voulez-vous automatiser ?</label>
-          <input type="text" name="tache" id="input-tache" required placeholder="Ex : facturation, relances, emails…"
-            class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
-        </div>
-        <div>
-          <label class="block font-semibold mb-1">Temps passé par semaine (heures)</label>
-          <input type="number" min="0.5" step="0.5" name="heures" id="input-heures" required placeholder="Ex : 7"
-            class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
-        </div>
-        <div>
-          <label class="block font-semibold mb-1">Taux horaire moyen (€)</label>
-          <input type="number" min="10" step="0.1" name="taux" id="input-taux" required placeholder="Ex. 19,9 (Employés) ou 33,5 (Cadres)"
-            class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#c78a5c]" />
-          <div class="text-xs mt-1 text-[#7ea1c4]">
-            Source : Médiane <a href="https://www.insee.fr/fr/statistiques/8382421#:~:text=En%202022%2C%20en%20France%20hors,de%20plus%20que%20le%20Smic." target="_blank" class="underline">INSEE 2022</a>
+    <section id="simulateur" class="bg-[#1c2630] text-[#f5f1e6] pt-20 pb-28 px-6 lg:px-12">
+      <div class="max-w-xl mx-auto flex flex-col items-center">
+        <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat text-center mb-6">
+          ⏱️ Calculez vos gains potentiels
+        </h2>
+        <form id="gain-simulator" autocomplete="off"
+          class="w-full space-y-6 bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl border border-[#7ea1c4] transition-all duration-300">
+          <!-- Étape 1 : Saisie tâche/temps/taux -->
+          <div id="simu-step-1" class="space-y-4">
+            <div>
+              <label class="block font-semibold mb-1">Quelle tâche voulez-vous automatiser ?</label>
+              <input type="text" name="tache" id="input-tache" required
+                placeholder="Ex : facturation, relances, emails…"
+                class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Temps passé par semaine (heures)</label>
+              <input type="number" min="0.5" step="0.5" name="heures" id="input-heures" required placeholder="Ex : 7"
+                class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Taux horaire moyen (€)</label>
+              <input type="number" min="10" step="0.1" name="taux" id="input-taux" required
+                placeholder="Ex. 19,9 (Employés) ou 33,5 (Cadres)"
+                class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#c78a5c]" />
+              <div class="text-xs mt-1 text-[#7ea1c4]">
+                Source : Médiane <a
+                  href="https://www.insee.fr/fr/statistiques/8382421#:~:text=En%202022%2C%20en%20France%20hors,de%20plus%20que%20le%20Smic."
+                  target="_blank" class="underline">INSEE 2022</a>
+              </div>
+            </div>
+            <button type="button" id="simu-estimate-btn"
+              class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all text-white font-semibold py-3 rounded-lg shadow">
+              Estimer mes gains
+            </button>
+            <div class="text-xs text-center mt-2 text-[#c78a5c]">
+              Ce simulateur est lui-même automatisé grâce à OctoMate.
+            </div>
           </div>
-        </div>
-        <button type="button" id="simu-estimate-btn"
-          class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all text-white font-semibold py-3 rounded-lg shadow">
-          Estimer mes gains
-        </button>
-        <div class="text-xs text-center mt-2 text-[#c78a5c]">
-          Ce simulateur est lui-même automatisé grâce à OctoMate.
-        </div>
+          <!-- SUCCESS & ERROR BLOCS -->
+          <div id="simu-success"
+            class="hidden border border-green-500 bg-[#223b2d] rounded-xl px-4 py-6 mt-6 text-center text-[#a2e291] font-bold animate-fadeIn">
+            🎉 Merci ! Votre estimation est en chemin vers votre email !<br>
+            <span class="block text-[#f5f1e6] mt-4 mb-2 font-semibold">
+              Découvrez comment concrétiser ce gain&nbsp;:
+            </span>
+            <a id="cta-calc" href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98] focus:ring-2 focus:ring-[#7ea1c4]">
+              Réservez votre appel découverte offert
+            </a>
+          </div>
+          <div id="simu-error"
+            class="hidden border border-red-400 bg-[#402829] rounded-xl px-4 py-6 mt-6 text-center text-[#e291a2] font-semibold animate-fadeIn">
+            😕 Une erreur est survenue.<br>Merci de réessayer, ou contactez-moi si le problème persiste.
+          </div>
+        </form>
       </div>
-      <!-- SUCCESS & ERROR BLOCS -->
-      <div id="simu-success" class="hidden border border-green-500 bg-[#223b2d] rounded-xl px-4 py-6 mt-6 text-center text-[#a2e291] font-bold animate-fadeIn">
-        🎉 Merci ! Votre estimation est en chemin vers votre email !<br>
-        <span class="block text-[#f5f1e6] mt-4 mb-2 font-semibold">
-          Découvrez comment concrétiser ce gain&nbsp;:
-        </span>
-        <a id="cta-calc" href="#cta" 
-          class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98] focus:ring-2 focus:ring-[#7ea1c4]">
-          Réservez votre appel découverte offert
-        </a>
-      </div>
-      <div id="simu-error" class="hidden border border-red-400 bg-[#402829] rounded-xl px-4 py-6 mt-6 text-center text-[#e291a2] font-semibold animate-fadeIn">
-        😕 Une erreur est survenue.<br>Merci de réessayer, ou contactez-moi si le problème persiste.
-      </div>
-    </form>
-  </div>
-</section>
+    </section>
 
     <!-- 🧩 SECTION BÉNÉFICES -->
     <section id="benefices" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] py-24 px-6 lg:px-12">
@@ -730,7 +748,7 @@ body.modal-open > div:not(#simu-modal-bg) {
                 </div>
                 <div id="temoignage-hero-client" class="flex items-center gap-3 mt-6 opacity-0">
                   <img src="/assets/img/logo-placeholder1.webp" alt="Logo client placeholder"
-                    class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy"/>
+                    class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy" />
                   <div>
                     <p class="font-bold">Julie C.</p>
                     <p class="text-sm text-[#c2c2c2]">Dirigeante – Atelier de production</p>
@@ -791,7 +809,7 @@ body.modal-open > div:not(#simu-modal-bg) {
               </div>
               <div class="flex items-center gap-3 mt-6">
                 <img src="/assets/img/logo-placeholder6.webp" alt="Logo client"
-                  class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy"/>
+                  class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy" />
                 <div>
                   <p class="font-bold">Olivier M.</p>
                   <p class="text-sm text-[#c2c2c2]">Gérant – PME Services</p>
@@ -823,7 +841,7 @@ body.modal-open > div:not(#simu-modal-bg) {
               </div>
               <div class="flex items-center gap-3 mt-6">
                 <img src="/assets/img/logo-placeholder7.webp" alt="Logo client"
-                  class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy"/>
+                  class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy" />
                 <div>
                   <p class="font-bold">Sophie D.</p>
                   <p class="text-sm text-[#c2c2c2]">Directrice – Cabinet Conseil</p>
@@ -1093,15 +1111,15 @@ body.modal-open > div:not(#simu-modal-bg) {
           <div id="cta-social" class="flex flex-wrap items-center gap-3 mb-4">
             <div class="flex -space-x-3">
               <img src="/assets/img/logo-panadis.webp" alt="Client Panadis"
-                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy"/>
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
               <img src="/assets/img/logo-times.webp" alt="Client Time's"
-                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy"/>
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
               <img src="/assets/img/logo-aja.webp" alt="Client Aujourd'hui j'arrête"
-                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy"/>
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
               <img src="/assets/img/logo-dolorium_tattoo.webp" alt="Client Dolorium Tattoo"
-                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy"/>
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
               <img src="/assets/img/logo-la_fine_equipe.webp" alt="Client La Fine Equipe"
-                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy"/>
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
             </div>
             <span class="inline-block bg-[#7ea1c4] text-white text-xs font-semibold px-2 py-0.5 rounded-full">+10 PME
               déjà accompagnées</span>
@@ -1137,24 +1155,31 @@ body.modal-open > div:not(#simu-modal-bg) {
 
   </main>
 
-        <!-- MODAL SIMULATEUR -->
-<div id="simu-modal-bg" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300">
-  <div id="simu-modal" class="w-full max-w-md bg-[#25353f] p-8 rounded-2xl shadow-2xl border border-[#c78a5c] relative animate-fadeIn flex flex-col gap-4">
-    <button type="button" class="absolute top-3 right-4 text-[#f5f1e6] hover:text-[#c78a5c] text-2xl font-bold" id="simu-modal-close" aria-label="Fermer">&times;</button>
-    <div class="text-lg font-bold text-center mb-2">Recevez votre estimation détaillée</div>
-    <div class="flex flex-col gap-3">
-      <input type="text" id="input-modal-prenom" required placeholder="Votre nom et votre prénom" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
-      <input type="text" id="input-modal-company" placeholder="Nom de votre entreprise (optionnel)" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
-      <input type="email" id="input-modal-email" required placeholder="Votre email professionnel" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
-      <input type="text" id="input-modal-fake" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
-      <div id="simu-modal-error" class="hidden text-red-400 text-sm text-center"></div>
+  <!-- MODAL SIMULATEUR -->
+  <div id="simu-modal-bg"
+    class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300">
+    <div id="simu-modal"
+      class="w-full max-w-md bg-[#25353f] p-8 rounded-2xl shadow-2xl border border-[#c78a5c] relative animate-fadeIn flex flex-col gap-4">
+      <button type="button" class="absolute top-3 right-4 text-[#f5f1e6] hover:text-[#c78a5c] text-2xl font-bold"
+        id="simu-modal-close" aria-label="Fermer">&times;</button>
+      <div class="text-lg font-bold text-center mb-2">Recevez votre estimation détaillée</div>
+      <div class="flex flex-col gap-3">
+        <input type="text" id="input-modal-prenom" required placeholder="Votre nom et votre prénom"
+          class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+        <input type="text" id="input-modal-company" placeholder="Nom de votre entreprise (optionnel)"
+          class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+        <input type="email" id="input-modal-email" required placeholder="Votre email professionnel"
+          class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+        <input type="text" id="input-modal-fake" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
+        <div id="simu-modal-error" class="hidden text-red-400 text-sm text-center"></div>
+      </div>
+      <button id="simu-modal-submit"
+        class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] text-white font-semibold py-3 rounded-lg shadow transition-all">
+        Recevoir mon estimation par email
+      </button>
+      <div id="simu-modal-loading" class="hidden text-center text-[#c78a5c] mt-3">Envoi en cours…</div>
     </div>
-    <button id="simu-modal-submit" class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] text-white font-semibold py-3 rounded-lg shadow transition-all">
-      Recevoir mon estimation par email
-    </button>
-    <div id="simu-modal-loading" class="hidden text-center text-[#c78a5c] mt-3">Envoi en cours…</div>
   </div>
-</div>
 
   <!-- 🡦 FOOTER -->
   <footer class="bg-[#25353f] text-[#f5f1e6] py-12 text-sm">
@@ -1184,133 +1209,129 @@ body.modal-open > div:not(#simu-modal-bg) {
     });
   </script>
 
-<!-- SIMULATEUR -->
+  <!-- SIMULATEUR -->
+  <script>
+    document.getElementById('gain-simulator').addEventListener('submit', function (e) {
+      e.preventDefault();
+      return false;
+    });
 
-<script>
-document.getElementById('gain-simulator').addEventListener('submit', function(e) {
-  e.preventDefault();
-  return false;
-});
+    document.addEventListener("DOMContentLoaded", function () {
+      // Champs du simulateur
+      const step1 = document.getElementById("simu-step-1");
+      const successMsg = document.getElementById("simu-success");
+      const errorMsg = document.getElementById("simu-error");
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Champs du simulateur
-  const step1 = document.getElementById("simu-step-1");
-  const successMsg = document.getElementById("simu-success");
-  const errorMsg = document.getElementById("simu-error");
+      // Modal éléments
+      const modalBg = document.getElementById("simu-modal-bg");
+      const modal = document.getElementById("simu-modal");
+      const modalClose = document.getElementById("simu-modal-close");
+      const modalPrenom = document.getElementById("input-modal-prenom");
+      const modalCompany = document.getElementById("input-modal-company");
+      const modalEmail = document.getElementById("input-modal-email");
+      const modalFake = document.getElementById("input-modal-fake");
+      const modalBtn = document.getElementById("simu-modal-submit");
+      const modalError = document.getElementById("simu-modal-error");
+      const modalLoading = document.getElementById("simu-modal-loading");
 
-  // Modal éléments
-  const modalBg = document.getElementById("simu-modal-bg");
-  const modal = document.getElementById("simu-modal");
-  const modalClose = document.getElementById("simu-modal-close");
-  const modalPrenom = document.getElementById("input-modal-prenom");
-  const modalCompany = document.getElementById("input-modal-company");
-  const modalEmail = document.getElementById("input-modal-email");
-  const modalFake = document.getElementById("input-modal-fake");
-  const modalBtn = document.getElementById("simu-modal-submit");
-  const modalError = document.getElementById("simu-modal-error");
-  const modalLoading = document.getElementById("simu-modal-loading");
+      // Variables stock temporaire
+      let simulation = {};
 
-  // Variables stock temporaire
-  let simulation = {};
-
-  // Ouvre le modal à partir du simulateur principal
-  document.getElementById("simu-estimate-btn").addEventListener("click", function (e) {
-    e.preventDefault();
-    // Récupère les valeurs du simulateur
-    const tache = document.getElementById("input-tache").value.trim();
-    const heures = parseFloat(document.getElementById("input-heures").value.replace(',', '.')) || 0;
-    const taux = parseFloat(document.getElementById("input-taux").value.replace(',', '.')) || 19.9;
-    if (!tache || heures < 0.1 || taux < 1) {
-      alert("Merci de renseigner une tâche, le temps hebdo, et un taux horaire valide.");
-      return;
-    }
-    simulation = { tache, heures, taux };
-    // Reset modal, fade in + blur
-    modalBg.classList.remove("hidden");
-    setTimeout(() => modalBg.classList.add("active"), 10);
-    document.body.classList.add("modal-open");
-    modalError.classList.add("hidden");
-    modalLoading.classList.add("hidden");
-    modalPrenom.value = "";
-    modalCompany.value = "";
-    modalEmail.value = "";
-    modalPrenom.focus();
-  });
-
-  // Fermer modal (croix ou click en dehors)
-  modalClose.addEventListener("click", closeModal);
-  modalBg.addEventListener("click", function(e) { if (e.target === modalBg) closeModal(); });
-  function closeModal() {
-    modalBg.classList.remove("active");
-    setTimeout(() => modalBg.classList.add("hidden"), 330);
-    document.body.classList.remove("modal-open");
-  }
-
-  // Envoi formulaire du modal
-  modalBtn.addEventListener("click", async function (e) {
-    e.preventDefault();
-    const prenom = modalPrenom.value.trim();
-    const company = modalCompany.value.trim();
-    const email = modalEmail.value.trim();
-    if (modalFake.value) return; // honeypot anti-spam
-    if (!prenom || !email || !/^[\w\.\-]+@[\w\-]+\.[a-z]{2,}$/i.test(email)) {
-      modalError.textContent = "Merci de renseigner un prénom et un email valide.";
-      modalError.classList.remove("hidden");
-      return;
-    }
-    modalError.classList.add("hidden");
-    modalLoading.classList.remove("hidden");
-    modalBtn.disabled = true;
-
-    // Calculs
-    simulation.prenom = prenom;
-    simulation.company = company || "";
-    simulation.email = email;
-    simulation.euros = simulation.heures * simulation.taux;
-    simulation.hoursMonth = simulation.heures * 4.33;
-    simulation.eurosMonth = simulation.euros * 4.33;
-    simulation.hoursYear = simulation.heures * 52;
-    simulation.eurosYear = simulation.euros * 52;
-    simulation.heuresHidden = +(simulation.heures * 1.375).toFixed(1);
-    simulation.eurosHidden = +(simulation.euros * 1.375).toFixed(0);
-    simulation.hoursMonthHidden = +(simulation.hoursMonth * 1.375).toFixed(1);
-    simulation.eurosMonthHidden = +(simulation.eurosMonth * 1.375).toFixed(0);
-    simulation.hoursYearHidden = +(simulation.hoursYear * 1.375).toFixed(1);
-    simulation.eurosYearHidden = +(simulation.eurosYear * 1.375).toFixed(0);
-    simulation.userAgent = navigator.userAgent;
-    simulation.pageSource = window.location.href;
-    simulation.type = "simulation-automation";
-
-    // Envoi à n8n
-    try {
-      const webhookUrl = "https://n8n.chezparallax.fr/webhook-test/36d699a4-0064-49f5-8cb8-bbb630fd60cd";
-      const resp = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(simulation),
-      });
-      if (resp.ok) {
-        closeModal();
-        step1.classList.add("hidden");
-        successMsg.classList.remove("hidden");
-        errorMsg.classList.add("hidden");
-      } else {
+      // Ouvre le modal à partir du simulateur principal
+      document.getElementById("simu-estimate-btn").addEventListener("click", function (e) {
+        e.preventDefault();
+        // Récupère les valeurs du simulateur
+        const tache = document.getElementById("input-tache").value.trim();
+        const heures = parseFloat(document.getElementById("input-heures").value.replace(',', '.')) || 0;
+        const taux = parseFloat(document.getElementById("input-taux").value.replace(',', '.')) || 19.9;
+        if (!tache || heures < 0.1 || taux < 1) {
+          alert("Merci de renseigner une tâche, le temps hebdo, et un taux horaire valide.");
+          return;
+        }
+        simulation = { tache, heures, taux };
+        // Reset modal, fade in + blur
+        modalBg.classList.remove("hidden");
+        setTimeout(() => modalBg.classList.add("active"), 10);
+        document.body.classList.add("modal-open");
+        modalError.classList.add("hidden");
         modalLoading.classList.add("hidden");
-        modalError.textContent = "Erreur de connexion, merci de réessayer.";
-        modalError.classList.remove("hidden");
+        modalPrenom.value = "";
+        modalCompany.value = "";
+        modalEmail.value = "";
+        modalPrenom.focus();
+      });
+
+      // Fermer modal (croix ou click en dehors)
+      modalClose.addEventListener("click", closeModal);
+      modalBg.addEventListener("click", function (e) { if (e.target === modalBg) closeModal(); });
+      function closeModal() {
+        modalBg.classList.remove("active");
+        setTimeout(() => modalBg.classList.add("hidden"), 330);
+        document.body.classList.remove("modal-open");
       }
-    } catch (err) {
-      modalLoading.classList.add("hidden");
-      modalError.textContent = "Erreur de connexion, merci de réessayer.";
-      modalError.classList.remove("hidden");
-    }
-    modalBtn.disabled = false;
-  });
-});
-</script>
 
+      // Envoi formulaire du modal
+      modalBtn.addEventListener("click", async function (e) {
+        e.preventDefault();
+        const prenom = modalPrenom.value.trim();
+        const company = modalCompany.value.trim();
+        const email = modalEmail.value.trim();
+        if (modalFake.value) return; // honeypot anti-spam
+        if (!prenom || !email || !/^[\w\.\-]+@[\w\-]+\.[a-z]{2,}$/i.test(email)) {
+          modalError.textContent = "Merci de renseigner un prénom et un email valide.";
+          modalError.classList.remove("hidden");
+          return;
+        }
+        modalError.classList.add("hidden");
+        modalLoading.classList.remove("hidden");
+        modalBtn.disabled = true;
 
+        // Calculs
+        simulation.prenom = prenom;
+        simulation.company = company || "";
+        simulation.email = email;
+        simulation.euros = simulation.heures * simulation.taux;
+        simulation.hoursMonth = simulation.heures * 4.33;
+        simulation.eurosMonth = simulation.euros * 4.33;
+        simulation.hoursYear = simulation.heures * 52;
+        simulation.eurosYear = simulation.euros * 52;
+        simulation.heuresHidden = +(simulation.heures * 1.375).toFixed(1);
+        simulation.eurosHidden = +(simulation.euros * 1.375).toFixed(0);
+        simulation.hoursMonthHidden = +(simulation.hoursMonth * 1.375).toFixed(1);
+        simulation.eurosMonthHidden = +(simulation.eurosMonth * 1.375).toFixed(0);
+        simulation.hoursYearHidden = +(simulation.hoursYear * 1.375).toFixed(1);
+        simulation.eurosYearHidden = +(simulation.eurosYear * 1.375).toFixed(0);
+        simulation.userAgent = navigator.userAgent;
+        simulation.pageSource = window.location.href;
+        simulation.type = "simulation-automation";
 
+        // Envoi à n8n
+        try {
+          const webhookUrl = "https://n8n.chezparallax.fr/webhook/36d699a4-0064-49f5-8cb8-bbb630fd60cd";
+          const resp = await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(simulation),
+          });
+          if (resp.ok) {
+            closeModal();
+            step1.classList.add("hidden");
+            successMsg.classList.remove("hidden");
+            errorMsg.classList.add("hidden");
+          } else {
+            modalLoading.classList.add("hidden");
+            modalError.textContent = "Erreur de connexion, merci de réessayer.";
+            modalError.classList.remove("hidden");
+          }
+        } catch (err) {
+          modalLoading.classList.add("hidden");
+          modalError.textContent = "Erreur de connexion, merci de réessayer.";
+          modalError.classList.remove("hidden");
+        }
+        modalBtn.disabled = false;
+      });
+    });
+  </script>
 
   <!-- ANIMATION DU CORPS DES SECTIONS -->
   <script type="module">
