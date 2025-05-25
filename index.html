@@ -9,6 +9,17 @@
   <meta name="author" content="Parallax">
   <meta name="robots" content="index, follow">
 
+<!-- CSP -->
+<meta http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.tailwindcss.com cdn.jsdelivr.net unpkg.com;
+        style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.tailwindcss.com cdn.jsdelivr.net;
+        img-src 'self' data: https:;
+        font-src 'self' data: fonts.gstatic.com;
+        connect-src 'self' https://n8n.chezparallax.fr;
+      ">
+
   <!-- SIMPLE ANALYTICS -->
   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
@@ -103,6 +114,75 @@
       outline-offset: 2px;
       box-shadow: 0 0 0 2px #25353f22;
     }
+
+/* Fading modal + blur effect */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Overlay: fixe et centré sur tout l'écran */
+#simu-modal-bg {
+  position: fixed;               /* <<--- Le point clé ! */
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  z-index: 10000;
+  background: rgba(28, 38, 48, 0.85); /* overlay foncé, ajuste si besoin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+#simu-modal-bg.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Bloc modal centré */
+#simu-modal {
+  background: #25353f;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 40px #111a;
+  padding: 2rem 1.5rem;
+  max-width: 420px;
+  width: 95%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Quand overlay actif : fade in du modal */
+#simu-modal-bg.active #simu-modal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Légère animation d’apparition, si besoin pour d’autres blocs */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fadeIn { animation: fadeIn 0.3s; }
+
+/* Si tu veux garder le blur sur l’arrière-plan */
+body.modal-open > #content, 
+body.modal-open > #main, 
+body.modal-open > main, 
+body.modal-open > div:not(#simu-modal-bg) {
+  filter: blur(1.5px);
+  pointer-events: none; /* désactive interactions sur le contenu */
+}
+
+/* Ajoute une transition douce au blur si tu veux */
+body.modal-open > #content,
+body.modal-open > #main,
+body.modal-open > main,
+body.modal-open > div:not(#simu-modal-bg) {
+  transition: filter 0.2s;
+}
+
   </style>
 
   <!--
@@ -135,10 +215,8 @@
   <div id="header"></div>
 </header>
 
-
-
   <!-- 🌍 CORPS DE PAGE -->
-  <main>
+  <main id="main-content">
 
     <!-- 🦸 HERO SECTION -->
     <section class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
@@ -306,74 +384,57 @@
     </section>
 
     <!-- 🎁 SECTION SIMULATEUR DE TEMPS GAGNÉ -->
-    <section id="simulateur" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] pt-20 pb-28 px-6 lg:px-12">
-      <div class="max-w-2xl mx-auto flex flex-col items-center">
-        <h2 id="simulateur-title"
-          class="text-3xl lg:text-4xl font-extrabold font-montserrat flex items-center gap-2 mb-6 max-w-2xl mx-auto leading-tight text-center opacity-0">
-          ⏱️ Calculez vos gains potentiels
-        </h2>
-        <div class="max-w-xl w-full mx-auto mb-10">
-          <p id="simulateur-accroche" class="text-lg font-nunito text-center leading-relaxed mb-1 opacity-0">
-            Découvrez en moins de 30&nbsp;secondes ce que l’automatisation peut vraiment vous faire gagner.
-          </p>
-          <p id="simulateur-accroche-2"
-            class="text-lg font-nunito text-center leading-relaxed font-bold text-[#c78a5c] mb-0 opacity-0">
-            Estimez le temps récupéré, visualisez l’impact sur votre chiffre d’affaires — et passez à l’action.
-          </p>
+<section id="simulateur" class="bg-[#1c2630] text-[#f5f1e6] pt-20 pb-28 px-6 lg:px-12">
+  <div class="max-w-xl mx-auto flex flex-col items-center">
+    <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat text-center mb-6">
+      ⏱️ Calculez vos gains potentiels
+    </h2>
+    <form id="gain-simulator" autocomplete="off" class="w-full space-y-6 bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl border border-[#7ea1c4] transition-all duration-300">
+      <!-- Étape 1 : Saisie tâche/temps/taux -->
+      <div id="simu-step-1" class="space-y-4">
+        <div>
+          <label class="block font-semibold mb-1">Quelle tâche voulez-vous automatiser ?</label>
+          <input type="text" name="tache" id="input-tache" required placeholder="Ex : facturation, relances, emails…"
+            class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
         </div>
-        <form class="w-full" id="gain-simulator" autocomplete="off">
-          <div id="simulateur-form"
-            class="bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl space-y-7 border border-[#7ea1c4] opacity-0">
-            <div class="flex flex-col gap-3">
-              <label class="font-semibold text-[#f5f1e6]">Heures passées chaque semaine sur :</label>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label class="text-sm text-[#f5f1e6]">Relances / Devis / Factures</label>
-                  <input id="simulateur-input-1" type="number" name="devis" min="0" value="2"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
-                </div>
-                <div>
-                  <label class="text-sm text-[#f5f1e6]">Prospection / Emails</label>
-                  <input id="simulateur-input-2" type="number" name="prospection" min="0" value="3"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
-                </div>
-                <div>
-                  <label class="text-sm text-[#f5f1e6]">Gestion administrative</label>
-                  <input id="simulateur-input-3" type="number" name="admin" min="0" value="2"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
-                </div>
-                <div>
-                  <label class="text-sm text-[#f5f1e6]">Reporting / Classement</label>
-                  <input id="simulateur-input-4" type="number" name="reporting" min="0" value="1"
-                    class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] focus:ring-2 focus:ring-[#7ea1c4] opacity-0" />
-                </div>
-              </div>
-            </div>
-            <div class="flex flex-col gap-3">
-              <label class="font-semibold text-[#f5f1e6]">Taux horaire moyen (€)</label>
-              <input id="simulateur-input-5" type="number" name="taux" min="20" value="40" step="1"
-                class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] focus:ring-2 focus:ring-[#c78a5c] opacity-0" />
-            </div>
-            <div class="mt-6 bg-[#f5f1e6] rounded-xl p-5 text-center text-[#25353f] font-bold text-lg shadow"
-              id="simu-result">
-              🎯 <span id="hours-saved">8</span>h économisables/semaine = <span id="euros-saved">320</span> €/semaine
-              économisés*
-            </div>
-            <!-- ... autres blocs inchangés ... -->
-            <div class="mt-6 flex flex-col gap-2">
-              <a id="simulateur-cta" href="#cta"
-                class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.03] active:scale-[0.98] w-full text-center opacity-0">
-                Je veux économiser <span id="cta-hours">8h</span> et <span id="cta-euros">320€</span>/semaine !
-              </a>
-              <span id="simulateur-note" class="block text-xs text-[#c78a5c] text-center opacity-0">
-                Réservez votre audit d’automatisation gratuit
-              </span>
-
-            </div>
+        <div>
+          <label class="block font-semibold mb-1">Temps passé par semaine (heures)</label>
+          <input type="number" min="0.5" step="0.5" name="heures" id="input-heures" required placeholder="Ex : 7"
+            class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">Taux horaire moyen (€)</label>
+          <input type="number" min="10" step="0.1" name="taux" id="input-taux" required placeholder="Ex. 19,9 (Employés) ou 33,5 (Cadres)"
+            class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#c78a5c]" />
+          <div class="text-xs mt-1 text-[#7ea1c4]">
+            Source : Médiane <a href="https://www.insee.fr/fr/statistiques/8382421#:~:text=En%202022%2C%20en%20France%20hors,de%20plus%20que%20le%20Smic." target="_blank" class="underline">INSEE 2022</a>
           </div>
-        </form>
+        </div>
+        <button type="button" id="simu-estimate-btn"
+          class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all text-white font-semibold py-3 rounded-lg shadow">
+          Estimer mes gains
+        </button>
+        <div class="text-xs text-center mt-2 text-[#c78a5c]">
+          Ce simulateur est lui-même automatisé grâce à OctoMate.
+        </div>
       </div>
-    </section>
+      <!-- SUCCESS & ERROR BLOCS -->
+      <div id="simu-success" class="hidden border border-green-500 bg-[#223b2d] rounded-xl px-4 py-6 mt-6 text-center text-[#a2e291] font-bold animate-fadeIn">
+        🎉 Merci ! Votre estimation est en chemin vers votre email !<br>
+        <span class="block text-[#f5f1e6] mt-4 mb-2 font-semibold">
+          Découvrez comment concrétiser ce gain&nbsp;:
+        </span>
+        <a id="cta-calc" href="#cta" 
+          class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98] focus:ring-2 focus:ring-[#7ea1c4]">
+          Réservez votre appel découverte offert
+        </a>
+      </div>
+      <div id="simu-error" class="hidden border border-red-400 bg-[#402829] rounded-xl px-4 py-6 mt-6 text-center text-[#e291a2] font-semibold animate-fadeIn">
+        😕 Une erreur est survenue.<br>Merci de réessayer, ou contactez-moi si le problème persiste.
+      </div>
+    </form>
+  </div>
+</section>
 
     <!-- 🧩 SECTION BÉNÉFICES -->
     <section id="benefices" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] py-24 px-6 lg:px-12">
@@ -1076,6 +1137,25 @@
 
   </main>
 
+        <!-- MODAL SIMULATEUR -->
+<div id="simu-modal-bg" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300">
+  <div id="simu-modal" class="w-full max-w-md bg-[#25353f] p-8 rounded-2xl shadow-2xl border border-[#c78a5c] relative animate-fadeIn flex flex-col gap-4">
+    <button type="button" class="absolute top-3 right-4 text-[#f5f1e6] hover:text-[#c78a5c] text-2xl font-bold" id="simu-modal-close" aria-label="Fermer">&times;</button>
+    <div class="text-lg font-bold text-center mb-2">Recevez votre estimation détaillée</div>
+    <div class="flex flex-col gap-3">
+      <input type="text" id="input-modal-prenom" required placeholder="Votre nom et votre prénom" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+      <input type="text" id="input-modal-company" placeholder="Nom de votre entreprise (optionnel)" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+      <input type="email" id="input-modal-email" required placeholder="Votre email professionnel" class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+      <input type="text" id="input-modal-fake" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
+      <div id="simu-modal-error" class="hidden text-red-400 text-sm text-center"></div>
+    </div>
+    <button id="simu-modal-submit" class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] text-white font-semibold py-3 rounded-lg shadow transition-all">
+      Recevoir mon estimation par email
+    </button>
+    <div id="simu-modal-loading" class="hidden text-center text-[#c78a5c] mt-3">Envoi en cours…</div>
+  </div>
+</div>
+
   <!-- 🡦 FOOTER -->
   <footer class="bg-[#25353f] text-[#f5f1e6] py-12 text-sm">
     <div id="footer"></div>
@@ -1103,47 +1183,134 @@
         });
     });
   </script>
-  <script>
-    function updateSimulator() {
-      // Récupère les valeurs
-      const fields = ["devis", "prospection", "admin", "reporting"];
-      let total = 0;
-      fields.forEach(id => {
-        const input = document.querySelector('input[name="' + id + '"]');
-        total += Number(input.value) || 0;
-      });
-      const taux = Number(document.querySelector('input[name="taux"]').value) || 0;
 
-      // Calculs
-      const euros = total * taux;
-      const eurosMonth = euros * 4.33; // 4.33 semaines/mois
-      const eurosYear = euros * 52;
-      const hoursMonth = total * 4.33;
-      const hoursYear = total * 52;
+<!-- SIMULATEUR -->
 
-      // Affichage dans le simulateur
-      document.getElementById("hours-saved").textContent = total;
-      document.getElementById("euros-saved").textContent = euros.toLocaleString("fr-FR");
+<script>
+document.getElementById('gain-simulator').addEventListener('submit', function(e) {
+  e.preventDefault();
+  return false;
+});
 
-      // Affichage détails
-      document.getElementById("simu-detail").innerHTML =
-        `Soit <strong>${hoursMonth.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;h</strong> / <strong>${eurosMonth.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;€</strong> <span class="hidden md:inline">par mois</span> et <strong>${hoursYear.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;h</strong> / <strong>${eurosYear.toLocaleString("fr-FR", { maximumFractionDigits: 0 })}&nbsp;€</strong> par an`;
+document.addEventListener("DOMContentLoaded", function () {
+  // Champs du simulateur
+  const step1 = document.getElementById("simu-step-1");
+  const successMsg = document.getElementById("simu-success");
+  const errorMsg = document.getElementById("simu-error");
 
-      // Affichage sur le bouton
-      document.getElementById("cta-hours").textContent = total + "h";
-      document.getElementById("cta-euros").textContent = euros.toLocaleString("fr-FR") + "€";
+  // Modal éléments
+  const modalBg = document.getElementById("simu-modal-bg");
+  const modal = document.getElementById("simu-modal");
+  const modalClose = document.getElementById("simu-modal-close");
+  const modalPrenom = document.getElementById("input-modal-prenom");
+  const modalCompany = document.getElementById("input-modal-company");
+  const modalEmail = document.getElementById("input-modal-email");
+  const modalFake = document.getElementById("input-modal-fake");
+  const modalBtn = document.getElementById("simu-modal-submit");
+  const modalError = document.getElementById("simu-modal-error");
+  const modalLoading = document.getElementById("simu-modal-loading");
+
+  // Variables stock temporaire
+  let simulation = {};
+
+  // Ouvre le modal à partir du simulateur principal
+  document.getElementById("simu-estimate-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+    // Récupère les valeurs du simulateur
+    const tache = document.getElementById("input-tache").value.trim();
+    const heures = parseFloat(document.getElementById("input-heures").value.replace(',', '.')) || 0;
+    const taux = parseFloat(document.getElementById("input-taux").value.replace(',', '.')) || 19.9;
+    if (!tache || heures < 0.1 || taux < 1) {
+      alert("Merci de renseigner une tâche, le temps hebdo, et un taux horaire valide.");
+      return;
     }
+    simulation = { tache, heures, taux };
+    // Reset modal, fade in + blur
+    modalBg.classList.remove("hidden");
+    setTimeout(() => modalBg.classList.add("active"), 10);
+    document.body.classList.add("modal-open");
+    modalError.classList.add("hidden");
+    modalLoading.classList.add("hidden");
+    modalPrenom.value = "";
+    modalCompany.value = "";
+    modalEmail.value = "";
+    modalPrenom.focus();
+  });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const simuForm = document.getElementById("gain-simulator");
-      if (simuForm) {
-        simuForm.querySelectorAll("input").forEach(input => {
-          input.addEventListener("input", updateSimulator);
-        });
-        updateSimulator(); // Init
+  // Fermer modal (croix ou click en dehors)
+  modalClose.addEventListener("click", closeModal);
+  modalBg.addEventListener("click", function(e) { if (e.target === modalBg) closeModal(); });
+  function closeModal() {
+    modalBg.classList.remove("active");
+    setTimeout(() => modalBg.classList.add("hidden"), 330);
+    document.body.classList.remove("modal-open");
+  }
+
+  // Envoi formulaire du modal
+  modalBtn.addEventListener("click", async function (e) {
+    e.preventDefault();
+    const prenom = modalPrenom.value.trim();
+    const company = modalCompany.value.trim();
+    const email = modalEmail.value.trim();
+    if (modalFake.value) return; // honeypot anti-spam
+    if (!prenom || !email || !/^[\w\.\-]+@[\w\-]+\.[a-z]{2,}$/i.test(email)) {
+      modalError.textContent = "Merci de renseigner un prénom et un email valide.";
+      modalError.classList.remove("hidden");
+      return;
+    }
+    modalError.classList.add("hidden");
+    modalLoading.classList.remove("hidden");
+    modalBtn.disabled = true;
+
+    // Calculs
+    simulation.prenom = prenom;
+    simulation.company = company || "";
+    simulation.email = email;
+    simulation.euros = simulation.heures * simulation.taux;
+    simulation.hoursMonth = simulation.heures * 4.33;
+    simulation.eurosMonth = simulation.euros * 4.33;
+    simulation.hoursYear = simulation.heures * 52;
+    simulation.eurosYear = simulation.euros * 52;
+    simulation.heuresHidden = +(simulation.heures * 1.375).toFixed(1);
+    simulation.eurosHidden = +(simulation.euros * 1.375).toFixed(0);
+    simulation.hoursMonthHidden = +(simulation.hoursMonth * 1.375).toFixed(1);
+    simulation.eurosMonthHidden = +(simulation.eurosMonth * 1.375).toFixed(0);
+    simulation.hoursYearHidden = +(simulation.hoursYear * 1.375).toFixed(1);
+    simulation.eurosYearHidden = +(simulation.eurosYear * 1.375).toFixed(0);
+    simulation.userAgent = navigator.userAgent;
+    simulation.pageSource = window.location.href;
+    simulation.type = "simulation-automation";
+
+    // Envoi à n8n
+    try {
+      const webhookUrl = "https://n8n.chezparallax.fr/webhook-test/36d699a4-0064-49f5-8cb8-bbb630fd60cd";
+      const resp = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(simulation),
+      });
+      if (resp.ok) {
+        closeModal();
+        step1.classList.add("hidden");
+        successMsg.classList.remove("hidden");
+        errorMsg.classList.add("hidden");
+      } else {
+        modalLoading.classList.add("hidden");
+        modalError.textContent = "Erreur de connexion, merci de réessayer.";
+        modalError.classList.remove("hidden");
       }
-    });
-  </script>
+    } catch (err) {
+      modalLoading.classList.add("hidden");
+      modalError.textContent = "Erreur de connexion, merci de réessayer.";
+      modalError.classList.remove("hidden");
+    }
+    modalBtn.disabled = false;
+  });
+});
+</script>
+
+
+
 
   <!-- ANIMATION DU CORPS DES SECTIONS -->
   <script type="module">
@@ -1434,37 +1601,6 @@
       animate("#cta-note", { opacity: [0, 1], y: [10, 0] }, { delay: 0.93, duration: 0.24, easing: "ease" });
     }, { margin: "-10% 0px" });
 
-  </script>
-
-  <!-- ANIMATIONS EXTRA -->
-  <script type="module">
-    // Si tu veux un easing smooth :
-    function lerp(a, b, n) { return a + (b - a) * n; }
-
-    // Sélectionne toutes les blobs avec la classe .octo-parallax
-    const blobs = [
-      // gauche, bleu/orange, du plus gros au plus petit :
-      { selector: ".octo-left-1", factor: 0.15, y: 0 }, // très lent, GROS BLOB
-      { selector: ".octo-left-2", factor: 0.25, y: 0 },
-      { selector: ".octo-left-3", factor: 0.30, y: 0 },
-      { selector: ".octo-left-4", factor: 0.10, y: 0 },
-      // droite :
-      { selector: ".octo-right-1", factor: 0.32, y: 0 },
-      { selector: ".octo-right-2", factor: 0.25, y: 0 },
-      { selector: ".octo-right-3", factor: 0.15, y: 0 }, // ajuster factor selon la taille/position
-    ];
-
-    function animateParallaxBlobs() {
-      const scroll = window.scrollY || window.pageYOffset;
-      blobs.forEach(blob => {
-        // Effet depth : les plus petits bougent + (plus grand factor)
-        blob.y = lerp(blob.y, scroll * blob.factor, 0.18);
-        const el = document.querySelector(blob.selector);
-        if (el) el.style.transform = `translateY(${-blob.y}px)`;
-      });
-      requestAnimationFrame(animateParallaxBlobs);
-    }
-    animateParallaxBlobs();
   </script>
 
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
