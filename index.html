@@ -1211,6 +1211,7 @@
 
   <!-- SIMULATEUR -->
   <script>
+
     document.getElementById('gain-simulator').addEventListener('submit', function (e) {
       e.preventDefault();
       return false;
@@ -1317,12 +1318,19 @@
             closeModal();
             step1.classList.add("hidden");
             successMsg.classList.remove("hidden");
+            successMsg.classList.remove("animate-fadeIn");
+            successMsg.offsetWidth; // Force reflow pour relancer l'anim
+            successMsg.classList.add("animate-fadeIn");
             errorMsg.classList.add("hidden");
           } else {
             modalLoading.classList.add("hidden");
             modalError.textContent = "Erreur de connexion, merci de réessayer.";
             modalError.classList.remove("hidden");
+            modalError.classList.remove("animate-fadeIn");
+            modalError.offsetWidth; // Force reflow pour relancer l'anim
+            modalError.classList.add("animate-fadeIn");
           }
+
         } catch (err) {
           modalLoading.classList.add("hidden");
           modalError.textContent = "Erreur de connexion, merci de réessayer.";
@@ -1336,6 +1344,26 @@
   <!-- ANIMATION DU CORPS DES SECTIONS -->
   <script type="module">
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/@motionone/dom/+esm";
+
+    // Animation premium de la section simulateur (titre + form cascade)
+inView("#simulateur", () => {
+  animate("#simulateur h2", { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, delay: 0.35, easing: "ease" });
+  const els = document.querySelectorAll("#simu-step-1 > div, #simu-step-1 > button, #simu-step-1 > .text-xs");
+  els.forEach((el, i) => {
+    animate(el, { opacity: [0, 1], y: [20, 0] }, {
+      delay: 0.16 + i * 0.07,
+      duration: 0.75,
+      easing: "ease",
+      complete: () => {
+        // Met automatiquement le focus sur le 1er champ texte à la fin de la cascade
+        if (i === 0) {
+          el.querySelector("input")?.focus();
+        }
+      }
+    });
+  });
+});
+
 
     // Animation cascade du texte (lead, titre, desc, CTA)
     inView("#hero-lead", () => {
