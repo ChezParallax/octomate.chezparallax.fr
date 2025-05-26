@@ -1148,8 +1148,8 @@
       <!-- Script Cal.com pour ouverture calendrier -->
       <script type="text/javascript">
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-        Cal("init", "decouverte", { origin: "https://cal.com" });
-        Cal.ns.decouverte("ui", { "cssVarsPerTheme": { "light": { "cal-brand": "#25353F" }, "dark": { "cal-brand": "#F5F1E6" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+        Cal("init", "appel-decouverte-octomate", { origin: "https://cal.com" });
+        Cal.ns["appel-decouverte-octomate"]("ui", { "theme": "dark", "cssVarsPerTheme": { "light": { "cal-brand": "#25353F" }, "dark": { "cal-brand": "#F5F1E6" } }, "hideEventTypeDetails": false, "layout": "month_view" });
       </script>
     </section>
 
@@ -1346,23 +1346,23 @@
     import { animate, inView } from "https://cdn.jsdelivr.net/npm/@motionone/dom/+esm";
 
     // Animation premium de la section simulateur (titre + form cascade)
-inView("#simulateur", () => {
-  animate("#simulateur h2", { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, delay: 0.35, easing: "ease" });
-  const els = document.querySelectorAll("#simu-step-1 > div, #simu-step-1 > button, #simu-step-1 > .text-xs");
-  els.forEach((el, i) => {
-    animate(el, { opacity: [0, 1], y: [20, 0] }, {
-      delay: 0.16 + i * 0.07,
-      duration: 0.75,
-      easing: "ease",
-      complete: () => {
-        // Met automatiquement le focus sur le 1er champ texte à la fin de la cascade
-        if (i === 0) {
-          el.querySelector("input")?.focus();
-        }
-      }
+    inView("#simulateur", () => {
+      animate("#simulateur h2", { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, delay: 0.35, easing: "ease" });
+      const els = document.querySelectorAll("#simu-step-1 > div, #simu-step-1 > button, #simu-step-1 > .text-xs");
+      els.forEach((el, i) => {
+        animate(el, { opacity: [0, 1], y: [20, 0] }, {
+          delay: 0.16 + i * 0.07,
+          duration: 0.75,
+          easing: "ease",
+          complete: () => {
+            // Met automatiquement le focus sur le 1er champ texte à la fin de la cascade
+            if (i === 0) {
+              el.querySelector("input")?.focus();
+            }
+          }
+        });
+      });
     });
-  });
-});
 
 
     // Animation cascade du texte (lead, titre, desc, CTA)
