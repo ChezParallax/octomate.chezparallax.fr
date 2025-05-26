@@ -10,14 +10,15 @@
   <meta name="robots" content="index, follow">
 
   <!-- CSP -->
-  <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.tailwindcss.com cdn.jsdelivr.net unpkg.com;
-        style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.tailwindcss.com cdn.jsdelivr.net;
-        img-src 'self' data: https:;
-        font-src 'self' data: fonts.gstatic.com;
-        connect-src 'self' https://n8n.chezparallax.fr;
-      ">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.tailwindcss.com cdn.jsdelivr.net unpkg.com app.cal.com;
+  style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.tailwindcss.com cdn.jsdelivr.net app.cal.com;
+  img-src 'self' data: https:;
+  font-src 'self' data: fonts.gstatic.com;
+  connect-src 'self' https://n8n.chezparallax.fr app.cal.com;
+  frame-src app.cal.com;
+">
 
   <!-- SIMPLE ANALYTICS -->
   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
@@ -1140,17 +1141,23 @@
             aria-label="Réservez votre appel découverte offert">
             🚀 Je réserve mon audit offert
           </a>
+          <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "appel-decouverte-octomate", {origin:"https://cal.com"});
+            Cal.ns["appel-decouverte-octomate"]("ui", {
+              "cssVarsPerTheme":{
+                "light":{"cal-brand":"#25353F"},
+                "dark":{"cal-brand":"#F5F1E6"}
+              },
+              "hideEventTypeDetails":false,
+              "layout":"month_view"
+            });
+          </script>
           <p id="cta-note" class="mt-2 text-xs text-[#bdd6f7] text-center">
             Confirmation immédiate – aucun paiement requis, agenda 100% flexible.
           </p>
         </div>
       </div>
-      <!-- Script Cal.com pour ouverture calendrier -->
-      <script type="text/javascript">
-        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-        Cal("init", "appel-decouverte-octomate", { origin: "https://cal.com" });
-        Cal.ns["appel-decouverte-octomate"]("ui", { "theme": "dark", "cssVarsPerTheme": { "light": { "cal-brand": "#25353F" }, "dark": { "cal-brand": "#F5F1E6" } }, "hideEventTypeDetails": false, "layout": "month_view" });
-      </script>
     </section>
 
   </main>
