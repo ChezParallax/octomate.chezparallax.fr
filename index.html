@@ -17,11 +17,7 @@
   img-src 'self' data: https:;
   font-src 'self' data: fonts.gstatic.com;
   connect-src 'self' https://n8n.chezparallax.fr app.cal.com;
-  frame-src app.cal.com;
-">
-
-  <!-- SIMPLE ANALYTICS -->
-  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  frame-src app.cal.com;">
 
   <!-- 📱 META SOCIAL -->
   <meta property="og:title" content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
@@ -43,16 +39,11 @@
   <!-- 🧠 TITRE -->
   <title>Octomate — Partenaire pour une croissance qui vous fait gagner du temps</title>
 
-  <!-- 🎨 TAILWIND CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- 💻 POLICES -->
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Nunito:wght@400;600;800;900&display=swap"
     rel="stylesheet">
 
-  <!-- 💼 ICONS (Lucide) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
       font-family: 'Nunito', sans-serif;
@@ -219,6 +210,18 @@
   }
   // — Thibaud, le mec derrière le rideau 👀
   -->
+
+<!-- TAILWIND CSS (obligatoire en haut) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- ICONES Lucide -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- AlpineJS pour menu burger si besoin -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- CRITICAL JS (doit être chargé en premier) -->
+<script src="/js/main-critical.js" type="module" defer></script>
 
 </head>
 
@@ -1141,18 +1144,6 @@
             aria-label="Réservez votre appel découverte offert">
             🚀 Je réserve mon audit offert
           </a>
-          <script type="text/javascript">
-            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-            Cal("init", "appel-decouverte-octomate", {origin:"https://cal.com"});
-            Cal.ns["appel-decouverte-octomate"]("ui", {
-              "cssVarsPerTheme":{
-                "light":{"cal-brand":"#25353F"},
-                "dark":{"cal-brand":"#F5F1E6"}
-              },
-              "hideEventTypeDetails":false,
-              "layout":"month_view"
-            });
-          </script>
           <p id="cta-note" class="mt-2 text-xs text-[#bdd6f7] text-center">
             Confirmation immédiate – aucun paiement requis, agenda 100% flexible.
           </p>
@@ -1193,473 +1184,12 @@
     <div id="footer"></div>
   </footer>
 
-  <!-- SCRIPS RANDOM -->
-  <script>
-    lucide.createIcons();
-  </script>
-  <script>
-    // Charge dynamiquement le header et le footer
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch("/parts/header.html")
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById("header").innerHTML = data;
-          lucide.createIcons(); // Recrée les icônes après avoir injecté le header
-        });
+<!-- NON-CRITICAL JS -->
+  <script src="/js/main-noncritical.js" type="module" defer></script>
 
-      fetch("/parts/footer.html")
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById("footer").innerHTML = data;
-          lucide.createIcons(); // Recrée les icônes après avoir injecté le footer
-        });
-    });
-  </script>
+<!-- ANALYTICS -->
+  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
-  <!-- SIMULATEUR -->
-  <script>
-
-    document.getElementById('gain-simulator').addEventListener('submit', function (e) {
-      e.preventDefault();
-      return false;
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // Champs du simulateur
-      const step1 = document.getElementById("simu-step-1");
-      const successMsg = document.getElementById("simu-success");
-      const errorMsg = document.getElementById("simu-error");
-
-      // Modal éléments
-      const modalBg = document.getElementById("simu-modal-bg");
-      const modal = document.getElementById("simu-modal");
-      const modalClose = document.getElementById("simu-modal-close");
-      const modalPrenom = document.getElementById("input-modal-prenom");
-      const modalCompany = document.getElementById("input-modal-company");
-      const modalEmail = document.getElementById("input-modal-email");
-      const modalFake = document.getElementById("input-modal-fake");
-      const modalBtn = document.getElementById("simu-modal-submit");
-      const modalError = document.getElementById("simu-modal-error");
-      const modalLoading = document.getElementById("simu-modal-loading");
-
-      // Variables stock temporaire
-      let simulation = {};
-
-      // Ouvre le modal à partir du simulateur principal
-      document.getElementById("simu-estimate-btn").addEventListener("click", function (e) {
-        e.preventDefault();
-        // Récupère les valeurs du simulateur
-        const tache = document.getElementById("input-tache").value.trim();
-        const heures = parseFloat(document.getElementById("input-heures").value.replace(',', '.')) || 0;
-        const taux = parseFloat(document.getElementById("input-taux").value.replace(',', '.')) || 19.9;
-        if (!tache || heures < 0.1 || taux < 1) {
-          alert("Merci de renseigner une tâche, le temps hebdo, et un taux horaire valide.");
-          return;
-        }
-        simulation = { tache, heures, taux };
-        // Reset modal, fade in + blur
-        modalBg.classList.remove("hidden");
-        setTimeout(() => modalBg.classList.add("active"), 10);
-        document.body.classList.add("modal-open");
-        modalError.classList.add("hidden");
-        modalLoading.classList.add("hidden");
-        modalPrenom.value = "";
-        modalCompany.value = "";
-        modalEmail.value = "";
-        modalPrenom.focus();
-      });
-
-      // Fermer modal (croix ou click en dehors)
-      modalClose.addEventListener("click", closeModal);
-      modalBg.addEventListener("click", function (e) { if (e.target === modalBg) closeModal(); });
-      function closeModal() {
-        modalBg.classList.remove("active");
-        setTimeout(() => modalBg.classList.add("hidden"), 330);
-        document.body.classList.remove("modal-open");
-      }
-
-      // Envoi formulaire du modal
-      modalBtn.addEventListener("click", async function (e) {
-        e.preventDefault();
-        const prenom = modalPrenom.value.trim();
-        const company = modalCompany.value.trim();
-        const email = modalEmail.value.trim();
-        if (modalFake.value) return; // honeypot anti-spam
-        if (!prenom || !email || !/^[\w\.\-]+@[\w\-]+\.[a-z]{2,}$/i.test(email)) {
-          modalError.textContent = "Merci de renseigner un prénom et un email valide.";
-          modalError.classList.remove("hidden");
-          return;
-        }
-        modalError.classList.add("hidden");
-        modalLoading.classList.remove("hidden");
-        modalBtn.disabled = true;
-
-        // Calculs
-        simulation.prenom = prenom;
-        simulation.company = company || "";
-        simulation.email = email;
-        simulation.euros = simulation.heures * simulation.taux;
-        simulation.hoursMonth = simulation.heures * 4.33;
-        simulation.eurosMonth = simulation.euros * 4.33;
-        simulation.hoursYear = simulation.heures * 52;
-        simulation.eurosYear = simulation.euros * 52;
-        simulation.heuresHidden = +(simulation.heures * 1.375).toFixed(1);
-        simulation.eurosHidden = +(simulation.euros * 1.375).toFixed(0);
-        simulation.hoursMonthHidden = +(simulation.hoursMonth * 1.375).toFixed(1);
-        simulation.eurosMonthHidden = +(simulation.eurosMonth * 1.375).toFixed(0);
-        simulation.hoursYearHidden = +(simulation.hoursYear * 1.375).toFixed(1);
-        simulation.eurosYearHidden = +(simulation.eurosYear * 1.375).toFixed(0);
-        simulation.userAgent = navigator.userAgent;
-        simulation.pageSource = window.location.href;
-        simulation.type = "simulation-automation";
-
-        // Envoi à n8n
-        try {
-          const webhookUrl = "https://n8n.chezparallax.fr/webhook/36d699a4-0064-49f5-8cb8-bbb630fd60cd";
-          const resp = await fetch(webhookUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(simulation),
-          });
-          if (resp.ok) {
-            closeModal();
-            step1.classList.add("hidden");
-            successMsg.classList.remove("hidden");
-            successMsg.classList.remove("animate-fadeIn");
-            successMsg.offsetWidth; // Force reflow pour relancer l'anim
-            successMsg.classList.add("animate-fadeIn");
-            errorMsg.classList.add("hidden");
-          } else {
-            modalLoading.classList.add("hidden");
-            modalError.textContent = "Erreur de connexion, merci de réessayer.";
-            modalError.classList.remove("hidden");
-            modalError.classList.remove("animate-fadeIn");
-            modalError.offsetWidth; // Force reflow pour relancer l'anim
-            modalError.classList.add("animate-fadeIn");
-          }
-
-        } catch (err) {
-          modalLoading.classList.add("hidden");
-          modalError.textContent = "Erreur de connexion, merci de réessayer.";
-          modalError.classList.remove("hidden");
-        }
-        modalBtn.disabled = false;
-      });
-    });
-  </script>
-
-  <!-- ANIMATION DU CORPS DES SECTIONS -->
-  <script type="module">
-    import { animate, inView } from "https://cdn.jsdelivr.net/npm/@motionone/dom/+esm";
-
-    // Animation premium de la section simulateur (titre + form cascade)
-    inView("#simulateur", () => {
-      animate("#simulateur h2", { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, delay: 0.35, easing: "ease" });
-      const els = document.querySelectorAll("#simu-step-1 > div, #simu-step-1 > button, #simu-step-1 > .text-xs");
-      els.forEach((el, i) => {
-        animate(el, { opacity: [0, 1], y: [20, 0] }, {
-          delay: 0.16 + i * 0.07,
-          duration: 0.75,
-          easing: "ease",
-          complete: () => {
-            // Met automatiquement le focus sur le 1er champ texte à la fin de la cascade
-            if (i === 0) {
-              el.querySelector("input")?.focus();
-            }
-          }
-        });
-      });
-    });
-
-
-    // Animation cascade du texte (lead, titre, desc, CTA)
-    inView("#hero-lead", () => {
-      animate("#hero-lead", { opacity: [0, 1], y: [-30, 0] }, { duration: 0.7, easing: "ease" });
-    });
-    inView("#hero-title", () => {
-      animate("#hero-title", { opacity: [0, 1], y: [-30, 0] }, { delay: 0.10, duration: 0.7, easing: "ease" });
-    });
-    inView("#hero-desc", () => {
-      animate("#hero-desc", { opacity: [0, 1], y: [-20, 0] }, { delay: 0.20, duration: 0.7, easing: "ease" });
-    });
-    inView("#hero-cta", () => {
-      animate("#hero-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 0.33, duration: 0.6, easing: "ease" });
-    });
-
-    // Social proof block
-    inView("#hero-social-proof", () => {
-      animate("#hero-social-proof", { opacity: [0, 1], y: [30, 0] }, { delay: 0.40, duration: 0.6, easing: "ease" });
-      // Stagger avatars
-      [1, 2, 3, 4, 5, 6].forEach((n, i) => {
-        animate(`#hero-avatar-${n}`, { opacity: [0, 1], x: [-10, 0] }, { delay: 0.54 + i * 0.10, duration: 0.45, easing: "ease" });
-      });
-    });
-
-    // Image hero (fade-in avec slide droite)
-    inView("#hero-img-col", () => {
-      animate("#hero-img-col", { opacity: [0, 1], x: [30, 0] }, { delay: 0.2, duration: 0.8, easing: "ease" });
-    });
-
-    // SECTION PROBLEME — Apparition cascade des éléments
-    inView("#probleme-title", () => {
-      animate("#probleme-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
-    });
-    [1, 2, 3, 4].forEach((n, i) => {
-      inView(`#probleme-item-${n}`, () => {
-        animate(`#probleme-item-${n}`, { opacity: [0, 1], x: [-24, 0] }, { delay: 0.15 + i * 0.14, duration: 0.65, easing: "ease" });
-      });
-    });
-    inView("#probleme-note", () => {
-      animate("#probleme-note", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.8, duration: 0.6, easing: "ease" });
-    });
-    inView("#probleme-cta", () => {
-      animate("#probleme-cta", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 1.05, duration: 0.55, easing: "ease" });
-    });
-
-    // SECTION METHODE — Animation premium, effet étape par étape et slide
-    inView("#methode-title", () => {
-      animate("#methode-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
-    });
-    // Steps en cascade avec effet “slide-left”
-    [1, 2, 3, 4].forEach((n, i) => {
-      inView(`#methode-step-${n}`, () => {
-        animate(`#methode-step-${n}`, { opacity: [0, 1], x: [-28, 0] }, { delay: 0.12 + i * 0.14, duration: 0.66, easing: "ease" });
-      });
-    });
-    // CTA en fade-in + scale doux
-    inView("#methode-cta", () => {
-      animate("#methode-cta", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.75, duration: 0.56, easing: "ease" });
-    });
-    // Image colonne : fade-in + slide right
-    inView("#methode-img-col", () => {
-      animate("#methode-img-col", { opacity: [0, 1], x: [32, 0] }, { delay: 0.22, duration: 0.88, easing: "ease" });
-    });
-    // Crédit photo : fade-in + blur
-    inView("#methode-credit", () => {
-      animate("#methode-credit", { opacity: [0, 1], filter: ["blur(6px)", "blur(0px)"] }, { delay: 0.85, duration: 0.65, easing: "ease" });
-    });
-
-    // SECTION SIMULATEUR — Animation en cascade premium, tout en douceur
-    inView("#simulateur-title", () => {
-      animate("#simulateur-title", { opacity: [0, 1], y: [-28, 0] }, { duration: 0.7, easing: "ease" });
-    });
-    inView("#simulateur-accroche", () => {
-      animate("#simulateur-accroche", { opacity: [0, 1], y: [-18, 0] }, { delay: 0.13, duration: 0.55, easing: "ease" });
-    });
-    inView("#simulateur-accroche-2", () => {
-      animate("#simulateur-accroche-2", { opacity: [0, 1], y: [-12, 0] }, { delay: 0.23, duration: 0.5, easing: "ease" });
-    });
-    inView("#simulateur-form", () => {
-      animate("#simulateur-form", { opacity: [0, 1], y: [22, 0] }, { delay: 0.3, duration: 0.7, easing: "ease" });
-      // Inputs du simulateur, cascade
-      [1, 2, 3, 4, 5].forEach((i) => {
-        animate(`#simulateur-input-${i}`, { opacity: [0, 1], x: [-20, 0] }, { delay: 0.4 + i * 0.11, duration: 0.44, easing: "ease" });
-      });
-    });
-    inView("#simu-result", () => {
-      animate("#simu-result", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 1.05, duration: 0.52, easing: "ease" });
-    });
-    inView("#simulateur-cta", () => {
-      animate("#simulateur-cta", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 1.16, duration: 0.52, easing: "ease" });
-    });
-    inView("#simulateur-note", () => {
-      animate("#simulateur-note", { opacity: [0, 1], y: [10, 0] }, { delay: 1.28, duration: 0.42, easing: "ease" });
-    });
-
-    // SECTION BENEFICES — Animation cascade horizontale, effet premium
-    inView("#benefices-title", () => {
-      animate("#benefices-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
-    });
-    // Cascade des colonnes bénéfices (fade-in + slide up, avec delays)
-    [1, 2, 3].forEach((i) => {
-      inView(`#benefices-col-${i}`, () => {
-        animate(`#benefices-col-${i}`, { opacity: [0, 1], y: [32, 0] }, { delay: 0.15 + i * 0.17, duration: 0.7, easing: "ease" });
-      });
-    });
-    inView("#benefices-cta", () => {
-      animate("#benefices-cta", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.72, duration: 0.52, easing: "ease" });
-    });
-
-    // SECTION TEMOIGNAGES — Animation storytelling cascade premium
-    inView("#temoignages-title", () => {
-      animate("#temoignages-title", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.65, easing: "ease" });
-    });
-    inView("#temoignages-subtitle", () => {
-      animate("#temoignages-subtitle", { opacity: [0, 1], y: [-18, 0] }, { delay: 0.10, duration: 0.52, easing: "ease" });
-    });
-    // Témoignage héros — fade-in + légère montée
-    inView("#temoignage-hero", () => {
-      animate("#temoignage-hero", { opacity: [0, 1], y: [24, 0] }, { delay: 0.23, duration: 0.66, easing: "ease" });
-      animate("#temoignage-hero-title", { opacity: [0, 1], y: [-14, 0] }, { delay: 0.29, duration: 0.48, easing: "ease" });
-      animate("#temoignage-hero-txt1", { opacity: [0, 1], x: [-18, 0] }, { delay: 0.36, duration: 0.46, easing: "ease" });
-      animate("#temoignage-hero-txt2", { opacity: [0, 1], x: [-18, 0] }, { delay: 0.46, duration: 0.46, easing: "ease" });
-      animate("#temoignage-hero-detail", { opacity: [0, 1], y: [14, 0] }, { delay: 0.54, duration: 0.38, easing: "ease" });
-      animate("#temoignage-hero-client", { opacity: [0, 1], y: [16, 0] }, { delay: 0.62, duration: 0.36, easing: "ease" });
-    });
-    inView("#temoignage-hero-social", () => {
-      animate("#temoignage-hero-social", { opacity: [0, 1], y: [18, 0] }, { delay: 0.80, duration: 0.44, easing: "ease" });
-    });
-    // Témoignages 2 & 3 : alternance gauche-droite
-    inView("#temoignage-2", () => {
-      animate("#temoignage-2", { opacity: [0, 1], x: [32, 0] }, { delay: 0.38, duration: 0.54, easing: "ease" });
-    });
-    inView("#temoignage-3", () => {
-      animate("#temoignage-3", { opacity: [0, 1], x: [32, 0] }, { delay: 0.52, duration: 0.54, easing: "ease" });
-    });
-
-    // SECTION FAQ
-    for (let i = 1; i <= 10; i++) {
-      inView(`#faq-question-${i}`, () => {
-        animate(`#faq-question-${i}`, { opacity: [0, 1], y: [28, 0] }, { delay: 0.05 + i * 0.07, duration: 0.48, easing: "ease" });
-      });
-    }
-
-    // Animation ouverture/fermeture des REPONSES via fonction globale
-    window.faqAnimateOpen = function (n) {
-      const el = document.getElementById(`faq-reponse-${n}`);
-      if (el) {
-        // ouverture : scaleY + fade
-        animate(el, { opacity: [0, 1], scaleY: [0.97, 1] }, { duration: 0.33, easing: "ease" });
-      }
-    };
-
-    // SECTION EXEMPLES AUTOMATISATION
-
-    const tabs = document.querySelectorAll('#automation-tabs .tab-btn');
-    const cardsContainer = document.getElementById('automation-cards');
-    const allCards = Array.from(cardsContainer.querySelectorAll('.automation-card'));
-    let currentCategory = "admin";
-    let animating = false;
-
-    // Toutes les cartes hidden au chargement
-    allCards.forEach(card => card.classList.add('hidden'));
-
-    // Onglet actif
-    function activateTab(tab) {
-      tabs.forEach(btn => {
-        btn.classList.remove('bg-[#7ea1c4]', 'text-[#25353f]', 'ring', 'ring-[#7ea1c4]');
-        btn.classList.add('bg-[#25353f]', 'text-[#f5f1e6]');
-      });
-      tab.classList.add('bg-[#7ea1c4]', 'text-[#25353f]', 'ring', 'ring-[#7ea1c4]');
-      tab.blur();
-    }
-
-    // Apparition cascade premium
-    function showCards(category) {
-      const visibles = allCards.filter(c => c.getAttribute('data-category') === category);
-      visibles.forEach((card, i) => {
-        card.classList.remove('hidden');
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(-28px)';
-        animate(card, { opacity: [0, 1], y: [-28, 0] }, {
-          delay: i * 0.14,
-          duration: 0.60,
-          easing: 'ease'
-        }).finished.then(() => {
-          card.style.opacity = "";
-          card.style.transform = "";
-        });
-      });
-    }
-
-    // Disparition fluide des anciennes cartes (slide bas)
-    function hideCards(category, cb) {
-      const visibles = allCards.filter(c => c.getAttribute('data-category') === category && !c.classList.contains('hidden'));
-      let done = 0;
-      if (!visibles.length) return cb();
-      visibles.forEach((card, i) => {
-        animate(card, { opacity: [1, 0], y: [0, 38] }, {
-          delay: i * 0.09,
-          duration: 0.34,
-          easing: 'ease'
-        }).finished.then(() => {
-          card.classList.add('hidden');
-          card.style.opacity = "";
-          card.style.transform = "";
-          done++;
-          if (done === visibles.length && cb) cb();
-        });
-      });
-    }
-
-    // Switch catégorie
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const category = tab.getAttribute('data-category');
-        if (category === currentCategory || animating) return;
-        animating = true;
-        activateTab(tab);
-        hideCards(currentCategory, () => {
-          currentCategory = category;
-          showCards(category);
-          setTimeout(() => { animating = false; }, 420);
-        });
-      });
-    });
-
-    // Apparition initiale premium à la scroll
-    let loaded = false;
-    inView("#taches-automatisables", () => {
-      if (loaded) return;
-      loaded = true;
-      animate("#taches-automatisables h2", { opacity: [0, 1], y: [-32, 0] }, { duration: 0.7, easing: "ease" });
-      tabs.forEach((tab, i) => {
-        tab.style.opacity = 0;
-        tab.style.transform = 'translateX(-20px)';
-        animate(tab, { opacity: [0, 1], x: [-20, 0] }, { delay: 0.28 + i * 0.10, duration: 0.38, easing: "ease" }).finished.then(() => {
-          tab.style.opacity = "";
-          tab.style.transform = "";
-        });
-      });
-      setTimeout(() => {
-        activateTab(tabs[0]);
-        currentCategory = tabs[0].getAttribute('data-category');
-        showCards(currentCategory);
-      }, 480); // on attend la fin de la cascade des tabs pour lancer les cartes
-    }, { margin: "-12% 0px" });
-
-    // Hover effet premium — exclusif, smooth, pas de clignotement
-    let lastHovered = null;
-    cardsContainer.addEventListener("mouseover", e => {
-      const hovered = e.target.closest(".automation-card");
-      if (!hovered || hovered.classList.contains("hidden")) return;
-      if (hovered === lastHovered) return;
-      lastHovered = hovered;
-      allCards.forEach(card => {
-        if (card !== hovered && !card.classList.contains("hidden")) {
-          card.style.transition = 'opacity 0.19s cubic-bezier(.5,.2,.2,1)';
-          card.style.opacity = 0.47;
-        }
-      });
-    });
-    cardsContainer.addEventListener("mouseout", e => {
-      if (!lastHovered) return;
-      allCards.forEach(card => {
-        card.style.transition = 'opacity 0.19s cubic-bezier(.5,.2,.2,1)';
-        card.style.opacity = 1;
-      });
-      lastHovered = null;
-    });
-
-    // Fix lucide icons après DOM update
-    if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-
-    // SECTION CTA FINAL
-    inView("#cta", () => {
-      animate("#cta-surtitre", { opacity: [0, 1], y: [-16, 0] }, { duration: 0.32, easing: "ease" });
-      animate("#cta-badge", { opacity: [0, 1], scale: [0.90, 1] }, { delay: 0.09, duration: 0.32, easing: "ease" });
-      animate("#cta-title", { opacity: [0, 1], y: [-26, 0] }, { delay: 0.18, duration: 0.44, easing: "ease" });
-      animate("#cta-bullets", { opacity: [0, 1], y: [-18, 0] }, { delay: 0.34, duration: 0.34, easing: "ease" });
-      animate("#cta-social", { opacity: [0, 1], x: [-28, 0] }, { delay: 0.46, duration: 0.38, easing: "ease" });
-      animate("#cta-microcopy", { opacity: [0, 1], y: [12, 0] }, { delay: 0.58, duration: 0.34, easing: "ease" });
-      animate("#cta-urgency", { opacity: [0, 1], scale: [0.97, 1] }, { delay: 0.70, duration: 0.27, easing: "ease" });
-      animate("#cta-btn", { opacity: [0, 1], scale: [0.96, 1] }, { delay: 0.82, duration: 0.33, easing: "ease" });
-      animate("#cta-note", { opacity: [0, 1], y: [10, 0] }, { delay: 0.93, duration: 0.24, easing: "ease" });
-    }, { margin: "-10% 0px" });
-
-  </script>
-
-  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 
 </html>
