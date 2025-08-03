@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <!-- 🧠 MÉTA-INFOS SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
+  <meta name="author" content="Parallax">
+  <meta name="robots" content="index, follow">
+
+  <!-- CSP -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.tailwindcss.com cdn.jsdelivr.net unpkg.com app.cal.com;
+  style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.tailwindcss.com cdn.jsdelivr.net app.cal.com;
+  img-src 'self' data: https:;
+  font-src 'self' data: fonts.gstatic.com;
+  connect-src 'self' https://n8n.chezparallax.fr app.cal.com;
+  frame-src app.cal.com;">
+
+  <!-- 📱 META SOCIAL -->
+  <meta property="og:title" content="Octomate — Partenaire pour une croissance qui vous fait gagner du temps">
+  <meta property="og:description"
+    content="Systèmes d'automatisation et d'IA sur-mesure pour faciliter votre quotidien tout en accélérant votre croissance">
+  <meta property="og:image" content="https://octomate.chezparallax.fr/assets/img/hero_octomate.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://octomate.chezparallax.fr">
+
+  <!-- 🔍 FAVICONS & MANIFEST -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- 🧠 TITRE -->
+  <title>Octomate — Partenaire pour une croissance qui vous fait gagner du temps</title>
+
+  <!-- 💻 POLICES -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Nunito:wght@400;600;800;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .match-height {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1024px) {
+      .match-height {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+      }
+    }
+
+    .match-height>div {
+      height: 100%;
+    }
+
+    .match-height img {
+      height: 100%;
+    }
+
+    .match-height img.object-contain {
+      object-fit: contain;
+    }
+
+    .match-height img.object-cover {
+      object-fit: cover;
+    }
+
+    .scroll-adjust {
+      scroll-margin-top: 320px;
+    }
+
+    @media (min-width: 1024px) {
+      .scroll-adjust {
+        scroll-margin-top: 70px;
+      }
+    }
+
+    a.logo:focus,
+    a.logo:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    a.logo:focus-visible {
+      outline: 2px solid #7ea1c4;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 2px #25353f22;
+    }
+
+    /* Fading modal + blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Overlay: fixe et centré sur tout l'écran */
+    #simu-modal-bg {
+      position: fixed;
+      /* <<--- Le point clé ! */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10000;
+      background: rgba(28, 38, 48, 0.85);
+      /* overlay foncé, ajuste si besoin */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    #simu-modal-bg.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Bloc modal centré */
+    #simu-modal {
+      background: #25353f;
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 40px #111a;
+      padding: 2rem 1.5rem;
+      max-width: 420px;
+      width: 95%;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    /* Quand overlay actif : fade in du modal */
+    #simu-modal-bg.active #simu-modal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Légère animation d’apparition, si besoin pour d’autres blocs */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeIn {
+      animation: fadeIn 0.3s;
+    }
+
+    /* Si tu veux garder le blur sur l’arrière-plan */
+    body.modal-open>#content,
+    body.modal-open>#main,
+    body.modal-open>main,
+    body.modal-open>div:not(#simu-modal-bg) {
+      filter: blur(1.5px);
+      pointer-events: none;
+      /* désactive interactions sur le contenu */
+    }
+
+    /* Ajoute une transition douce au blur si tu veux */
+    body.modal-open>#content,
+    body.modal-open>#main,
+    body.modal-open>main,
+    body.modal-open>div:not(#simu-modal-bg) {
+      transition: filter 0.2s;
+    }
+  </style>
+
+  <!--
+  👋 Hey, toi.
+  Si tu lis ça, c’est que tu fais partie des rares à explorer sous la surface.
+  Bienvenue dans les coulisses :)
+  Tu devrais venir nous parler, franchement.
+  On adore bosser avec les curieux.
+  Pour la peine que tu t'es donné pour trouver ce code, tu mérites bien mon email perso : thibaud@chezparallax.fr !
+  Fais moi signe si tu veux passer à la vitesse supérieure ;)
+  🧙‍♂️ Juste pour toi, un petit snippet existentiel :
+  function grow(business) {
+    if (automation && AI) {
+      return business * 🚀;
+    } else {
+      return "burnout();";
+    }
+  }
+  // — Thibaud, le mec derrière le rideau 👀
+  -->
+
+<!-- TAILWIND CSS (obligatoire en haut) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- ICONES Lucide -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- AlpineJS pour menu burger si besoin -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- CRITICAL JS (doit être chargé en premier) -->
+<script src="/js/main-critical.js" type="module" defer></script>
+
+</head>
+
+<body class="bg-[#25353f] text-[#f5f1e6]">
+
+  <!-- 🔝 HEADER NAVIGATION STICKY -->
+  <header id="main-header"
+    class="sticky top-0 z-50 w-full bg-[#25353f]/70 border-b border-[#7ea1c4]/20 backdrop-blur-lg">
+    <div id="header"></div>
+  </header>
+
+  <!-- 🌍 CORPS DE PAGE -->
+  <main id="main-content">
+
+    <!-- 🦸 HERO SECTION -->
+    <section class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <!-- Colonne gauche : Texte, CTA, Preuve sociale -->
+        <div>
+          <div class="max-w-[650px]">
+            <p id="hero-lead" class="text-sm lg:text-base text-[#c78a5c] font-semibold mb-3 tracking-wide opacity-0">
+              ⚡ Pour dirigeant·es de PME ambitieux·ses
+            </p>
+            <h1 id="hero-title"
+              class="text-4xl lg:text-5xl font-extrabold font-montserrat leading-tight mb-6 opacity-0">
+              Libérez-vous des <span class="inline-block bg-[#c78a5c] text-[#25353f] px-1 rounded">tâches
+                répétitives</span>:<br>
+              boostez la croissance de votre PME grâce à <span class="text-[#7ea1c4]">l’automatisation</span> & <span
+                class="text-[#7ea1c4]">l’IA</span>.
+            </h1>
+            <p id="hero-desc" class="text-md font-nunito mb-8 opacity-0">
+              On traque vos tâches chronophages, on les automatise (vraiment).<br>
+              Vous vous concentrez sur votre cœur de métier et reprenez le contrôle sur votre agenda.<br>
+              Des résultats concrets, en quelques semaines.
+            </p>
+            <a id="hero-cta" href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98] focus:ring-2 focus:ring-[#7ea1c4] opacity-0">
+              Réservez votre appel découverte offert
+            </a>
+            <!-- ⭐ Preuve sociale stylisée -->
+            <div id="hero-social-proof" class="mt-8 flex items-center gap-4 opacity-0">
+              <!-- 👥 Avatars clients superposés -->
+              <div class="flex -space-x-4">
+                <img id="hero-avatar-1" src="/assets/img/logo-panadis.webp"
+                  alt="Logo de l'entreprise Panadis – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-2" src="/assets/img/logo-times.webp"
+                  alt="Logo de l'entreprise Time's – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-3" src="/assets/img/logo-aja.webp"
+                  alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-4" src="/assets/img/logo-dolorium_tattoo.webp"
+                  alt="Logo de l'indépendant Dolorium Tattoo – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-5" src="/assets/img/logo-la_fine_equipe.webp"
+                  alt="Logo de la marque La Fine Équipe – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+                <img id="hero-avatar-6" src="assets/img/logo-energus_10.webp"
+                  alt="Logo de la marque energus10 – client accompagné"
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover opacity-0">
+              </div>
+              <!-- 📣 Texte avec étoiles lisibles -->
+              <div class="flex items-center gap-1 text-sm font-semibold font-nunito text-[#25353f] ml-2">
+                <span class="inline-block bg-white border border-[#d6d3cc] rounded-full px-1.5">⭐⭐⭐⭐⭐</span>
+                <span class="ml-1 text-[#f5f1e6]">+10 entrepreneurs accompagnées</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Colonne droite : Visuel automation -->
+        <div id="hero-img-col" class="flex justify-center items-center min-h-[350px] lg:min-h-[530px] opacity-0">
+          <img src="/assets/img/hero_octomate_v2.webp" alt="Automatisation PME par OctoMate – illustration immersive"
+            class="h-full w-auto max-h-[530px] object-contain">
+        </div>
+      </div>
+    </section>
+
+    <!-- 🚨 SECTION PROBLÈME -->
+    <section id="probleme"
+      class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12 relative overflow-hidden">
+
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 id="probleme-title"
+          class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-12 leading-tight opacity-0">
+          Trop d’opérationnel, pas assez de temps pour innover ?<br>
+          <span class="text-[#c78a5c]">Vous n’êtes clairement pas le seul·e.</span>
+        </h2>
+        <div class="max-w-xl mx-auto text-left">
+          <ul id="probleme-list" class="space-y-5 text-lg font-nunito">
+            <li id="probleme-item-1" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="alarm-clock"></i>
+              <p class="m-0">Relances, saisies, suivis : tout retombe (encore et toujours) sur vous.</p>
+            </li>
+            <li id="probleme-item-2" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="rotate-cw"></i>
+              <p class="m-0">Ces tâches chronophages tournent en boucle — c’est usant, et vous le savez.</p>
+            </li>
+            <li id="probleme-item-3" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="database"></i>
+              <p class="m-0">Fichiers, emails, post-its : plus on jongle, plus l’erreur guette.</p>
+            </li>
+            <li id="probleme-item-4" class="flex items-start gap-3 leading-relaxed opacity-0">
+              <i class="w-6 h-6 mt-1 text-[#c78a5c] shrink-0" data-lucide="user-x"></i>
+              <p class="m-0">Jamais de temps pour automatiser… ni pour prendre du recul ou lancer de nouveaux projets.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div id="probleme-note"
+          class="bg-[#25353f] mt-12 px-6 py-5 rounded-xl border border-[#7ea1c4] text-base font-nunito max-w-2xl mx-auto text-[#f5f1e6] leading-relaxed opacity-0">
+          Ce n’est pas une fatalité.<br>
+          L’automatisation remet vos journées à l’endroit, et votre énergie là où elle compte.
+        </div>
+        <div class="mt-8 text-center">
+          <a id="probleme-cta" href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
+            Je veux reprendre le contrôle - Je réserve mon appel offert
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🤖 SECTION MÉTHODE AUTOMATION / IA -->
+    <section id="methode" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] pt-12 pb-24 px-6 lg:px-12">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+        <!-- Texte à gauche -->
+        <div>
+          <h2 id="methode-title" class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-6 opacity-0">
+            La méthode OctoMate&nbsp;: humain, pragmatique, efficace.
+          </h2>
+          <div class="space-y-5">
+            <div id="methode-step-1" class="opacity-0">
+              <strong>1. Écoute & Diagnostic personnalisé</strong><br>
+              <span class="text-base font-nunito">
+                On commence par échanger pour comprendre votre façon de travailler. Chaque PME est unique : on
+                cartographie vos process, vos blocages, vos besoins réels.
+              </span>
+            </div>
+            <div id="methode-step-2" class="opacity-0">
+              <strong>2. Automatisation sur-mesure</strong><br>
+              <span class="text-base font-nunito">
+                Nous sélectionnons et adaptons les outils les plus pertinents pour votre activité. L’objectif : une
+                automatisation qui s’intègre naturellement à votre quotidien, sans complexité inutile.
+              </span>
+            </div>
+            <div id="methode-step-3" class="opacity-0">
+              <strong>3. Déploiement rapide & formation</strong><br>
+              <span class="text-base font-nunito">
+                Vous découvrez les premiers résultats dès les premières semaines. La prise en main est guidée, pour que
+                vos équipes restent autonomes et à l’aise.
+              </span>
+            </div>
+            <div id="methode-step-4" class="opacity-0">
+              <strong>4. Support humain & accessible</strong><br>
+              <span class="text-base font-nunito">
+                Vous gardez toujours un contact direct avec nous, sans tickets ni barrières. On répond à vos questions,
+                on ajuste et on dépanne — rapidement, par le canal qui vous arrange le plus.
+              </span>
+            </div>
+          </div>
+          <div class="mt-8 text-center">
+            <a id="methode-cta" href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
+              Je veux voir comment cette méthode s'adapte à mon quotidien
+            </a>
+          </div>
+        </div>
+        <!-- Visuel équipe avec crédit déjà intégré ici -->
+        <div id="methode-img-col" class="flex justify-center relative opacity-0">
+          <img src="\assets\img\methode_octomate.webp" alt="Atelier d'automatisation en PME – équipe OctoMate à l'œuvre"
+            class="w-full max-w-md lg:max-w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎁 SECTION SIMULATEUR DE TEMPS GAGNÉ -->
+    <section id="simulateur" class="bg-[#1c2630] text-[#f5f1e6] pt-20 pb-28 px-6 lg:px-12">
+      <div class="max-w-xl mx-auto flex flex-col items-center">
+        <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat text-center mb-6">
+          ⏱️ Calculez vos gains potentiels
+        </h2>
+        <form id="gain-simulator" autocomplete="off"
+          class="w-full space-y-6 bg-[#25353f] bg-opacity-80 rounded-2xl p-8 shadow-xl border border-[#7ea1c4] transition-all duration-300">
+          <!-- Étape 1 : Saisie tâche/temps/taux -->
+          <div id="simu-step-1" class="space-y-4">
+            <div>
+              <label class="block font-semibold mb-1">Quelle tâche voulez-vous automatiser ?</label>
+              <input type="text" name="tache" id="input-tache" required
+                placeholder="Ex : facturation, relances, emails…"
+                class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Temps passé par semaine (heures)</label>
+              <input type="number" min="0.5" step="0.5" name="heures" id="input-heures" required placeholder="Ex : 7"
+                class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#7ea1c4]" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Taux horaire moyen (€)</label>
+              <input type="number" min="10" step="0.1" name="taux" id="input-taux" required
+                placeholder="Ex. 19,9 (Employés) ou 33,5 (Cadres)"
+                class="w-full px-3 py-2 rounded-lg border border-[#c78a5c] bg-white text-[#25353f] placeholder-[#a5b5c4] focus:ring-2 focus:ring-[#c78a5c]" />
+              <div class="text-xs mt-1 text-[#7ea1c4]">
+                Source : Médiane <a
+                  href="https://www.insee.fr/fr/statistiques/8382421#:~:text=En%202022%2C%20en%20France%20hors,de%20plus%20que%20le%20Smic."
+                  target="_blank" class="underline">INSEE 2022</a>
+              </div>
+            </div>
+            <button type="button" id="simu-estimate-btn"
+              class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all text-white font-semibold py-3 rounded-lg shadow">
+              Estimer mes gains
+            </button>
+            <div class="text-xs text-center mt-2 text-[#c78a5c]">
+              Ce simulateur est lui-même automatisé grâce à OctoMate.
+            </div>
+          </div>
+          <!-- SUCCESS & ERROR BLOCS -->
+          <div id="simu-success"
+            class="hidden border border-green-500 bg-[#223b2d] rounded-xl px-4 py-6 mt-6 text-center text-[#a2e291] font-bold animate-fadeIn">
+            🎉 Merci ! Votre estimation est en chemin vers votre email !<br>
+            <span class="block text-[#f5f1e6] mt-4 mb-2 font-semibold">
+              Découvrez comment concrétiser ce gain&nbsp;:
+            </span>
+            <a id="cta-calc" href="#cta"
+              class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-base shadow hover:scale-[1.02] active:scale-[0.98] focus:ring-2 focus:ring-[#7ea1c4]">
+              Réservez votre appel découverte offert
+            </a>
+          </div>
+          <div id="simu-error"
+            class="hidden border border-red-400 bg-[#402829] rounded-xl px-4 py-6 mt-6 text-center text-[#e291a2] font-semibold animate-fadeIn">
+            😕 Une erreur est survenue.<br>Merci de réessayer, ou contactez-moi si le problème persiste.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 🧩 SECTION BÉNÉFICES -->
+    <section id="benefices" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] py-24 px-6 lg:px-12">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 id="benefices-title"
+          class="text-3xl lg:text-4xl font-extrabold font-montserrat mb-16 leading-tight opacity-0">
+          Les avantages concrets pour votre PME
+        </h2>
+        <div class="bg-[#1c2630] rounded-2xl shadow-lg p-10 md:p-14">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div id="benefices-col-1" class="flex flex-col items-center opacity-0">
+              <div class="bg-[#7ea1c4] p-4 rounded-full mb-6">
+                <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="text-xl font-extrabold mb-2 font-montserrat">Gain de temps immédiat</h3>
+              <p class="text-base font-nunito leading-relaxed">
+                Fini les tâches qui grignotent vos journées.
+                Vous récupérez des heures chaque semaine pour ce qui compte vraiment : vos clients, votre équipe… ou
+                pour souffler.
+              </p>
+            </div>
+            <div id="benefices-col-2" class="flex flex-col items-center opacity-0">
+              <div class="bg-[#c78a5c] p-4 rounded-full mb-6">
+                <i data-lucide="line-chart" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="text-xl font-extrabold mb-2 font-montserrat">Chiffre d’affaires augmenté</h3>
+              <p class="text-base font-nunito leading-relaxed">
+                Quand l’opérationnel roule tout seul, votre équipe a enfin la main libre pour vendre, innover,
+                fidéliser.
+                Résultat : plus d’opportunités, moins de pertes de temps.
+              </p>
+            </div>
+            <div id="benefices-col-3" class="flex flex-col items-center opacity-0">
+              <div class="bg-[#7ea1c4] p-4 rounded-full mb-6">
+                <i data-lucide="smile" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="text-xl font-extrabold mb-2 font-montserrat">Moins de stress, plus d’humain</h3>
+              <p class="text-base font-nunito leading-relaxed">
+                La “charge mentale admin” disparaît.
+                Vos talents se concentrent sur la relation client, l’écoute, le conseil — bref, sur l’humain et la
+                valeur.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12">
+          <a id="benefices-cta" href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98] opacity-0">
+            Je veux voir ces bénéfices chez moi
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🛠️ SECTION TACHES A AUTOMATISER -->
+    <section id="taches-automatisables" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-extrabold font-montserrat text-center mb-14 leading-tight">
+          Exemples de tâches à automatiser
+        </h2>
+        <div class="flex flex-col lg:flex-row gap-10">
+          <!-- MENU VERTICAL -->
+          <div id="automation-tabs" class="min-w-[210px] flex flex-col gap-4">
+            <button
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
+              data-category="admin">Administration</button>
+            <button
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
+              data-category="marketing">Prospection & Marketing</button>
+            <button
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
+              data-category="rh">RH & Recrutement</button>
+            <button
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
+              data-category="client">Gestion client</button>
+            <button
+              class="tab-btn w-full text-right px-5 py-3 rounded-lg bg-[#25353f] text-[#f5f1e6] font-bold font-montserrat text-lg transition"
+              data-category="compta">Comptabilité</button>
+          </div>
+          <!-- CARTES (2 par catégorie, dynamiques) -->
+          <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8" id="automation-cards">
+            <!-- ADMINISTRATION -->
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full"
+              data-category="admin">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="zap" class="w-5 h-5"></i> Relances clients automatiques
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Relances de factures impayées</li>
+                <li>Envoi de devis personnalisés automatiquement</li>
+                <li>Tri des emails entrants et rédaction de brouillons prêts à envoyer</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Moins d’oublis, moins d’erreurs, plus de réactivité — et des encaissements accélérés.
+              </div>
+            </div>
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full"
+              data-category="admin">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="archive" class="w-5 h-5"></i> Pré-remplissage & archivage de documents
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Génération automatique de contrats, devis ou attestations</li>
+                <li>Classement de documents sans ressaisie</li>
+                <li>Indexation rapide, accessible à toute l’équipe</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Moins de tâches ingrates, plus de fiabilité, tout retrouve sa place.
+              </div>
+            </div>
+            <!-- MARKETING -->
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="marketing">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="send" class="w-5 h-5"></i> Envoi d’emails ciblés
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Campagnes automatisées par segment</li>
+                <li>Relances suite à devis ou événement</li>
+                <li>Offres personnalisées selon le comportement client</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Plus de suivi, moins d’oubli — chaque prospect compte.
+              </div>
+            </div>
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="marketing">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="users" class="w-5 h-5"></i> Création de leads dans le CRM
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Ajout instantané des prospects depuis votre site ou LinkedIn</li>
+                <li>Enrichissement automatique de fiches contacts</li>
+                <li>Notification pour relancer au bon moment</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Plus d’opportunités, zéro contact oublié.
+              </div>
+            </div>
+            <!-- RH -->
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="rh">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="user-check" class="w-5 h-5"></i> Pré-qualification candidats
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Tri automatique des CV selon vos critères</li>
+                <li>Scoring et classement pour gagner du temps</li>
+                <li>Envoi automatique des messages de suivi</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Les meilleurs profils contactés avant vos concurrents.
+              </div>
+            </div>
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="rh">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="clipboard-list" class="w-5 h-5"></i> Onboarding digitalisé
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Checklist d’arrivée automatisée</li>
+                <li>Attribution automatique des accès & documents RH</li>
+                <li>Rappels programmés pour chaque étape</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Intégration fluide, sans dossier perdu ni délai.
+              </div>
+            </div>
+            <!-- GESTION CLIENT -->
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="client">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="ticket" class="w-5 h-5"></i> Création de tickets & suivi SAV
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Tickets ouverts automatiquement depuis email ou formulaire</li>
+                <li>Attribution au bon interlocuteur, suivi automatisé</li>
+                <li>Relances client jusqu’à résolution</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Réactivité accrue, clients rassurés, équipes libérées.
+              </div>
+            </div>
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="client">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="smile-plus" class="w-5 h-5"></i> Satisfaction client automatisée
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Enquêtes et avis collectés sans intervention</li>
+                <li>Relances programmées après achat ou livraison</li>
+                <li>Tableaux de bord satisfaction en temps réel</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Feedbacks reçus sans effort, réputation améliorée.
+              </div>
+            </div>
+            <!-- COMPTABILITÉ -->
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="compta">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="file-text" class="w-5 h-5"></i> Transmission automatique des factures
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Envoi direct des factures au comptable ou à l’outil de gestion</li>
+                <li>Archivage sécurisé sans ressaisie</li>
+                <li>Relances fournisseurs programmées</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Moins d’oublis, conformité garantie, clôtures accélérées.
+              </div>
+            </div>
+            <div class="automation-card bg-[#25353f] rounded-2xl p-8 shadow-lg flex flex-col h-full hidden"
+              data-category="compta">
+              <h3 class="text-lg font-extrabold mb-4 font-montserrat text-[#7ea1c4] flex items-center gap-2">
+                <i data-lucide="banknote" class="w-5 h-5"></i> Rapprochement bancaire simplifié
+              </h3>
+              <ul class="mb-4 pl-5 space-y-2 list-disc text-base font-nunito text-[#f5f1e6]">
+                <li>Synchronisation automatique des mouvements bancaires</li>
+                <li>Alertes anomalies/doublons, rapports générés automatiquement</li>
+                <li>Suivi des écarts en temps réel</li>
+              </ul>
+              <div class="mt-auto bg-[#1c2630] rounded-lg p-4 text-sm font-semibold text-[#c78a5c]">
+                ✅ Moins d’erreurs, moins de stress, vision claire.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 text-center">
+          <a href="#cta"
+            class="inline-block bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-[#25353f] font-semibold py-3 px-6 rounded-lg text-base shadow hover:scale-[1.03] active:scale-[0.98]">
+            Je veux automatiser ces tâches pour mon entreprise
+          </a>
+        </div>
+      </div>
+    </section>
+    <style>
+      .tab-btn.active,
+      .tab-btn.bg-active {
+        background: #7ea1c4 !important;
+        color: #25353f !important;
+        box-shadow: 0 0 0 2px #7ea1c4;
+        font-weight: 700;
+        outline: none;
+      }
+
+      .tab-btn:focus-visible {
+        outline: 2px solid #7ea1c4;
+      }
+    </style>
+
+    <!-- 🌟 SECTION TÉMOIGNAGES -->
+    <section id="temoignages" class="scroll-adjust bg-[#25353f] text-[#f5f1e6] py-24 px-6 lg:px-12">
+      <div class="max-w-6xl mx-auto">
+        <!-- 🎯 Titre principal -->
+        <div class="text-center mb-16">
+          <h2 id="temoignages-title" class="text-3xl lg:text-4xl font-bold font-montserrat mb-4 opacity-0">
+            Ils ont repris le contrôle sur leur business.<br>
+            <span class="text-[#c78a5c]">Moins de tâches, plus de résultats.</span>
+          </h2>
+          <p id="temoignages-subtitle" class="text-base font-nunito text-[#a9b6c4] opacity-0">
+            Ces dirigeants de PME, indépendants et responsables d’équipe ont sauté le pas.<br>
+            L’automatisation OctoMate fait toute la différence.
+          </p>
+        </div>
+
+        <!-- 🧹 Grille asymétrique -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <!-- 💬 Témoignage HÉRO -->
+          <div class="h-full flex flex-col justify-between">
+            <div id="temoignage-hero" class="flex items-center h-full opacity-0">
+              <div
+                class="bg-[#1c2630] border-l-4 border-l-[#c78a5c] border border-[#35414e] hover:shadow-2xl transition-shadow duration-300 p-6 rounded-2xl shadow-lg text-left w-full flex flex-col h-full">
+                <div class="mb-4">
+                  <p id="temoignage-hero-title"
+                    class="text-3xl font-extrabold text-[#c78a5c] uppercase leading-tight opacity-0">
+                    12h gagnées chaque semaine
+                  </p>
+                </div>
+                <div class="flex-grow flex flex-col justify-center">
+                  <p id="temoignage-hero-txt1" class="text-lg font-nunito italic leading-relaxed mb-3 opacity-0">
+                    “Avant OctoMate, la paperasse et les suivis m’engloutissaient : relances, devis, gestion… Je passais
+                    plus de temps sur des fichiers Excel que sur mon métier.”
+                  </p>
+                  <p id="temoignage-hero-txt2" class="text-lg font-nunito italic leading-relaxed mb-4 opacity-0">
+                    “Aujourd’hui, tout s’enchaîne automatiquement : relances clients, saisie des factures, même le suivi
+                    commercial. J’ai enfin du temps pour développer mon activité.”
+                  </p>
+                  <p id="temoignage-hero-detail" class="text-sm text-[#7ea1c4] opacity-0">
+                    Avant : 15h/semaine d’administratif<br>
+                    Après : 3 clics et tout est piloté.
+                  </p>
+                </div>
+                <div id="temoignage-hero-client" class="flex items-center gap-3 mt-6 opacity-0">
+                  <img src="/assets/img/logo-placeholder1.webp" alt="Logo client placeholder"
+                    class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy" />
+                  <div>
+                    <p class="font-bold">Julie C.</p>
+                    <p class="text-sm text-[#c2c2c2]">Dirigeante – Atelier de production</p>
+                    <p class="text-xs text-[#fcd34d] mt-1">⭐⭐⭐⭐⭐</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Bloc preuves sociales -->
+            <div id="temoignage-hero-social"
+              class="mt-8 bg-[#c78a5c]/40 border border-[#edd3be]/20 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 text-center flex flex-col justify-between opacity-0">
+              <div class="flex items-center gap-4 justify-center flex-wrap text-center">
+                <div class="flex -space-x-4">
+                  <!-- (les logos) -->
+                  <img src="/assets/img/logo-panadis.webp" alt="Logo de l'enreprise Panadis – client accompagné"
+                    class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy">
+                  <img src="/assets/img/logo-times.webp" alt="Logo de l'enreprise Time's – client accompagné"
+                    class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy">
+                  <img src="/assets/img/logo-aja.webp" alt="Logo de la marque Aujourd'hui j'arrête – client accompagné"
+                    class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy">
+                  <img src="/assets/img/logo-dolorium_tattoo.webp"
+                    alt="Logo de l'indépendant Dolorium Tattoo – client accompagné"
+                    class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy">
+                  <img src="/assets/img/logo-la_fine_equipe.webp"
+                    alt="Logo de la marque La Fine Équipe – client accompagné"
+                    class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy">
+                  <img src="assets/img/logo-energus_10.webp" alt="Logo de la marque energus10 – client accompagné"
+                    class="w-10 h-10 rounded-full border-2 border-white object-cover" loading="lazy">
+                </div>
+                <span class="inline-block bg-[#7ea1c4] text-white text-xs font-semibold px-3 py-1 rounded-full">+10
+                  entrepreneurs accompagnés</span>
+              </div>
+            </div>
+          </div>
+          <!-- 📋 Colonne droite : 2 témoignages empilés -->
+          <div class="flex flex-col gap-8 h-full">
+            <!-- Témoignage 2 -->
+            <div id="temoignage-2"
+              class="bg-[#1c2630] border border-[#35414e] p-6 rounded-xl hover:shadow-2xl transition-shadow duration-300 shadow text-left flex flex-col h-full relative opacity-0">
+              <!-- (quote icon inchangée) -->
+              <div
+                class="absolute -top-4 -left-4 bg-[#c78a5c] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-quote">
+                  <path
+                    d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                  <path
+                    d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                </svg>
+              </div>
+              <p class="text-xl font-extrabold text-[#c78a5c] uppercase mb-4">Automatisation sans prise de tête</p>
+              <div class="flex-grow flex items-center">
+                <p class="text-base font-nunito leading-relaxed italic">
+                  “J’avais testé plein d’outils… jamais le temps, jamais simple. Là, OctoMate a pris la main : mon CRM,
+                  mes relances, mes reportings – tout s’est connecté sans rien casser.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3 mt-6">
+                <img src="/assets/img/logo-placeholder6.webp" alt="Logo client"
+                  class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy" />
+                <div>
+                  <p class="font-bold">Olivier M.</p>
+                  <p class="text-sm text-[#c2c2c2]">Gérant – PME Services</p>
+                  <p class="text-xs text-[#fcd34d] mt-1">⭐⭐⭐⭐⭐</p>
+                </div>
+              </div>
+            </div>
+            <!-- Témoignage 3 -->
+            <div id="temoignage-3"
+              class="bg-[#1c2630] border border-[#35414e] p-6 rounded-xl hover:shadow-2xl transition-shadow duration-300 shadow text-left flex flex-col h-full relative opacity-0">
+              <!-- (quote icon inchangée) -->
+              <div
+                class="absolute -top-4 -left-4 bg-[#c78a5c] text-white w-8 h-8 rounded-full flex items-center justify-center shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-quote">
+                  <path
+                    d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                  <path
+                    d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+                </svg>
+              </div>
+              <p class="text-xl font-extrabold text-[#c78a5c] uppercase mb-4">Du temps pour innover, enfin</p>
+              <div class="flex-grow flex items-center">
+                <p class="text-base font-nunito leading-relaxed italic">
+                  “Notre équipe passait son temps à ressaisir, relancer, jongler entre mails et Excel. Depuis OctoMate,
+                  chacun se concentre sur son expertise. On a même lancé une nouvelle offre !”
+                </p>
+              </div>
+              <div class="flex items-center gap-3 mt-6">
+                <img src="/assets/img/logo-placeholder7.webp" alt="Logo client"
+                  class="w-12 h-12 rounded-full border-2 border-white object-cover bg-white" loading="lazy" />
+                <div>
+                  <p class="font-bold">Sophie D.</p>
+                  <p class="text-sm text-[#c2c2c2]">Directrice – Cabinet Conseil</p>
+                  <p class="text-xs text-[#fcd34d] mt-1">⭐⭐⭐⭐⭐</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ❓ SECTION FAQ ACCORDÉON -->
+    <section id="faq" class="scroll-adjust bg-[#1c2630] text-[#f5f1e6] py-24 px-6 lg:px-12">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4 font-montserrat">
+          Foire aux questions — Automatisation PME & IA
+        </h2>
+        <p class="text-base text-center text-[#7ea1c4] max-w-2xl mx-auto mb-12 font-nunito">
+          Toutes vos questions sont légitimes — nos réponses sont 100% transparentes.
+        </p>
+        <div x-data="{ selected: null }" class="space-y-4">
+
+          <!-- 1 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-1"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 1 ? selected = 1 : selected = null;
+            if (selected === 1) $nextTick(() => window.faqAnimateOpen(1));
+          " :aria-expanded="selected === 1">
+              L’automatisation est-elle vraiment utile pour mon activité ?
+              <span
+                :class="selected === 1 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 1 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 1" id="faq-reponse-1" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#c78a5c]">
+                Oui, si votre équipe passe du temps sur des tâches répétitives ou chronophages, c’est utile. Que vous
+                soyez artisan, PME, ou structure en croissance : dès qu’il y a des process, il y a du potentiel à
+                automatiser. Nous adaptons chaque projet à votre métier, pas de solution “one size fits all”.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-2"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 2 ? selected = 2 : selected = null;
+            if (selected === 2) $nextTick(() => window.faqAnimateOpen(2));
+          " :aria-expanded="selected === 2">
+              Est-ce adapté aux petites entreprises comme la mienne ?
+              <span
+                :class="selected === 2 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 2 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 2" id="faq-reponse-2" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
+                Absolument. Nos solutions sont pensées pour les TPE/PME, pas seulement pour les grands groupes. On
+                commence petit, avec des automatisations concrètes, qui ont un vrai impact au quotidien (gain de temps,
+                réduction des erreurs, meilleure visibilité).
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-3"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 3 ? selected = 3 : selected = null;
+            if (selected === 3) $nextTick(() => window.faqAnimateOpen(3));
+          " :aria-expanded="selected === 3">
+              En combien de temps voit-on des résultats concrets ?
+              <span
+                :class="selected === 3 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 3 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 3" id="faq-reponse-3" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#c78a5c]">
+                Les premiers bénéfices sont visibles en général sous 2 à 4 semaines (dès la première automatisation
+                déployée). Dès le premier mois, vous mesurez déjà le temps gagné et la baisse des tâches ingrates.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-4"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 4 ? selected = 4 : selected = null;
+            if (selected === 4) $nextTick(() => window.faqAnimateOpen(4));
+          " :aria-expanded="selected === 4">
+              Dois-je m’engager après l’audit offert ?
+              <span
+                :class="selected === 4 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 4 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 4" id="faq-reponse-4" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
+                Non, aucun engagement. L’audit est 100% offert et sans condition. Vous repartez avec un diagnostic clair
+                et des recommandations. Libre à vous de passer à l’action avec nous… ou non.
+              </p>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-5"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 5 ? selected = 5 : selected = null;
+            if (selected === 5) $nextTick(() => window.faqAnimateOpen(5));
+          " :aria-expanded="selected === 5">
+              En quoi OctoMate est différent des autres agences ?
+              <span
+                :class="selected === 5 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 5 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 5" id="faq-reponse-5" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#c78a5c]">
+                Nous sommes spécialisés dans l’automatisation <strong>pratique</strong>, pas dans le consulting
+                hors-sol. On conçoit, on déploie et on forme, avec un vrai accompagnement humain. Ici, chaque
+                automatisation est pensée sur-mesure, testée et évolutive, sans jargon ni bullshit.
+              </p>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-6"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 6 ? selected = 6 : selected = null;
+            if (selected === 6) $nextTick(() => window.faqAnimateOpen(6));
+          " :aria-expanded="selected === 6">
+              L’automatisation va-t-elle supprimer des emplois chez moi ?
+              <span
+                :class="selected === 6 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 6 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 6" id="faq-reponse-6" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
+                Non. L’objectif n’est pas de remplacer des collaborateurs, mais de leur rendre du temps pour des
+                missions à plus forte valeur ajoutée. On automatise la corvée, on redonne la main à l’humain sur le
+                reste.
+              </p>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-7"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 7 ? selected = 7 : selected = null;
+            if (selected === 7) $nextTick(() => window.faqAnimateOpen(7));
+          " :aria-expanded="selected === 7">
+              Mes données seront-elles vraiment sécurisées ?
+              <span
+                :class="selected === 7 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 7 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 7" id="faq-reponse-7" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#c78a5c]">
+                Oui. Nous utilisons des outils conformes RGPD, hébergés en Europe. Vos accès et données restent
+                confidentiels, rien n’est partagé sans accord, et chaque automatisation est testée pour éviter tout
+                risque de fuite.
+              </p>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-8"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 8 ? selected = 8 : selected = null;
+            if (selected === 8) $nextTick(() => window.faqAnimateOpen(8));
+          " :aria-expanded="selected === 8">
+              Est-ce accessible sans compétences techniques ?
+              <span
+                :class="selected === 8 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 8 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 8" id="faq-reponse-8" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
+                Oui. Vous n’aurez jamais à coder, ni à gérer des configurations complexes. On paramètre tout, on forme
+                vos équipes, et vous gardez la main en toute simplicité.
+              </p>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-9"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 9 ? selected = 9 : selected = null;
+            if (selected === 9) $nextTick(() => window.faqAnimateOpen(9));
+          " :aria-expanded="selected === 9">
+              L’IA peut-elle vraiment tout résoudre dans une PME ?
+              <span
+                :class="selected === 9 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 9 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 9" id="faq-reponse-9" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#c78a5c]">
+                Non. L’IA est un <strong>outil</strong>, pas une baguette magique : elle permet d’automatiser,
+                d’accélérer, de mieux trier ou anticiper. Mais elle ne remplace ni l’intuition métier, ni l’humain.
+                Notre mission : que la tech vous serve… pas qu’elle prenne le pouvoir sur vos process.
+              </p>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="border-b border-[#7ea1c4]">
+            <button id="faq-question-10"
+              class="w-full flex justify-between items-center py-4 font-semibold text-left text-lg opacity-0" @click="
+            selected !== 10 ? selected = 10 : selected = null;
+            if (selected === 10) $nextTick(() => window.faqAnimateOpen(10));
+          " :aria-expanded="selected === 10">
+              Que faire si je ne suis pas satisfait du service ?
+              <span
+                :class="selected === 10 ? 'rotate-180 transition-transform duration-300' : 'rotate-0 transition-transform duration-300'"
+                x-text="selected === 10 ? '-' : '+'"></span>
+            </button>
+            <div x-show="selected === 10" id="faq-reponse-10" class="overflow-hidden faq-reponse" x-cloak>
+              <p class="text-base font-nunito pb-4 text-[#7ea1c4]">
+                Votre satisfaction passe avant tout : vous ne payez que si la solution fonctionne et répond à vos
+                besoins. Si un blocage persiste, on adapte ou on rembourse.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ SECTION CTA FINAL (version allégée et élégante) -->
+    <section id="cta" class="scroll-adjust relative py-24 px-6 lg:px-12 text-[#f5f1e6]">
+      <!-- Background image + gradient -->
+      <div class="absolute inset-0 bg-cover bg-center z-0"
+        style="background-image: url('/assets/img/cta_background.webp');" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#25353f]/60 to-[#25353f]/80"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+
+        <!-- Bloc CTA principal -->
+        <div
+          class="flex-1 flex flex-col justify-center text-left bg-[#25353f]/70 backdrop-blur-lg rounded-2xl p-10 border border-[#7ea1c4]/40 shadow-2xl">
+          <!-- Surtitre + badge -->
+          <div class="flex justify-between items-center mb-3">
+            <span id="cta-surtitre" class="text-xs uppercase tracking-wider text-[#7ea1c4] font-bold">Audit
+              Automatisation & IA offert</span>
+            <span id="cta-badge"
+              class="text-[11px] bg-[#c78a5c] text-white font-bold px-4 py-1 rounded-full shadow-sm animate-pulse">Places
+              limitées</span>
+          </div>
+          <!-- Promesse conversion-first -->
+          <h2 id="cta-title" class="text-3xl md:text-4xl font-extrabold font-montserrat leading-tight mb-4">
+            En 30 min, <span class="text-[#7ea1c4]">identifiez <u>exactement</u></span> où gagner du temps et de la
+            croissance.
+          </h2>
+          <!-- Bullet points résultats -->
+          <ul id="cta-bullets" class="mb-6 text-lg font-nunito space-y-1">
+            <li>✅ <span class="font-bold text-[#c78a5c]">Diagnostic 100% personnalisé</span> pour votre PME</li>
+            <li>✅ Estimation chiffrée des économies et gains potentiels</li>
+            <li>✅ <span class="font-semibold">Livrable actionnable</span> offert dès la fin de l’appel</li>
+            <li>✅ Zéro engagement</li>
+          </ul>
+          <!-- Preuve sociale -->
+          <div id="cta-social" class="flex flex-wrap items-center gap-3 mb-4">
+            <div class="flex -space-x-3">
+              <img src="/assets/img/logo-panadis.webp" alt="Client Panadis"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
+              <img src="/assets/img/logo-times.webp" alt="Client Time's"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
+              <img src="/assets/img/logo-aja.webp" alt="Client Aujourd'hui j'arrête"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
+              <img src="/assets/img/logo-dolorium_tattoo.webp" alt="Client Dolorium Tattoo"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
+              <img src="/assets/img/logo-la_fine_equipe.webp" alt="Client La Fine Equipe"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" />
+            </div>
+            <span class="inline-block bg-[#7ea1c4] text-white text-xs font-semibold px-2 py-0.5 rounded-full">+10 PME
+              déjà accompagnées</span>
+          </div>
+          <!-- Micro-copy confiance -->
+          <p id="cta-microcopy" class="text-sm font-nunito text-[#bdd6f7] mb-4">
+            “Si ça ne vous parle pas, <span class="italic text-[#c78a5c]">vous repartez avec des pistes concrètes –
+              c’est cadeau.</span>”
+          </p>
+          <!-- Urgence, limite -->
+          <div id="cta-urgency" class="text-xs text-[#c78a5c] mb-6 font-semibold">
+            Créneaux restants ce mois-ci : <span class="font-bold">2</span>. Premier arrivé, premier servi.
+          </div>
+          <!-- CTA conversion-first -->
+          <a id="cta-btn" href="#cta" data-cal-link="thibaud-chezparallax/appel-decouverte-octomate" data-cal-namespace="appel-decouverte-octomate"
+            data-cal-config='{"layout":"month_view"}'
+            class="inline-block flex justify-center items-center bg-[#c78a5c] hover:bg-[#7ea1c4] transition-all duration-200 ease-in-out text-white font-semibold py-4 px-8 rounded-lg font-montserrat text-lg shadow-xl hover:scale-[1.04] active:scale-[0.97] focus:ring-2 focus:ring-[#7ea1c4] focus:outline-none"
+            aria-label="Réservez votre appel découverte offert">
+            🚀 Je réserve mon audit offert
+          </a>
+          <p id="cta-note" class="mt-2 text-xs text-[#bdd6f7] text-center">
+            Confirmation immédiate – aucun paiement requis, agenda 100% flexible.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL SIMULATEUR -->
+  <div id="simu-modal-bg"
+    class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300">
+    <div id="simu-modal"
+      class="w-full max-w-md bg-[#25353f] p-8 rounded-2xl shadow-2xl border border-[#c78a5c] relative animate-fadeIn flex flex-col gap-4">
+      <button type="button" class="absolute top-3 right-4 text-[#f5f1e6] hover:text-[#c78a5c] text-2xl font-bold"
+        id="simu-modal-close" aria-label="Fermer">&times;</button>
+      <div class="text-lg font-bold text-center mb-2">Recevez votre estimation détaillée</div>
+      <div class="flex flex-col gap-3">
+        <input type="text" id="input-modal-prenom" required placeholder="Votre nom et votre prénom"
+          class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+        <input type="text" id="input-modal-company" placeholder="Nom de votre entreprise (optionnel)"
+          class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+        <input type="email" id="input-modal-email" required placeholder="Votre email professionnel"
+          class="w-full px-3 py-2 rounded-lg border border-[#7ea1c4] bg-white text-[#25353f] placeholder-[#a5b5c4]" />
+        <input type="text" id="input-modal-fake" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true">
+        <div id="simu-modal-error" class="hidden text-red-400 text-sm text-center"></div>
+      </div>
+      <button id="simu-modal-submit"
+        class="mt-4 w-full bg-[#c78a5c] hover:bg-[#7ea1c4] text-white font-semibold py-3 rounded-lg shadow transition-all">
+        Recevoir mon estimation par email
+      </button>
+      <div id="simu-modal-loading" class="hidden text-center text-[#c78a5c] mt-3">Envoi en cours…</div>
+    </div>
+  </div>
+
+  <!-- 🡦 FOOTER -->
+  <footer class="bg-[#25353f] text-[#f5f1e6] py-12 text-sm">
+    <div id="footer"></div>
+  </footer>
+
+<!-- NON-CRITICAL JS -->
+  <script src="/js/main-noncritical.js" type="module" defer></script>
+
+<!-- ANALYTICS -->
+  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
+</body>
+
+</html>
