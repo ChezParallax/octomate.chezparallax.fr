@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.querySelectorAll('[id$="-skeleton"]').forEach(e=>{e.style.display!=="none"&&(console.warn("⚠️ Skeleton timeout - masquage forcé:",e.id),e.style.display="none")})},3e3)});
